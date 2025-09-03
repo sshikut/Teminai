@@ -11,10 +11,12 @@ public class AnomalyManager : MonoBehaviour
     [Header("Anomaly List")]
     public int maxAnomalies = 5;
     public int[] anomalyArray;
+    public int remainAnomaly;
 
     private void Start()
     {
         anomalyArray = new int[maxAnomalies];
+        remainAnomaly = maxAnomalies;
 
         Anomaly();
     }
@@ -56,6 +58,8 @@ public class AnomalyManager : MonoBehaviour
                 }
             }
 
+            remainAnomaly--;
+
             switch (anomalyIndex)
             {
                 case 0:
@@ -84,6 +88,4 @@ public class AnomalyManager : MonoBehaviour
             // Default 현상으로 되돌리기
         }
     }
-
-
 }
