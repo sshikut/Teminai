@@ -19,6 +19,10 @@ public class AnomalyManager : MonoBehaviour
     public int[] anomalyArray;
     public int remainAnomaly;
 
+    [Header("Anomaly Objects")]
+   
+    public GameObject[] objectsToHide;
+    public GameObject[] objectsToShow;
     private void Start()
     {
         anomalyArray = new int[maxAnomalies];
