@@ -11,7 +11,7 @@ public class TogglePhone : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             isActive = !isActive;
-            phone.SetActive(isActive);
+            // phone.SetActive(isActive);
 
             if (isActive)
             {
