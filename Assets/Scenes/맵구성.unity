@@ -10464,6 +10464,41 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2888656026994301480, guid: 7ceeeaf50c694a34fb46edea5dec29cc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2888656026994301480, guid: 7ceeeaf50c694a34fb46edea5dec29cc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2888656026994301480, guid: 7ceeeaf50c694a34fb46edea5dec29cc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 33093637}
+    - target: {fileID: 2888656026994301480, guid: 7ceeeaf50c694a34fb46edea5dec29cc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2888656026994301480, guid: 7ceeeaf50c694a34fb46edea5dec29cc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NormalButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 2888656026994301480, guid: 7ceeeaf50c694a34fb46edea5dec29cc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: NormalHandler, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2888656026994301480, guid: 7ceeeaf50c694a34fb46edea5dec29cc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4848300813094239509, guid: 7ceeeaf50c694a34fb46edea5dec29cc,
         type: 3}
       propertyPath: m_Pivot.x
@@ -10824,7 +10859,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1937520799}
-  - component: {fileID: 1937520798}
   - component: {fileID: 1937520797}
   - component: {fileID: 1937520800}
   m_Layer: 0
@@ -10852,23 +10886,11 @@ MonoBehaviour:
   clearImage: {fileID: 0}
   isAnomaly: 0
   anomalyRate: 5
-  maxAnomalies: 5
+  maxAnomalies: 20
   anomalyArray: 00000000
   remainAnomaly: 0
   objectsToHide: []
   objectsToShow: []
---- !u!114 &1937520798
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1937520796}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 140c663a8bc8eb2448f8ae503f80930a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1937520799
 Transform:
   m_ObjectHideFlags: 0

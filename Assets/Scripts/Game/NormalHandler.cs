@@ -8,8 +8,6 @@ public class NormalHandler : MonoBehaviour
 
     public Transform spawnPoint;
 
-    public CharacterController characterController;
-
     public void NormalButton()
     {
         if (!anomaly.isAnomaly)
@@ -21,10 +19,7 @@ public class NormalHandler : MonoBehaviour
             anomaly.absentCount++;
         }
 
-        characterController.enabled = false;
-
-        characterController.transform.position = spawnPoint.position;
-        characterController.enabled = true;
+        InteractionManager.instance.StartFadeOut();
 
         anomaly.Anomaly();
     }
