@@ -6,7 +6,6 @@ using System.Collections;
 
 public class InteractionManager : MonoBehaviour
 {
-
     public static InteractionManager instance;
 
     [Header("상호작용 대상")]
@@ -15,6 +14,11 @@ public class InteractionManager : MonoBehaviour
     [Header("UI 설정")]
     public TMP_Text interactionText;
     public Image fadePanel;
+
+    // ✨ 1. 위치 이동에 필요한 변수들 추가
+    [Header("포지션 이동 설정")]
+    public GameObject objectToMove; // 이동시킬 오브젝트
+    public Vector3 targetPosition;   // 목표 위치 좌표
 
     private bool isInteractable = false;
     private bool isFading = false;
@@ -34,19 +38,15 @@ public class InteractionManager : MonoBehaviour
 
     void Start()
     {
-        // 텍스트는 비활성화
         if (interactionText != null)
         {
             interactionText.gameObject.SetActive(false);
         }
-
-        // ✨ 게임 시작 시 페이드 인 효과를 바로 시작
         StartFadeIn();
     }
 
     void Update()
     {
-        // 페이드 효과가 진행 중일 때는 어떤 입력도 받지 않음
         if (targetObject == null || isFading) return;
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -60,7 +60,7 @@ public class InteractionManager : MonoBehaviour
                 if (interactionText != null)
                 {
                     interactionText.gameObject.SetActive(true);
-                    interactionText.text = "E 키를 눌러 페이드 아웃";
+                    interactionText.text = "E 키를 눌러 위치 이동"; // 텍스트 변경
                 }
             }
             else
@@ -87,28 +87,25 @@ public class InteractionManager : MonoBehaviour
         }
     }
 
-    // ✨ 페이드 인을 시작하는 함수
     public void StartFadeIn()
     {
         if (fadePanel != null)
         {
-            StartCoroutine(FadeEffect(1, 0, 1.5f)); // 1(불투명) -> 0(투명)
+            StartCoroutine(FadeEffect(1, 0, 1.5f));
         }
     }
 
-    // 페이드 아웃을 시작하는 함수
     public void StartFadeOut()
     {
         if (fadePanel != null)
         {
-            StartCoroutine(FadeEffect(0, 1, 1.5f)); // 0(투명) -> 1(불투명)
+            StartCoroutine(FadeEffect(0, 1, 1.5f));
         }
     }
 
-    // ✨ 페이드 인/아웃 효과를 모두 처리하는 범용 코루틴
     IEnumerator FadeEffect(float startAlpha, float endAlpha, float duration)
     {
-        isFading = true; // 페이드 시작
+        isFading = true;
 
         if (fadePanel != null)
         {
@@ -120,30 +117,39 @@ public class InteractionManager : MonoBehaviour
             while (timer < duration)
             {
                 timer += Time.deltaTime;
-                // Lerp 함수를 사용해 시작 알파 값에서 목표 알파 값으로 부드럽게 변경
                 fadeColor.a = Mathf.Lerp(startAlpha, endAlpha, timer / duration);
                 fadePanel.color = fadeColor;
                 yield return null;
             }
 
-            // 목표 알파 값으로 정확하게 설정
             fadeColor.a = endAlpha;
             fadePanel.color = fadeColor;
 
-            // 페이드 인(endAlpha가 0)이 끝났다면, 패널을 비활성화하여 성능 확보
             if (endAlpha == 0)
             {
                 fadePanel.gameObject.SetActive(false);
             }
 
-            // 페이드 아웃(endAlpha가 1)이 끝났다면, 다음 동작 수행
+            // ✨ 2. 페이드 아웃 완료 시 씬 로드 대신 위치 변경 로직 실행
             if (endAlpha == 1)
             {
-                Debug.Log("페이드 아웃 완료! 씬을 다시 시작합니다.");
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                // objectToMove 변수가 할당되었는지 확인
+                if (objectToMove != null)
+                {
+                    // 할당된 오브젝트의 위치를 targetPosition으로 변경
+                    objectToMove.transform.position = targetPosition;
+                    Debug.Log($"{objectToMove.name}의 위치를 {targetPosition}으로 변경했습니다.");
+                }
+
+                // ✨ 3. 위치 변경 후, 다시 페이드 인하여 바뀐 모습을 보여줌
+                StartFadeIn();
             }
         }
 
-        isFading = false; // 페이드 종료
+        // 페이드 아웃의 경우, 페이드 인이 시작되므로 isFading은 아직 true로 유지
+        if (endAlpha == 0)
+        {
+            isFading = false;
+        }
     }
 }
