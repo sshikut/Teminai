@@ -183,7 +183,23 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8797606616024200564}
   m_OnClick:
     m_PersistentCalls:
+<<<<<<< HEAD
       m_Calls: []
+=======
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Test, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+>>>>>>> 정현우2
 --- !u!1 &2895297140497939181
 GameObject:
   m_ObjectHideFlags: 0
@@ -1629,6 +1645,10 @@ GameObject:
   - component: {fileID: 2713763164249213991}
   - component: {fileID: 2484787188731986999}
   - component: {fileID: 1315985878896920628}
+<<<<<<< HEAD
+=======
+  - component: {fileID: 1835394835495729700}
+>>>>>>> 정현우2
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -1757,3 +1777,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+<<<<<<< HEAD
+=======
+--- !u!114 &1835394835495729700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8880063613068325462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93de59e87cc34224eb44b68aa1719b59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anomalyManager: {fileID: 0}
+  loopCountText: {fileID: 2530348462597497223}
+  absentCountText: {fileID: 9193751533081697988}
+  gradeText: {fileID: 7933391713289482638}
+>>>>>>> 정현우2
