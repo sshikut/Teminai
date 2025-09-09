@@ -6,10 +6,6 @@ public class AnomalyHandler : MonoBehaviour
 {
     public AnomalyManager anomaly;
 
-    public Transform spawnPoint;
-
-    public CharacterController characterController;
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -23,13 +19,11 @@ public class AnomalyHandler : MonoBehaviour
                 anomaly.absentCount++;
             }
 
-            characterController = other.GetComponent<CharacterController>();
-            characterController.enabled = false;
-
-            other.transform.position = spawnPoint.position;
-            characterController.enabled = true;
+            InteractionManager.instance.StartFadeOut();
 
             anomaly.Anomaly();
         }
     }
+
+
 }

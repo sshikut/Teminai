@@ -6,30 +6,19 @@ public class NormalHandler : MonoBehaviour
 {
     public AnomalyManager anomaly;
 
-    public Transform spawnPoint;
-
-    public CharacterController characterController;
-
-    private void OnTriggerEnter(Collider other)
+    public void NormalButton()
     {
-        if (other.CompareTag("Player"))
+        if (!anomaly.isAnomaly)
         {
-            if (!anomaly.isAnomaly)
-            {
-                anomaly.loopCount++;
-            }
-            else
-            {
-                anomaly.absentCount++;
-            }
-
-            characterController = other.GetComponent<CharacterController>();
-            characterController.enabled = false;
-
-            other.transform.position = spawnPoint.position;
-            characterController.enabled = true;
-
-            anomaly.Anomaly();
+            anomaly.loopCount++;
         }
+        else
+        {
+            anomaly.absentCount++;
+        }
+
+        InteractionManager.instance.StartFadeOut();
+
+        anomaly.Anomaly();
     }
 }
