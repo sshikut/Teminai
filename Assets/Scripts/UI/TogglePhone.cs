@@ -12,6 +12,7 @@ public class TogglePhone : MonoBehaviour
         {
             isActive = !isActive;
             phone.SetActive(isActive);
+
             if (isActive)
             {
                 anim.Play("Open");
