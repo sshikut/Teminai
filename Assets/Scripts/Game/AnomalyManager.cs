@@ -20,9 +20,9 @@ public class AnomalyManager : MonoBehaviour
     public int remainAnomaly;
 
     [Header("Anomaly Objects")]
+   
     public GameObject[] objectsToHide;
     public GameObject[] objectsToShow;
-
     private void Start()
     {
         anomalyArray = new int[maxAnomalies];
@@ -185,10 +185,5 @@ public class AnomalyManager : MonoBehaviour
     void Clear()
     {
         clearImage.SetActive(true);
-    }
-
-    void Anomaly_1()
-    {
-
     }
 }
