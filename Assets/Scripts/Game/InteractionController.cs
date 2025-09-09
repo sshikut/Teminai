@@ -15,10 +15,9 @@ public class InteractionManager : MonoBehaviour
     public TMP_Text interactionText;
     public Image fadePanel;
 
-    // ✨ 1. 위치 이동에 필요한 변수들 추가
     [Header("포지션 이동 설정")]
-    public GameObject objectToMove; // 이동시킬 오브젝트
-    public Vector3 targetPosition;   // 목표 위치 좌표
+    public GameObject objectToMove;
+    public Vector3 targetPosition;
 
     private bool isInteractable = false;
     private bool isFading = false;
@@ -60,7 +59,7 @@ public class InteractionManager : MonoBehaviour
                 if (interactionText != null)
                 {
                     interactionText.gameObject.SetActive(true);
-                    interactionText.text = "E 키를 눌러 위치 이동"; // 텍스트 변경
+                    interactionText.text = "E 키를 눌러 위치 이동";
                 }
             }
             else
@@ -110,7 +109,6 @@ public class InteractionManager : MonoBehaviour
         if (fadePanel != null)
         {
             fadePanel.gameObject.SetActive(true);
-
             float timer = 0f;
             Color fadeColor = fadePanel.color;
 
@@ -130,23 +128,26 @@ public class InteractionManager : MonoBehaviour
                 fadePanel.gameObject.SetActive(false);
             }
 
-            // ✨ 2. 페이드 아웃 완료 시 씬 로드 대신 위치 변경 로직 실행
             if (endAlpha == 1)
             {
-                // objectToMove 변수가 할당되었는지 확인
                 if (objectToMove != null)
                 {
-                    // 할당된 오브젝트의 위치를 targetPosition으로 변경
+                
+                    CharacterController cc = objectToMove.GetComponent<CharacterController>();
+
+                    if (cc != null) cc.enabled = false;
+
                     objectToMove.transform.position = targetPosition;
+
+                    if (cc != null) cc.enabled = true;
+
                     Debug.Log($"{objectToMove.name}의 위치를 {targetPosition}으로 변경했습니다.");
                 }
 
-                // ✨ 3. 위치 변경 후, 다시 페이드 인하여 바뀐 모습을 보여줌
                 StartFadeIn();
             }
         }
 
-        // 페이드 아웃의 경우, 페이드 인이 시작되므로 isFading은 아직 true로 유지
         if (endAlpha == 0)
         {
             isFading = false;
