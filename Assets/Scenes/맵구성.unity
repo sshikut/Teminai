@@ -192,8 +192,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anomaly: {fileID: 1937520797}
-  spawnPoint: {fileID: 1680010493}
-  characterController: {fileID: 1941872152}
 --- !u!114 &33093638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,8 +205,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anomaly: {fileID: 1937520797}
-  spawnPoint: {fileID: 1680010493}
-  characterController: {fileID: 1941872152}
 --- !u!1001 &40667080
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10434,6 +10430,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1835394835495729700, guid: 7ceeeaf50c694a34fb46edea5dec29cc,
+        type: 3}
+      propertyPath: anomalyManager
+      value: 
+      objectReference: {fileID: 1937520797}
     - target: {fileID: 2447116686226854599, guid: 7ceeeaf50c694a34fb46edea5dec29cc,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -10997,12 +10998,6 @@ Transform:
 --- !u!1 &1941872147 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8616685848737228372, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
-    type: 3}
-  m_PrefabInstance: {fileID: 1221734427}
-  m_PrefabAsset: {fileID: 0}
---- !u!143 &1941872152 stripped
-CharacterController:
-  m_CorrespondingSourceObject: {fileID: 8616685848737228382, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
     type: 3}
   m_PrefabInstance: {fileID: 1221734427}
   m_PrefabAsset: {fileID: 0}
