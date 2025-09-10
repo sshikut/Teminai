@@ -8,6 +8,8 @@ public class NormalHandler : MonoBehaviour
 
     public void NormalButton()
     {
+        GameManager.Instance.audioManager.Play("Decision2");
+
         if (!anomaly.isAnomaly)
         {
             anomaly.loopCount++;
@@ -17,7 +19,7 @@ public class NormalHandler : MonoBehaviour
             anomaly.absentCount++;
         }
 
-        InteractionManager.instance.StartFadeOut();
+        InteractionManager.Instance.StartFadeOut();
 
         anomaly.Anomaly();
     }

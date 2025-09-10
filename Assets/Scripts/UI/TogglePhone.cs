@@ -4,6 +4,7 @@ public class TogglePhone : MonoBehaviour
 {
     [SerializeField] private Animator anim; // 폰 오브젝트 할당
     [SerializeField] private GameObject phone; // 폰 오브젝트 할당
+
     private bool isActive = false;
 
     void Update()
@@ -15,13 +16,14 @@ public class TogglePhone : MonoBehaviour
 
             if (isActive)
             {
+                GameManager.Instance.audioManager.Play("OpenPhone");
                 anim.Play("Open");
             }
             else 
             {
+                GameManager.Instance.audioManager.Play("ClosePhone");
                 anim.Play("Close");
             }
-            
         }
     }
 }

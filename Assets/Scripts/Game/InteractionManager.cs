@@ -1,12 +1,24 @@
 ﻿using UnityEngine;
 using TMPro;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
 
 public class InteractionManager : MonoBehaviour
 {
-    public static InteractionManager instance;
+    public static InteractionManager Instance;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     [Header("상호작용 대상")]
     public GameObject targetObject;
@@ -21,19 +33,6 @@ public class InteractionManager : MonoBehaviour
 
     private bool isInteractable = false;
     private bool isFading = false;
-
-    void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
 
     void Start()
     {

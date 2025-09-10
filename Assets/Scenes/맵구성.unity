@@ -3115,6 +3115,63 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 447834582}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &463842376
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 463842378}
+  - component: {fileID: 463842377}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &463842377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463842376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d33f72edd89aad47911f0865a7702f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: OpenPhone
+    clip: {fileID: 8300000, guid: 81fe2a7eb6cef634fb6f73d6ae764dae, type: 3}
+    Volumn: 0.75
+    loop: 0
+  - name: ClosePhone
+    clip: {fileID: 8300000, guid: a40cccfc8d1f9184eabac0aae9e6c7f6, type: 3}
+    Volumn: 0.75
+    loop: 0
+  - name: Decision2
+    clip: {fileID: 8300000, guid: 598c3f55c30749d4e9c346fad3e923f8, type: 3}
+    Volumn: 0.75
+    loop: 0
+--- !u!4 &463842378
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463842376}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1937520799}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &498697900 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7233899273037026326, guid: 7ceeeaf50c694a34fb46edea5dec29cc,
@@ -10893,6 +10950,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -677.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1037066894871267479, guid: 7ceeeaf50c694a34fb46edea5dec29cc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1367945640141378895, guid: 7ceeeaf50c694a34fb46edea5dec29cc,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -11463,6 +11525,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1937520799}
+  - component: {fileID: 1937520801}
   - component: {fileID: 1937520797}
   - component: {fileID: 1937520800}
   m_Layer: 0
@@ -11508,7 +11571,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 463842378}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1937520800
@@ -11528,6 +11592,19 @@ MonoBehaviour:
   fadePanel: {fileID: 1929486074}
   objectToMove: {fileID: 1941872147}
   targetPosition: {x: -9, y: -3, z: 15}
+--- !u!114 &1937520801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1937520796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 140c663a8bc8eb2448f8ae503f80930a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioManager: {fileID: 463842377}
 --- !u!1 &1941847282
 GameObject:
   m_ObjectHideFlags: 0
