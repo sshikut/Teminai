@@ -50,14 +50,18 @@ public class AnomalyManager : MonoBehaviour
 
         int spawnRate = Random.Range(1, 11);
 
+        if (loopCount < 3) anomalyRate = 3;
+        else if (loopCount < 6) anomalyRate = 5;
+        else anomalyRate = 7;
+
         if (spawnRate <= anomalyRate)
         {
             isAnomaly = true;
 
         }
-        else 
-        { 
-            isAnomaly = false; 
+        else
+        {
+            isAnomaly = false;
         }
 
         PlayAnomaly(isAnomaly);
