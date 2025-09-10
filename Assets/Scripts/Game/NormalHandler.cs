@@ -17,7 +17,7 @@ public class NormalHandler : MonoBehaviour
             anomaly.absentCount++;
         }
 
-        InteractionManager.instance.StartFadeOut();
+        InteractionManager.Instance.StartFadeOut();
 
         anomaly.Anomaly();
     }
