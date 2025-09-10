@@ -5,6 +5,7 @@ using UnityEngine;
 public class AnomalyManager : MonoBehaviour
 {
     [Header("Game Settings")]
+    public AnomalyMethod anomaly;
     public int loopCount = 0;
     public int absentCount = 0;
     public int clearCount = 8;
@@ -33,6 +34,8 @@ public class AnomalyManager : MonoBehaviour
 
     public void Anomaly()
     {
+        anomaly.InitAnomaly(); // 이상현상 초기화
+
         if (loopCount >= clearCount)
         {
             Clear();
@@ -86,7 +89,8 @@ public class AnomalyManager : MonoBehaviour
             switch (anomalyIndex)
             {
                 case 0:
-                    Debug.Log("이상현상 1");
+                    Debug.Log("이상현상 1 : 신창섭");
+                    anomaly.Anomaly_1();
                     break;
 
                 case 1:
@@ -184,6 +188,6 @@ public class AnomalyManager : MonoBehaviour
 
     void Clear()
     {
-        clearImage.SetActive(true);
+        // clearImage.SetActive(true);
     }
 }
