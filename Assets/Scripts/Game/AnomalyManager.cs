@@ -35,6 +35,13 @@ public class AnomalyManager : MonoBehaviour
     public void Anomaly()
     {
         anomaly.InitAnomaly(); // 이상현상 초기화
+        anomaly.InitAnomaly6();
+        anomaly.InitAnomaly2();
+        anomaly.InitAnomaly3();
+        anomaly.InitAnomaly4();
+        anomaly.InitAnomaly5();
+        anomaly.InitAnomaly6();
+        anomaly.InitAnomaly7();
 
         if (loopCount >= clearCount)
         {
@@ -100,26 +107,32 @@ public class AnomalyManager : MonoBehaviour
 
                 case 1:
                     Debug.Log("이상현상 2");
+                    anomaly.Anomaly_2();
                     break;
 
                 case 2:
                     Debug.Log("이상현상 3");
+                    anomaly.Anomaly_3();
                     break;
 
                 case 3:
                     Debug.Log("이상현상 4");
+                    anomaly.Anomaly_4();
                     break;
 
                 case 4:
                     Debug.Log("이상현상 5");
+                    anomaly.Anomaly_5();
                     break;
 
                 case 5:
                     Debug.Log("이상현상 6");
+                    anomaly.Anomaly_6();
                     break;
 
                 case 6:
                     Debug.Log("이상현상 7");
+                    anomaly.Anomaly_7();
                     break;
 
                 case 7:
