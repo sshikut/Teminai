@@ -8,6 +8,8 @@ public class NormalHandler : MonoBehaviour
 
     public void NormalButton()
     {
+        GameManager.Instance.audioManager.Play("Decision2");
+
         if (!anomaly.isAnomaly)
         {
             anomaly.loopCount++;
