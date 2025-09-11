@@ -35,13 +35,6 @@ public class AnomalyManager : MonoBehaviour
     public void Anomaly()
     {
         anomaly.InitAnomaly(); // 이상현상 초기화
-        anomaly.InitAnomaly6();
-        anomaly.InitAnomaly2();
-        anomaly.InitAnomaly3();
-        anomaly.InitAnomaly4();
-        anomaly.InitAnomaly5();
-        anomaly.InitAnomaly6();
-        anomaly.InitAnomaly7();
 
         if (loopCount >= clearCount)
         {

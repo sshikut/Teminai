@@ -29,62 +29,44 @@ public class AnomalyMethod : MonoBehaviour
     public void InitAnomaly()
     {
         changSubGod.SetActive(false);
+
+        Show_Anomaly2.SetActive(true);
+        Show_Anomaly3.SetActive(true);
+        Show_Anomaly4.SetActive(true);
+        Show_Anomaly5.SetActive(true);
+        Show_Anomaly6.SetActive(true);
+        Show_Anomaly7.SetActive(true);
+        hide_Anomaly1.SetActive(false);
     }
 
     public void Anomaly_1()
     {
         changSubGod.SetActive(true);
     }
-    public void InitAnomaly2()
-    {
-        Show_Anomaly2.SetActive(true);
-    }
 
     public void Anomaly_2()
     {
         Show_Anomaly2.SetActive(false);
-    }
-    public void InitAnomaly3()
-    {
-        Show_Anomaly3.SetActive(true);
     }
 
     public void Anomaly_3()
     {
         Show_Anomaly3.SetActive(false);
     }
-    public void InitAnomaly4()
-    {
-        Show_Anomaly4.SetActive(true);
-    }
 
     public void Anomaly_4()
     {
         Show_Anomaly4.SetActive(false);
-    }
-    public void InitAnomaly5()
-    {
-        Show_Anomaly5.SetActive(true);
     }
 
     public void Anomaly_5()
     {
         Show_Anomaly5.SetActive(false);
     }
-    public void InitAnomaly6()
-    {
-        Show_Anomaly6.SetActive(true);
-    }
 
     public void Anomaly_6()
     {
         Show_Anomaly6.SetActive(false);
-    }
-
-    public void InitAnomaly7()
-    {
-        Show_Anomaly7.SetActive(true);
-        hide_Anomaly1.SetActive(false);
     }
 
     public void Anomaly_7()
