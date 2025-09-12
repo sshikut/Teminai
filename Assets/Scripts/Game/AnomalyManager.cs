@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class AnomalyManager : MonoBehaviour
 {
@@ -24,18 +26,21 @@ public class AnomalyManager : MonoBehaviour
     public GameObject[] objectsToHide;
     public GameObject[] objectsToShow;
 
+    public TriggerZone triggerZone;
+    public MovableObject movableObject;
     private void Start()
     {
         anomalyArray = new int[maxAnomalies];
         remainAnomaly = maxAnomalies;
-
+        triggerZone = FindObjectOfType<TriggerZone>();
+        movableObject = FindObjectOfType<MovableObject>();
         Anomaly();
     }
 
     public void Anomaly()
     {
         anomaly.InitAnomaly(); // 이상현상 초기화
-
+        Debug.Log(triggerZone.triggerOnce +"이상현상매니저");
         if (loopCount >= clearCount)
         {
             Clear();
@@ -130,26 +135,28 @@ public class AnomalyManager : MonoBehaviour
 
                 case 7:
                     Debug.Log("이상현상 8");
+                    triggerZone.triggerOnce = true;
                     break;
 
                 case 8:
-                    Debug.Log("이상현상 9");
+                    Debug.Log("이상현상 9"); triggerZone.triggerOnce = true;
+                    
                     break;
 
                 case 9:
-                    Debug.Log("이상현상 10");
+                    Debug.Log("이상현상 10"); triggerZone.triggerOnce = true;
                     break;
 
                 case 10:
-                    Debug.Log("이상현상 11");
+                    Debug.Log("이상현상 11"); triggerZone.triggerOnce = true;
                     break;
 
                 case 11:
-                    Debug.Log("이상현상 12");
+                    Debug.Log("이상현상 12"); triggerZone.triggerOnce = true;
                     break;
 
                 case 12:
-                    Debug.Log("이상현상 13");
+                    Debug.Log("이상현상 13"); triggerZone.triggerOnce = true;
                     break;
 
                 case 13:
@@ -184,6 +191,8 @@ public class AnomalyManager : MonoBehaviour
         else
         {
             // Default 현상으로 되돌리기
+            triggerZone.triggerOnce = false;
+     
         }
     }
 
@@ -197,6 +206,7 @@ public class AnomalyManager : MonoBehaviour
         remainAnomaly = maxAnomalies;
     }
 
+   
     void Clear()
     {
         // clearImage.SetActive(true);

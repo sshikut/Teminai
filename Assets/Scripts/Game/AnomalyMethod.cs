@@ -26,17 +26,25 @@ public class AnomalyMethod : MonoBehaviour
     public GameObject Show_Anomaly7;
     public GameObject hide_Anomaly1;
 
+    public TriggerZone triggerZone1;
+    
+
     public void InitAnomaly()
     {
         changSubGod.SetActive(false);
-
+        triggerZone1.triggerOnce = false;
+        triggerZone1.hasTriggered = false;
+        
         Show_Anomaly2.SetActive(true);
         Show_Anomaly3.SetActive(true);
         Show_Anomaly4.SetActive(true);
         Show_Anomaly5.SetActive(true);
         Show_Anomaly6.SetActive(true);
         Show_Anomaly7.SetActive(true);
+        
         hide_Anomaly1.SetActive(false);
+
+        Debug.Log("¸Þ¼Òµå" + triggerZone1.triggerOnce);
     }
 
     public void Anomaly_1()
@@ -74,4 +82,6 @@ public class AnomalyMethod : MonoBehaviour
         Show_Anomaly7.SetActive(false);
         hide_Anomaly1.SetActive(true);
     }
+
+   
 }

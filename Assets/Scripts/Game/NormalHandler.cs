@@ -5,7 +5,8 @@ using UnityEngine;
 public class NormalHandler : MonoBehaviour
 {
     public AnomalyManager anomaly;
-
+    public MovableObject moveonEnable;
+    
     public void NormalButton()
     {
         GameManager.Instance.audioManager.Play("Decision2");
@@ -21,6 +22,8 @@ public class NormalHandler : MonoBehaviour
 
         InteractionManager.Instance.StartFadeOut();
 
+        moveonEnable.ResetPosition(); // 버튼누르면 스크린 원위치
         anomaly.Anomaly();
+       
     }
 }
