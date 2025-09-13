@@ -16,12 +16,12 @@ public class TogglePhone : MonoBehaviour
 
             if (isActive)
             {
-                GameManager.Instance.audioManager.Play("OpenPhone");
+                AudioManager.instance.Play("OpenPhone");
                 anim.Play("Open");
             }
             else 
             {
-                GameManager.Instance.audioManager.Play("ClosePhone");
+                AudioManager.instance.Play("ClosePhone");
                 anim.Play("Close");
             }
         }

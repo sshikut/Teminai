@@ -48,6 +48,22 @@ public class AudioManager : MonoBehaviour
 {
     static public AudioManager instance;
 
+    #region Singleton
+    public void Awake()
+    {
+        if (instance == null)
+        {
+            DontDestroyOnLoad(this.gameObject);
+            instance = this;
+            Debug.Log("WeatherManager instance created");
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
+    #endregion Singleton
+
     [SerializeField]
     public Sound[] sounds;
 
