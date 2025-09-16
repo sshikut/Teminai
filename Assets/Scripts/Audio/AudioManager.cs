@@ -48,6 +48,20 @@ public class AudioManager : MonoBehaviour
 {
     static public AudioManager instance;
 
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+
     [SerializeField]
     public Sound[] sounds;
 

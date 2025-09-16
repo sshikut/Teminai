@@ -9,7 +9,7 @@ public class NormalHandler : MonoBehaviour
     
     public void NormalButton()
     {
-        GameManager.Instance.audioManager.Play("Decision2");
+        AudioManager.instance.Play("Decision2");
 
         if (!anomaly.isAnomaly)
         {
@@ -20,7 +20,7 @@ public class NormalHandler : MonoBehaviour
             anomaly.absentCount++;
         }
 
-        InteractionManager.Instance.StartFadeOut();
+        AudioManager.instance.Play("Decision2");
 
         moveonEnable.ResetPosition(); // 버튼누르면 스크린 원위치
         anomaly.Anomaly();

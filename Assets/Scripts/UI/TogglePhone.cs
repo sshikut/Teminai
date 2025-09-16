@@ -16,12 +16,12 @@ public class TogglePhone : MonoBehaviour
 
             if (isActive)
             {
-                GameManager.Instance.audioManager.Play("OpenPhone");
+                AudioManager.instance.Play("OpenPhone");
                 anim.Play("Open");
             }
             else 
             {
-                GameManager.Instance.audioManager.Play("ClosePhone");
+                AudioManager.instance.Play("ClosePhone");
                 anim.Play("Close");
             }
         }
@@ -29,7 +29,7 @@ public class TogglePhone : MonoBehaviour
     public void DisableToggleAfterOneUse()
     {
         isActive = !isActive;
-        GameManager.Instance.audioManager.Play("OpenPhone");
+        AudioManager.instance.Play("OpenPhone");
         anim.Play("Open");
         canToggle = false; // EndGame 이후 딱 한 번만 토글 가능하도록 허용
     }
