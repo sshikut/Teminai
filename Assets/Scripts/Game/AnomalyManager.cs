@@ -28,18 +28,21 @@ public class AnomalyManager : MonoBehaviour
 
     public TriggerZone triggerZone;
     public MovableObject movableObject;
+    public TimerManager timerManager;
     private void Start()
     {
         anomalyArray = new int[maxAnomalies];
         remainAnomaly = maxAnomalies;
         triggerZone = FindObjectOfType<TriggerZone>();
         movableObject = FindObjectOfType<MovableObject>();
+        timerManager = FindObjectOfType<TimerManager>();
         Anomaly();
     }
 
     public void Anomaly()
     {
         anomaly.InitAnomaly(); // 이상현상 초기화
+        timerManager.timerText.text = null;
         Debug.Log(triggerZone.triggerOnce +"이상현상매니저");
         if (loopCount >= clearCount)
         {

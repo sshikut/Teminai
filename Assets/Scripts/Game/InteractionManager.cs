@@ -6,7 +6,7 @@ using System.Collections;
 public class InteractionManager : MonoBehaviour
 {
     public static InteractionManager Instance;
-
+    public TimerManager TimerManager;
     private void Awake()
     {
         if (Instance == null)
@@ -58,7 +58,7 @@ public class InteractionManager : MonoBehaviour
                 if (interactionText != null)
                 {
                     interactionText.gameObject.SetActive(true);
-                    interactionText.text = "E 키를 눌러 위치 이동";
+                    interactionText.text = "화장실 빨리 가야하는 현상";
                 }
             }
             else
@@ -81,10 +81,28 @@ public class InteractionManager : MonoBehaviour
 
         if (isInteractable && Input.GetKeyDown(KeyCode.E))
         {
-            StartFadeOut();
+             gamestart();
+            interactionText.text = "";
         }
     }
+    public void gamestart()
+    {
+        if (isFading) return;
 
+        StartGameSequence();
+    }
+
+    private void StartGameSequence()
+    {
+        
+     
+
+           
+        TimerManager.StartTimer();
+
+       
+    
+    }
     public void StartFadeIn()
     {
         if (fadePanel != null)
@@ -151,5 +169,6 @@ public class InteractionManager : MonoBehaviour
         {
             isFading = false;
         }
+        
     }
 }
