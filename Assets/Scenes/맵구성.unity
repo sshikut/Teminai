@@ -3626,6 +3626,10 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 598c3f55c30749d4e9c346fad3e923f8, type: 3}
     Volumn: 0.75
     loop: 0
+  - name: Footstep
+    clip: {fileID: 8300000, guid: 9fd15255ffba517468c7e3a0caccd272, type: 3}
+    Volumn: 0.75
+    loop: 0
 --- !u!4 &463842378
 Transform:
   m_ObjectHideFlags: 0
