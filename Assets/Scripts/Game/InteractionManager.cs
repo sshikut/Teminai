@@ -20,9 +20,6 @@ public class InteractionManager : MonoBehaviour
         }
     }
 
-    [Header("상호작용 대상")]
-    public GameObject targetObject;
-
     [Header("UI 설정")]
     public TMP_Text interactionText;
     public Image fadePanel;
@@ -30,6 +27,10 @@ public class InteractionManager : MonoBehaviour
     [Header("포지션 이동 설정")]
     public GameObject objectToMove;
     public Vector3 targetPosition;
+
+    [Header("Ray Setting")]
+    public float rayDistance = 3f;
+    public LayerMask interactableLayers;
 
     private bool isInteractable = false;
     private bool isFading = false;
@@ -45,28 +46,30 @@ public class InteractionManager : MonoBehaviour
 
     void Update()
     {
-        if (targetObject == null || isFading) return;
+        if (isFading) return;
 
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        
+        Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit))
+        Debug.DrawRay(ray.origin, ray.direction * rayDistance, Color.red);
+
+        if (Physics.Raycast(ray, out hit, rayDistance, interactableLayers))
         {
-            if (hit.collider.gameObject == targetObject)
+            IInteractable interactable = hit.collider.GetComponent<IInteractable>();
+
+            if (interactable != null)
             {
                 isInteractable = true;
                 if (interactionText != null)
                 {
                     interactionText.gameObject.SetActive(true);
-                    interactionText.text = "화장실 빨리 가야하는 현상";
-                }
-            }
-            else
-            {
-                isInteractable = false;
-                if (interactionText != null)
-                {
-                    interactionText.gameObject.SetActive(false);
+                    interactionText.text = "E";
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        // IInteractable 인터페이스를 상속받은 스크립트에 접근 
+                        interactable.Interact();
+                    }
                 }
             }
         }
@@ -78,31 +81,8 @@ public class InteractionManager : MonoBehaviour
                 interactionText.gameObject.SetActive(false);
             }
         }
-
-        if (isInteractable && Input.GetKeyDown(KeyCode.E))
-        {
-             gamestart();
-            interactionText.text = "";
-        }
-    }
-    public void gamestart()
-    {
-        if (isFading) return;
-
-        StartGameSequence();
     }
 
-    private void StartGameSequence()
-    {
-        
-     
-
-           
-        TimerManager.StartTimer();
-
-       
-    
-    }
     public void StartFadeIn()
     {
         if (fadePanel != null)
