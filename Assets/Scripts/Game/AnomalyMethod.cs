@@ -82,4 +82,9 @@ public class AnomalyMethod : MonoBehaviour
         Show_Anomaly7.SetActive(false);
         hide_Anomaly1.SetActive(true);
     }
+<<<<<<< HEAD
+=======
+
+   
+>>>>>>> parent of e133a3d (Update Scripts and add 맵구성_SSH)
 }
