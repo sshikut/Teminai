@@ -49,7 +49,7 @@ public class AnomalyMethod : MonoBehaviour
 
     public void Anomaly_1()
     {
-        changSubGod.SetActive(true);
+        changSubGod.SetActive(true); 
     }
 
     public void Anomaly_2()
@@ -82,6 +82,4 @@ public class AnomalyMethod : MonoBehaviour
         Show_Anomaly7.SetActive(false);
         hide_Anomaly1.SetActive(true);
     }
-
-   
 }
