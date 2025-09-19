@@ -138,7 +138,7 @@ public class AnomalyManager : MonoBehaviour
 
                 case 7:
                     Debug.Log("이상현상 8");
-                    triggerZone.triggerOnce = true;
+                    anomaly.Anomaly_8();
                     break;
 
                 case 8:

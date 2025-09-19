@@ -4,30 +4,38 @@ using UnityEngine;
 
 public class AnomalyMethod : MonoBehaviour
 {
+    [Header("Interactable Objects")]
+    // ªÛ»£¿€øÎ¿Ã ∞°¥…«— ø¿∫Í¡ß∆ÆµÈ¿ª √ ±‚»≠«œ±‚ ¿ß«— πËø≠
+
+    public GameObject[] interactable;
+
+
     [Header("Anomaly #1")]
     public GameObject changSubGod;
 
     [Header("Anomaly #2")]
-    public GameObject Show_Anomaly2;
+    public GameObject show_Anomaly2;
 
     [Header("Anomaly #3")]
-    public GameObject Show_Anomaly3;
+    public GameObject show_Anomaly3;
 
     [Header("Anomaly #4")]
-    public GameObject Show_Anomaly4;
+    public GameObject show_Anomaly4;
 
     [Header("Anomaly #5")]
-    public GameObject Show_Anomaly5;
+    public GameObject show_Anomaly5;
 
     [Header("Anomaly #6")]
-    public GameObject Show_Anomaly6;
+    public GameObject show_Anomaly6;
 
     [Header("Anomaly #7")]
-    public GameObject Show_Anomaly7;
+    public GameObject show_Anomaly7;
     public GameObject hide_Anomaly1;
 
     public TriggerZone triggerZone1;
-    
+
+    [Header("Anomaly #8")] // ±ﬁ∂À ¿ÃªÛ «ˆªÛ
+    public GameObject anomaly8_ToiletPaper;
 
     public void InitAnomaly()
     {
@@ -35,56 +43,64 @@ public class AnomalyMethod : MonoBehaviour
         triggerZone1.triggerOnce = false;
         triggerZone1.hasTriggered = false;
         
-        Show_Anomaly2.SetActive(true);
-        Show_Anomaly3.SetActive(true);
-        Show_Anomaly4.SetActive(true);
-        Show_Anomaly5.SetActive(true);
-        Show_Anomaly6.SetActive(true);
-        Show_Anomaly7.SetActive(true);
+        // show_Anomaly2.SetActive(true);
+        // show_Anomaly3.SetActive(true);
+        show_Anomaly4.SetActive(true);
+        show_Anomaly5.SetActive(true);
+        show_Anomaly6.SetActive(true);
+        show_Anomaly7.SetActive(true);
         
         hide_Anomaly1.SetActive(false);
+
+        anomaly8_ToiletPaper.SetActive(false);
 
         Debug.Log("∏ﬁº“µÂ" + triggerZone1.triggerOnce);
     }
 
+    public void InitInteractable()
+    {
+
+    }
+
     public void Anomaly_1()
     {
-        changSubGod.SetActive(true); 
+        changSubGod.SetActive(true);
     }
 
     public void Anomaly_2()
     {
-        Show_Anomaly2.SetActive(false);
+        show_Anomaly2.SetActive(false);
     }
 
     public void Anomaly_3()
     {
-        Show_Anomaly3.SetActive(false);
+        show_Anomaly3.SetActive(false);
     }
 
     public void Anomaly_4()
     {
-        Show_Anomaly4.SetActive(false);
+        show_Anomaly4.SetActive(false);
     }
 
     public void Anomaly_5()
     {
-        Show_Anomaly5.SetActive(false);
+        show_Anomaly5.SetActive(false);
     }
 
     public void Anomaly_6()
     {
-        Show_Anomaly6.SetActive(false);
+        show_Anomaly6.SetActive(false);
     }
 
     public void Anomaly_7()
     {
-        Show_Anomaly7.SetActive(false);
+        show_Anomaly7.SetActive(false);
         hide_Anomaly1.SetActive(true);
     }
-<<<<<<< HEAD
-=======
 
+    public void Anomaly_8() // ±ﬁ∂À
+    {
+        anomaly8_ToiletPaper.SetActive(true);
+    } 
    
->>>>>>> parent of e133a3d (Update Scripts and add ÎßµÍµ¨ÏÑ±_SSH)
 }
