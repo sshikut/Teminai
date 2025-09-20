@@ -192,7 +192,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anomaly: {fileID: 1937520797}
-  moveonEnable: {fileID: 2064297665}
 --- !u!114 &33093638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7580,6 +7579,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1079926964}
   m_Mesh: {fileID: 5697157286795072220, guid: 3e61a3d32fd906b46a2cdc0220ec13a5, type: 3}
+--- !u!1 &1090889558 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3884267824153283426, guid: ce0c3aac376919e4fb1f5b14026cf793,
+    type: 3}
+  m_PrefabInstance: {fileID: 8890709560409690504}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1091412844 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4367010069536674110, guid: 4c766edda6507e241bc1f4e0074cec66,
@@ -8989,6 +8994,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.2711431, y: 1.8963956, z: 1.8309326}
   m_Center: {x: -0.0056430697, y: 0.9471064, z: 0.00030609965}
+--- !u!114 &1264709767 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4621577236557047594, guid: 7ceeeaf50c694a34fb46edea5dec29cc,
+    type: 3}
+  m_PrefabInstance: {fileID: 1882789903}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1270239482 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4367010069536674110, guid: 4c766edda6507e241bc1f4e0074cec66,
@@ -9479,6 +9496,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1366743512}
   - component: {fileID: 1366743511}
+  - component: {fileID: 1366743513}
   m_Layer: 0
   m_Name: Anomalys
   m_TagString: Untagged
@@ -9498,15 +9516,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b3bb1d8c884b164ca105f3f034b4502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactable: []
   changSubGod: {fileID: 1433726635}
-  Show_Anomaly2: {fileID: 0}
-  Show_Anomaly3: {fileID: 0}
-  Show_Anomaly4: {fileID: 1583846396}
-  Show_Anomaly5: {fileID: 1877050597}
-  Show_Anomaly6: {fileID: 607919654}
-  Show_Anomaly7: {fileID: 1180940075}
+  show_Anomaly2: {fileID: 607919654}
+  show_Anomaly3: {fileID: 4747739707125491039}
+  show_Anomaly4: {fileID: 1583846396}
+  show_Anomaly5: {fileID: 1877050597}
+  show_Anomaly6: {fileID: 1090889558}
+  show_Anomaly7: {fileID: 1180940075}
   hide_Anomaly1: {fileID: 1382009172}
   triggerZone1: {fileID: 653665463}
+  anomaly8_ToiletPaper: {fileID: 919132148343891722}
 --- !u!4 &1366743512
 Transform:
   m_ObjectHideFlags: 0
@@ -9526,6 +9546,29 @@ Transform:
   - {fileID: 1199425127}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1366743513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1366743510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b831248190e679428ad4d5b5680dce9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statusText: {fileID: 1264709767}
+  pollEveryFrame: 1
+  targets:
+  - {fileID: 1433726635}
+  - {fileID: 607919654}
+  - {fileID: 4747739707125491039}
+  - {fileID: 1583846396}
+  - {fileID: 1877050597}
+  - {fileID: 1090889558}
+  - {fileID: 1180940075}
+  - {fileID: 919132148343891722}
 --- !u!1 &1376530298 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4367010069536674110, guid: 4c766edda6507e241bc1f4e0074cec66,
@@ -13635,32 +13678,32 @@ PrefabInstance:
     - target: {fileID: 426402544344033397, guid: 7ceeeaf50c694a34fb46edea5dec29cc,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 426402544344033397, guid: 7ceeeaf50c694a34fb46edea5dec29cc,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 426402544344033397, guid: 7ceeeaf50c694a34fb46edea5dec29cc,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 426402544344033397, guid: 7ceeeaf50c694a34fb46edea5dec29cc,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 426402544344033397, guid: 7ceeeaf50c694a34fb46edea5dec29cc,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1083.75
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 426402544344033397, guid: 7ceeeaf50c694a34fb46edea5dec29cc,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -677.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1037066894871267479, guid: 7ceeeaf50c694a34fb46edea5dec29cc,
         type: 3}
@@ -13670,32 +13713,32 @@ PrefabInstance:
     - target: {fileID: 1367945640141378895, guid: 7ceeeaf50c694a34fb46edea5dec29cc,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1367945640141378895, guid: 7ceeeaf50c694a34fb46edea5dec29cc,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1367945640141378895, guid: 7ceeeaf50c694a34fb46edea5dec29cc,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1367945640141378895, guid: 7ceeeaf50c694a34fb46edea5dec29cc,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1367945640141378895, guid: 7ceeeaf50c694a34fb46edea5dec29cc,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 963.75
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1367945640141378895, guid: 7ceeeaf50c694a34fb46edea5dec29cc,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -677.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1835394835495729700, guid: 7ceeeaf50c694a34fb46edea5dec29cc,
         type: 3}
@@ -13705,32 +13748,32 @@ PrefabInstance:
     - target: {fileID: 2447116686226854599, guid: 7ceeeaf50c694a34fb46edea5dec29cc,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2447116686226854599, guid: 7ceeeaf50c694a34fb46edea5dec29cc,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2447116686226854599, guid: 7ceeeaf50c694a34fb46edea5dec29cc,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2447116686226854599, guid: 7ceeeaf50c694a34fb46edea5dec29cc,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2447116686226854599, guid: 7ceeeaf50c694a34fb46edea5dec29cc,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 843.75
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2447116686226854599, guid: 7ceeeaf50c694a34fb46edea5dec29cc,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -677.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2888656026994301480, guid: 7ceeeaf50c694a34fb46edea5dec29cc,
         type: 3}
@@ -13885,7 +13928,7 @@ PrefabInstance:
     - target: {fileID: 8880063613068325462, guid: 7ceeeaf50c694a34fb46edea5dec29cc,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14243,11 +14286,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimerManager: {fileID: 1937520802}
-  targetObject: {fileID: 707489731}
   interactionText: {fileID: 872925532}
   fadePanel: {fileID: 1929486074}
   objectToMove: {fileID: 1941872147}
   targetPosition: {x: -9, y: -3, z: 15}
+  rayDistance: 3
+  interactableLayers:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &1937520801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15088,9 +15134,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3915966b82531f44782ac5fc4526b40e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetYPosition: -2.2
-  moveSpeed: 3
-  hasMoved: 1
 --- !u!1 &2065780900 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4367010069536674110, guid: 4c766edda6507e241bc1f4e0074cec66,
