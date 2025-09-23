@@ -6,6 +6,10 @@ using System.Collections;
 public class InteractionManager : MonoBehaviour
 {
     public static InteractionManager Instance;
+    public CharacterController characterController;
+
+    public bool IsFading => isFading;
+
     public TimerManager TimerManager;
     private void Awake()
     {
@@ -88,6 +92,7 @@ public class InteractionManager : MonoBehaviour
         if (fadePanel != null)
         {
             StartCoroutine(FadeEffect(1, 0, 1.5f));
+            characterController.enabled = true; 
         }
     }
 
@@ -96,6 +101,7 @@ public class InteractionManager : MonoBehaviour
         if (fadePanel != null)
         {
             StartCoroutine(FadeEffect(0, 1, 1.5f));
+            characterController.enabled = false;
         }
     }
 

@@ -103,42 +103,42 @@ public class AnomalyManager : MonoBehaviour
             {
                 case 0:
                     Debug.Log("이상현상 1 : 신창섭");
-                    anomaly.Anomaly_1();
+                    anomaly.Anomaly(0);
                     break;
 
                 case 1:
                     Debug.Log("이상현상 2");
-                    anomaly.Anomaly_2();
+                    anomaly.Anomaly(1);
                     break;
 
                 case 2:
                     Debug.Log("이상현상 3");
-                    anomaly.Anomaly_3();
+                    anomaly.Anomaly(2);
                     break;
 
                 case 3:
                     Debug.Log("이상현상 4");
-                    anomaly.Anomaly_4();
+                    anomaly.Anomaly(3);
                     break;
 
                 case 4:
                     Debug.Log("이상현상 5");
-                    anomaly.Anomaly_5();
+                    anomaly.Anomaly(4);
                     break;
 
                 case 5:
                     Debug.Log("이상현상 6");
-                    anomaly.Anomaly_6();
+                    anomaly.Anomaly(5);
                     break;
 
                 case 6:
                     Debug.Log("이상현상 7");
-                    anomaly.Anomaly_7();
+                    anomaly.Anomaly(6);
                     break;
 
                 case 7:
                     Debug.Log("이상현상 8");
-                    anomaly.Anomaly_8();
+                    anomaly.Anomaly(7);
                     break;
 
                 case 8:
@@ -164,30 +164,37 @@ public class AnomalyManager : MonoBehaviour
 
                 case 13:
                     Debug.Log("이상현상 14");
+                    anomaly.Anomaly(6);
                     break;
 
                 case 14:
                     Debug.Log("이상현상 15");
+                    anomaly.Anomaly(6);
                     break;
 
                 case 15:
                     Debug.Log("이상현상 16");
+                    anomaly.Anomaly(6);
                     break;
 
                 case 16:
                     Debug.Log("이상현상 17");
+                    anomaly.Anomaly(6);
                     break;
 
                 case 17:
                     Debug.Log("이상현상 18");
+                    anomaly.Anomaly(6);
                     break;
 
                 case 18:
                     Debug.Log("이상현상 19");
+                    anomaly.Anomaly(6);
                     break;
 
                 case 19:
                     Debug.Log("이상현상 20");
+                    anomaly.Anomaly(6);
                     break;
             }
         }
