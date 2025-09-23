@@ -6856,12 +6856,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1027053140}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &946467623 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 192703406483554050, guid: d661034792de851458fcf597f8233157,
-    type: 3}
-  m_PrefabInstance: {fileID: 323932314}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &947856274 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4367010069536674110, guid: 4c766edda6507e241bc1f4e0074cec66,
@@ -9939,17 +9933,162 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b3bb1d8c884b164ca105f3f034b4502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactable: []
-  changSubGod: {fileID: 1433726635}
-  show_Anomaly2: {fileID: 607919654}
-  show_Anomaly3: {fileID: 4747739707125491039}
-  show_Anomaly4: {fileID: 1583846396}
-  show_Anomaly5: {fileID: 1877050597}
-  show_Anomaly6: {fileID: 1090889558}
-  show_Anomaly7: {fileID: 1180940075}
-  hide_Anomaly1: {fileID: 1382009172}
+  slots:
+  - label: 
+    Objects:
+    - onInvokeAction:
+        m_PersistentCalls:
+          m_Calls: []
+      target: {fileID: 1433726635}
+      action: 0
+      initialActive: 0
+    onSlotInvoked:
+      m_PersistentCalls:
+        m_Calls: []
+  - label: 
+    Objects:
+    - onInvokeAction:
+        m_PersistentCalls:
+          m_Calls: []
+      target: {fileID: 607919654}
+      action: 0
+      initialActive: 0
+    onSlotInvoked:
+      m_PersistentCalls:
+        m_Calls: []
+  - label: 
+    Objects:
+    - onInvokeAction:
+        m_PersistentCalls:
+          m_Calls: []
+      target: {fileID: 1941847282}
+      action: 1
+      initialActive: 0
+    onSlotInvoked:
+      m_PersistentCalls:
+        m_Calls: []
+  - label: 
+    Objects:
+    - onInvokeAction:
+        m_PersistentCalls:
+          m_Calls: []
+      target: {fileID: 1877050597}
+      action: 1
+      initialActive: 0
+    onSlotInvoked:
+      m_PersistentCalls:
+        m_Calls: []
+  - label: 
+    Objects:
+    - onInvokeAction:
+        m_PersistentCalls:
+          m_Calls: []
+      target: {fileID: 4747739707125491039}
+      action: 1
+      initialActive: 0
+    onSlotInvoked:
+      m_PersistentCalls:
+        m_Calls: []
+  - label: 
+    Objects:
+    - onInvokeAction:
+        m_PersistentCalls:
+          m_Calls: []
+      target: {fileID: 580929659}
+      action: 1
+      initialActive: 0
+    onSlotInvoked:
+      m_PersistentCalls:
+        m_Calls: []
+  - label: 
+    Objects:
+    - onInvokeAction:
+        m_PersistentCalls:
+          m_Calls: []
+      target: {fileID: 1090889558}
+      action: 1
+      initialActive: 0
+    onSlotInvoked:
+      m_PersistentCalls:
+        m_Calls: []
+  - label: 
+    Objects:
+    - onInvokeAction:
+        m_PersistentCalls:
+          m_Calls: []
+      target: {fileID: 1382009172}
+      action: 0
+      initialActive: 0
+    - onInvokeAction:
+        m_PersistentCalls:
+          m_Calls: []
+      target: {fileID: 1180940075}
+      action: 1
+      initialActive: 0
+    onSlotInvoked:
+      m_PersistentCalls:
+        m_Calls: []
+  - label: 
+    Objects: []
+    onSlotInvoked:
+      m_PersistentCalls:
+        m_Calls: []
+  - label: 
+    Objects: []
+    onSlotInvoked:
+      m_PersistentCalls:
+        m_Calls: []
+  - label: 
+    Objects: []
+    onSlotInvoked:
+      m_PersistentCalls:
+        m_Calls: []
+  - label: 
+    Objects: []
+    onSlotInvoked:
+      m_PersistentCalls:
+        m_Calls: []
+  - label: 
+    Objects: []
+    onSlotInvoked:
+      m_PersistentCalls:
+        m_Calls: []
+  - label: 
+    Objects: []
+    onSlotInvoked:
+      m_PersistentCalls:
+        m_Calls: []
+  - label: 
+    Objects: []
+    onSlotInvoked:
+      m_PersistentCalls:
+        m_Calls: []
+  - label: 
+    Objects: []
+    onSlotInvoked:
+      m_PersistentCalls:
+        m_Calls: []
+  - label: 
+    Objects: []
+    onSlotInvoked:
+      m_PersistentCalls:
+        m_Calls: []
+  - label: 
+    Objects: []
+    onSlotInvoked:
+      m_PersistentCalls:
+        m_Calls: []
+  - label: 
+    Objects: []
+    onSlotInvoked:
+      m_PersistentCalls:
+        m_Calls: []
+  - label: 
+    Objects: []
+    onSlotInvoked:
+      m_PersistentCalls:
+        m_Calls: []
   triggerZone1: {fileID: 653665463}
-  anomaly8_ToiletPaper: {fileID: 946467623}
 --- !u!4 &1366743512
 Transform:
   m_ObjectHideFlags: 0
@@ -9983,15 +10122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statusText: {fileID: 1264709767}
   pollEveryFrame: 1
-  targets:
-  - {fileID: 1433726635}
-  - {fileID: 607919654}
-  - {fileID: 4747739707125491039}
-  - {fileID: 1583846396}
-  - {fileID: 1877050597}
-  - {fileID: 1090889558}
-  - {fileID: 1180940075}
-  - {fileID: 919132148343891722}
+  targets: []
 --- !u!1 &1376530298 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4367010069536674110, guid: 4c766edda6507e241bc1f4e0074cec66,
@@ -11520,12 +11651,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4989309669687423970, guid: 16fa450d70f0c2246a05f9f3e5b32bc6,
     type: 3}
   m_PrefabInstance: {fileID: 1567992461}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1583846396 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4214386082351395197, guid: 9f582fcc94d40d447ad0cc0fb1af014f,
-    type: 3}
-  m_PrefabInstance: {fileID: 3945704580596720462}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1590667055
 PrefabInstance:
@@ -15187,6 +15312,8 @@ MonoBehaviour:
   triggerZone: {fileID: 653665463}
   movableObject: {fileID: 0}
   timerManager: {fileID: 0}
+  minNum: 8
+  maxNum: 12
 --- !u!4 &1937520799
 Transform:
   m_ObjectHideFlags: 0

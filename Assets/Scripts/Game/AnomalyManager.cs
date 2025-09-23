@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class AnomalyManager : MonoBehaviour
 {
@@ -29,6 +28,14 @@ public class AnomalyManager : MonoBehaviour
     public TriggerZone triggerZone;
     public MovableObject movableObject;
     public TimerManager timerManager;
+
+    [Header("Trigger-Once Index Range")]
+    [Tooltip("예: 9~13번을 1회용으로 하려면 8 ~ 12 입력")]
+    public int minNum;
+    public int maxNum;
+
+
+
     private void Start()
     {
         anomalyArray = new int[maxAnomalies];
@@ -43,7 +50,7 @@ public class AnomalyManager : MonoBehaviour
     {
         anomaly.InitAnomaly(); // 이상현상 초기화
         timerManager.timerText.text = null;
-        Debug.Log(triggerZone.triggerOnce +"이상현상매니저");
+        Debug.Log(triggerZone.triggerOnce + "이상현상매니저");
         if (loopCount >= clearCount)
         {
             Clear();
@@ -82,121 +89,43 @@ public class AnomalyManager : MonoBehaviour
 
     void PlayAnomaly(bool isAnomaly)
     {
-        if (isAnomaly)
+        // 1) 이번 라운드가 '정상'이면 트리거를 다회용으로 풀고 종료
+        if (!isAnomaly)
         {
-            int anomalyIndex;
-
-            while (true)
-            {
-                anomalyIndex = Random.Range(0, anomalyArray.Length);
-
-                if (anomalyArray[anomalyIndex] == 0)
-                {
-                    break;
-                }
-            }
-
-            remainAnomaly--;
-            anomalyArray[anomalyIndex]++;
-
-            switch (anomalyIndex)
-            {
-                case 0:
-                    Debug.Log("이상현상 1 : 신창섭");
-                    anomaly.Anomaly_1();
-                    break;
-
-                case 1:
-                    Debug.Log("이상현상 2");
-                    anomaly.Anomaly_2();
-                    break;
-
-                case 2:
-                    Debug.Log("이상현상 3");
-                    anomaly.Anomaly_3();
-                    break;
-
-                case 3:
-                    Debug.Log("이상현상 4");
-                    anomaly.Anomaly_4();
-                    break;
-
-                case 4:
-                    Debug.Log("이상현상 5");
-                    anomaly.Anomaly_5();
-                    break;
-
-                case 5:
-                    Debug.Log("이상현상 6");
-                    anomaly.Anomaly_6();
-                    break;
-
-                case 6:
-                    Debug.Log("이상현상 7");
-                    anomaly.Anomaly_7();
-                    break;
-
-                case 7:
-                    Debug.Log("이상현상 8");
-                    anomaly.Anomaly_8();
-                    break;
-
-                case 8:
-                    Debug.Log("이상현상 9"); triggerZone.triggerOnce = true;
-                    
-                    break;
-
-                case 9:
-                    Debug.Log("이상현상 10"); triggerZone.triggerOnce = true;
-                    break;
-
-                case 10:
-                    Debug.Log("이상현상 11"); triggerZone.triggerOnce = true;
-                    break;
-
-                case 11:
-                    Debug.Log("이상현상 12"); triggerZone.triggerOnce = true;
-                    break;
-
-                case 12:
-                    Debug.Log("이상현상 13"); triggerZone.triggerOnce = true;
-                    break;
-
-                case 13:
-                    Debug.Log("이상현상 14");
-                    break;
-
-                case 14:
-                    Debug.Log("이상현상 15");
-                    break;
-
-                case 15:
-                    Debug.Log("이상현상 16");
-                    break;
-
-                case 16:
-                    Debug.Log("이상현상 17");
-                    break;
-
-                case 17:
-                    Debug.Log("이상현상 18");
-                    break;
-
-                case 18:
-                    Debug.Log("이상현상 19");
-                    break;
-
-                case 19:
-                    Debug.Log("이상현상 20");
-                    break;
-            }
-        }
-        else
-        {
-            // Default 현상으로 되돌리기
             triggerZone.triggerOnce = false;
-     
+            return;
         }
+
+        // 2) 아직 안 나온 인덱스 하나 찾기 (기존 코드 참조)
+        int anomalyIndex = -1;
+        int start = Random.Range(0, anomalyArray.Length);
+        for (int k = 0; k < anomalyArray.Length; k++)
+        {
+            int idx = (start + k) % anomalyArray.Length;
+            if (anomalyArray[idx] == 0) // 0 = 아직 안 나온 번호
+            {
+                anomalyIndex = idx;
+                break;
+            }
+        }
+
+        // 못 찾으면(= 전부 사용됨) 조용히 종료
+        if (anomalyIndex < 0) return;
+
+        // 3) 선택된 번호를 사용 처리(재등장 방지)
+        anomalyArray[anomalyIndex] = 1;
+
+        // 4) 특수 케이스: 9~13번은 트리거를 '1회용'으로만 전환
+        if (anomalyIndex >= minNum && anomalyIndex <= maxNum)
+        {
+            Debug.Log($"이상현상 {anomalyIndex + 1} : Trigger Once");
+            triggerZone.triggerOnce = true;
+            return;
+        }
+
+        // 5) 일반 케이스: 인덱스로 실행 위임
+        Debug.Log($"이상현상 {anomalyIndex + 1} 실행");
+        anomaly.TriggerAnomaly(anomalyIndex);
     }
 
     void InitAnomaly()
@@ -209,7 +138,7 @@ public class AnomalyManager : MonoBehaviour
         remainAnomaly = maxAnomalies;
     }
 
-   
+
     void Clear()
     {
         // clearImage.SetActive(true);
