@@ -22,7 +22,6 @@ public class BGMManager : MonoBehaviour
         {
             DontDestroyOnLoad(this.gameObject);
             instance = this;
-            Debug.Log("WeatherManager instance created");
         }
         else
         {

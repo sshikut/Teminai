@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class MovableObject : MonoBehaviour
+public class MovableObject : MonoBehaviour, IInteractable
 {
    
     public float targetYPosition = 0f;
@@ -16,7 +16,12 @@ public class MovableObject : MonoBehaviour
         originalPosition = transform.position;
     }
 
-   
+    public void Interact() // 인터페이스 함수
+    {
+        // 정확하게 이 스크립트가 어떤 역할을 하는지 몰라서 일단 이거만 해둠 
+        ResetPosition();
+    }
+
     public void StartMovement()
     {
        
