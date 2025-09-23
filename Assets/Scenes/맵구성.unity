@@ -2748,9 +2748,19 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1366743512}
     m_Modifications:
+    - target: {fileID: 192703406483554050, guid: d661034792de851458fcf597f8233157,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 230093154979034911, guid: d661034792de851458fcf597f8233157,
         type: 3}
       propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1937520802}
+    - target: {fileID: 1911936004434048953, guid: d661034792de851458fcf597f8233157,
+        type: 3}
+      propertyPath: timer
       value: 
       objectReference: {fileID: 1937520802}
     - target: {fileID: 2738106416477401019, guid: d661034792de851458fcf597f8233157,
@@ -6297,6 +6307,12 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -4963971308130889563, guid: 3c376ed52eb199549a1f8f4e8f133225, type: 3}
+--- !u!1 &801360485 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2610862245568586218, guid: d661034792de851458fcf597f8233157,
+    type: 3}
+  m_PrefabInstance: {fileID: 323932314}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &808422099
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14459,6 +14475,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Interaction
       objectReference: {fileID: 0}
+    - target: {fileID: 4188361314617592873, guid: 7ceeeaf50c694a34fb46edea5dec29cc,
+        type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 4188361314617592873, guid: 7ceeeaf50c694a34fb46edea5dec29cc,
+        type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4848300813094239509, guid: 7ceeeaf50c694a34fb46edea5dec29cc,
         type: 3}
       propertyPath: m_Pivot.x
@@ -14959,7 +14985,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeRemaining: 5
   timerText: {fileID: 616123046}
-  goalTrigger: {fileID: 0}
+  goalTrigger: {fileID: 801360485}
   anomaly: {fileID: 1937520797}
 --- !u!1001 &1939538222
 PrefabInstance:
