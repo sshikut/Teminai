@@ -4,24 +4,40 @@ using UnityEngine;
 public class AnomalyStatusUI : MonoBehaviour
 {
     [SerializeField] private TMP_Text statusText;
-    [SerializeField] public bool pollEveryFrame = true;
+    public AnomalyMethod anomalyMethod;      // 슬롯 제공자
+    [SerializeField] private bool pollEveryFrame = true;
 
-    [Header("이상현상 감시할 오브젝트들")]
-    [SerializeField] private GameObject[] targets;
+    // 슬롯 단위로 트리거 여부
+    private bool[] triggered;
 
-    private bool[] initialStates;
-    private bool[] triggered; // 한번이라도 발생한 적 있는지 기록
+    // 초기 상태 스냅샷: 슬롯별(아이템별) 활성 상태 저장
+    private bool[][] initialStatesBySlot;
 
     private void Awake()
     {
-        int len = targets.Length;
-        initialStates = new bool[len];
-        triggered = new bool[len];
+        if (!anomalyMethod) anomalyMethod = FindObjectOfType<AnomalyMethod>();
+        CaptureInitialStates();
 
-        for (int i = 0; i < len; i++)
-        {
-            if (targets[i]) initialStates[i] = targets[i].activeSelf;
-        }
+        // ★ 이벤트 구독 (슬롯이 실행되면 즉시 수집 처리)
+        if (anomalyMethod != null)
+            anomalyMethod.SlotTriggered += OnSlotTriggered;
+    }
+
+    private void OnDestroy()
+    {
+        // ★ 구독 해제
+        if (anomalyMethod != null)
+            anomalyMethod.SlotTriggered -= OnSlotTriggered;
+    }
+
+    // ★ 슬롯이 실행되면 바로 카운트 올리고 텍스트 갱신
+    private void OnSlotTriggered(int index)
+    {
+        if (triggered == null) return;
+        if (index < 0 || index >= triggered.Length) return;
+
+        triggered[index] = true;
+        UpdateText();
     }
 
     private void Start()
@@ -34,26 +50,98 @@ public class AnomalyStatusUI : MonoBehaviour
         if (pollEveryFrame) Refresh();
     }
 
-    public void Refresh()
+    // 슬롯/아이템들의 초기 activeSelf 상태를 저장
+    private void CaptureInitialStates()
     {
-        if (!statusText) return;
+        int len = (anomalyMethod != null) ? anomalyMethod.SlotCount : 0;
 
-        int total = targets.Length;
-        int current = 0;
+        triggered = new bool[len];
+        initialStatesBySlot = new bool[len][];
 
-        for (int i = 0; i < total; i++)
+        for (int i = 0; i < len; i++)
         {
-            if (!targets[i]) continue;
+            var slot = anomalyMethod.GetSlot(i);
 
-            // 초기 상태와 다르고, 아직 카운트 안 됐다면 기록
-            if (!triggered[i] && targets[i].activeSelf != initialStates[i])
+            if (slot == null || slot.Objects == null)
             {
-                triggered[i] = true;
+                initialStatesBySlot[i] = new bool[0];
+                continue;
             }
 
-            if (triggered[i]) current++;
+            int itemCount = slot.Objects.Length;
+            initialStatesBySlot[i] = new bool[itemCount];
+
+            for (int j = 0; j < itemCount; j++)
+            {
+                var item = slot.Objects[j];
+                var go = (item != null) ? item.target : null;
+                initialStatesBySlot[i][j] = (go != null) ? go.activeSelf : false;
+            }
+        }
+    }
+
+    public void Refresh()
+    {
+        if (!statusText || anomalyMethod == null) return;
+
+        int total = anomalyMethod.SlotCount;
+
+        // 슬롯 개수가 바뀌었을 수 있으니 재스냅샷
+        if (triggered == null || triggered.Length != total ||
+            initialStatesBySlot == null || initialStatesBySlot.Length != total)
+        {
+            CaptureInitialStates();
         }
 
+        // (선택) 기존 비교로도 감지하고 싶으면 유지
+        for (int i = 0; i < total; i++)
+        {
+            var slot = anomalyMethod.GetSlot(i);
+            if (slot == null || slot.Objects == null) continue;
+
+            if (!triggered[i])
+            {
+                bool changed = false;
+                int itemCount = slot.Objects.Length;
+
+                if (initialStatesBySlot[i] == null || initialStatesBySlot[i].Length != itemCount)
+                {
+                    changed = true;
+                }
+                else
+                {
+                    for (int j = 0; j < itemCount; j++)
+                    {
+                        var item = slot.Objects[j];
+                        var go = (item != null) ? item.target : null;
+
+                        bool now = (go != null) ? go.activeSelf : false;
+                        bool init = initialStatesBySlot[i][j];
+
+                        if (now != init)
+                        {
+                            changed = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (changed) triggered[i] = true;
+            }
+        }
+
+        UpdateText();
+    }
+
+    private void UpdateText()
+    {
+        int total = (triggered != null) ? triggered.Length : 0;
+        int current = 0;
+        if (triggered != null)
+        {
+            for (int i = 0; i < triggered.Length; i++)
+                if (triggered[i]) current++;
+        }
         statusText.text = $"{current}/{total}";
     }
 }
