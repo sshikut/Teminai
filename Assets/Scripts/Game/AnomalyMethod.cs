@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class AnomalyMethod : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class AnomalyMethod : MonoBehaviour
     [Serializable]
     public class AnomalyItem
     {
+        public UnityEvent onInvokeAction;
         public GameObject target;   // 대상 오브젝트
         public ActionType action;   // 적용 동작
         [HideInInspector] public bool initialActive; // ← 초기 상태 저장 (추가)
@@ -26,6 +28,7 @@ public class AnomalyMethod : MonoBehaviour
     {
         public string label;          // 보기용 이름(선택)
         public AnomalyItem[] Objects; // 슬롯 내 개별 동작들
+        public UnityEvent onSlotInvoked;
     }
 
     [Header("Anomaly 슬롯")]
@@ -141,9 +144,6 @@ public class AnomalyMethod : MonoBehaviour
     {
         get { return (slots == null) ? 0 : slots.Length; }
     }
-
-    // 외부에서 쓰기 좋은 래퍼
-    public void Anomaly(int index) { TriggerAnomaly(index); }
 
     // 슬롯 접근자(상태 UI 등에서 사용)
     public AnomalySlot GetSlot(int index)
