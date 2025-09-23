@@ -9951,7 +9951,7 @@ MonoBehaviour:
         m_PersistentCalls:
           m_Calls: []
       target: {fileID: 607919654}
-      action: 0
+      action: 1
       initialActive: 0
     onSlotInvoked:
       m_PersistentCalls:
@@ -10121,8 +10121,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statusText: {fileID: 1264709767}
+  anomalyMethod: {fileID: 1366743511}
   pollEveryFrame: 1
-  targets: []
 --- !u!1 &1376530298 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4367010069536674110, guid: 4c766edda6507e241bc1f4e0074cec66,
