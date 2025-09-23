@@ -14621,6 +14621,8 @@ MonoBehaviour:
   triggerZone: {fileID: 653665463}
   movableObject: {fileID: 0}
   timerManager: {fileID: 0}
+  minNum: 8
+  maxNum: 12
 --- !u!4 &1937520799
 Transform:
   m_ObjectHideFlags: 0
