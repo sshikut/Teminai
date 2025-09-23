@@ -43,8 +43,8 @@ public class AnomalyMethod : MonoBehaviour
         triggerZone1.triggerOnce = false;
         triggerZone1.hasTriggered = false;
         
-        // show_Anomaly2.SetActive(true);
-        // show_Anomaly3.SetActive(true);
+        show_Anomaly2.SetActive(true);
+        show_Anomaly3.SetActive(true);
         show_Anomaly4.SetActive(true);
         show_Anomaly5.SetActive(true);
         show_Anomaly6.SetActive(true);
