@@ -6,13 +6,13 @@ public class TogglePhone : MonoBehaviour
     [SerializeField] private GameObject phone; // 폰 오브젝트 할당
 
     private bool isActive = false;
-    private bool canToggle = true;
+   
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             isActive = !isActive;
-            // phone.SetActive(isActive);
+           
 
             if (isActive)
             {
@@ -26,11 +26,15 @@ public class TogglePhone : MonoBehaviour
             }
         }
     }
-    public void DisableToggleAfterOneUse()
+    public void DisableToggleAfterOneUse() // 핸드폰 ui가 켜져있지않으면 켜는 함수
     {
-        isActive = !isActive;
-        AudioManager.instance.Play("OpenPhone");
-        anim.Play("Open");
-        canToggle = false; // EndGame 이후 딱 한 번만 토글 가능하도록 허용
+        if (isActive == false)
+        {
+            isActive = !isActive;
+            AudioManager.instance.Play("OpenPhone");
+            anim.Play("Open");
+        }
+       
+     
     }
 }

@@ -26,16 +26,19 @@ public class AnomalyManager : MonoBehaviour
     public GameObject[] objectsToHide;
     public GameObject[] objectsToShow;
 
-    public TriggerZone triggerZone;
+    public List<TriggerZone> triggerZones = new List<TriggerZone>();
+    public InteractionManager interactionManager;
     public MovableObject movableObject;
     public TimerManager timerManager;
+    public YgerController ygerController;
     private void Start()
     {
         anomalyArray = new int[maxAnomalies];
         remainAnomaly = maxAnomalies;
-        triggerZone = FindObjectOfType<TriggerZone>();
+        interactionManager = FindObjectOfType<InteractionManager>();
         movableObject = FindObjectOfType<MovableObject>();
         timerManager = FindObjectOfType<TimerManager>();
+        ygerController = FindObjectOfType<YgerController>();
         Anomaly();
     }
 
@@ -43,7 +46,8 @@ public class AnomalyManager : MonoBehaviour
     {
         anomaly.InitAnomaly(); // 이상현상 초기화
         timerManager.timerText.text = null;
-        Debug.Log(triggerZone.triggerOnce +"이상현상매니저");
+        ygerController.ResetToOriginalPosition();   
+
         if (loopCount >= clearCount)
         {
             Clear();
@@ -108,27 +112,27 @@ public class AnomalyManager : MonoBehaviour
 
                 case 1:
                     Debug.Log("이상현상 2");
-                    anomaly.Anomaly_2();
+                 //   anomaly.Anomaly_2();
                     break;
 
                 case 2:
                     Debug.Log("이상현상 3");
-                    anomaly.Anomaly_3();
+                 //   anomaly.Anomaly_3();
                     break;
 
                 case 3:
                     Debug.Log("이상현상 4");
-                    anomaly.Anomaly_4();
+                //    anomaly.Anomaly_4();
                     break;
 
                 case 4:
                     Debug.Log("이상현상 5");
-                    anomaly.Anomaly_5();
+                //    anomaly.Anomaly_5();
                     break;
 
                 case 5:
                     Debug.Log("이상현상 6");
-                    anomaly.Anomaly_6();
+                  //  anomaly.Anomaly_6();
                     break;
 
                 case 6:
@@ -142,28 +146,54 @@ public class AnomalyManager : MonoBehaviour
                     break;
 
                 case 8:
-                    Debug.Log("이상현상 9"); triggerZone.triggerOnce = true;
-                    
+                    Debug.Log("이상현상 9"); 
+                    if (triggerZones.Count > 0 && triggerZones[0] != null)
+                    {
+                        interactionManager.ActivateInteraction();
+                        triggerZones[0].triggerOnce = true;
+                    }
                     break;
 
                 case 9:
-                    Debug.Log("이상현상 10"); triggerZone.triggerOnce = true;
+                    Debug.Log("이상현상 10");
+                    if (triggerZones.Count > 1 && triggerZones[1] != null)
+                    {
+                        ygerController.GoalTrigger.SetActive(true);
+                        triggerZones[1].triggerOnce = true;
+                    }
                     break;
 
                 case 10:
-                    Debug.Log("이상현상 11"); triggerZone.triggerOnce = true;
+                    Debug.Log("이상현상 11"); if (triggerZones.Count > 1 && triggerZones[1] != null)
+                    {
+                        ygerController.GoalTrigger.SetActive(true);
+                        triggerZones[1].triggerOnce = true;
+                    }
                     break;
 
                 case 11:
-                    Debug.Log("이상현상 12"); triggerZone.triggerOnce = true;
+                    Debug.Log("이상현상 12"); if (triggerZones.Count > 1 && triggerZones[1] != null)
+                    {
+                        ygerController.GoalTrigger.SetActive(true);
+                        triggerZones[1].triggerOnce = true;
+                    }
                     break;
 
                 case 12:
-                    Debug.Log("이상현상 13"); triggerZone.triggerOnce = true;
+                    Debug.Log("이상현상 13"); if (triggerZones.Count > 1 && triggerZones[1] != null)
+                    {
+                        ygerController.GoalTrigger.SetActive(true);
+                        triggerZones[1].triggerOnce = true;
+                    }
+           
                     break;
 
                 case 13:
-                    Debug.Log("이상현상 14");
+                    Debug.Log("이상현상 14"); if (triggerZones.Count > 1 && triggerZones[1] != null)
+                    {
+                        ygerController.GoalTrigger.SetActive(true);
+                        triggerZones[1].triggerOnce = true;
+                    }
                     break;
 
                 case 14:
@@ -194,8 +224,14 @@ public class AnomalyManager : MonoBehaviour
         else
         {
             // Default 현상으로 되돌리기
-            triggerZone.triggerOnce = false;
-     
+
+            for (int i = 0; i < triggerZones.Count; i++) // 지나친 트리거이벤트는 비활성화
+            {
+                triggerZones[i].triggerOnce = false;
+            }
+            
+
+
         }
     }
 

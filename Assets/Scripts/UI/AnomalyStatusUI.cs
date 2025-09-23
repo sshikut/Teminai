@@ -4,7 +4,7 @@ using UnityEngine;
 public class AnomalyStatusUI : MonoBehaviour
 {
     [SerializeField] private TMP_Text statusText;
-    [SerializeField] public bool pollEveryFrame = true;
+    [SerializeField] private bool pollEveryFrame = true;
 
     [Header("이상현상 감시할 오브젝트들")]
     [SerializeField] private GameObject[] targets;

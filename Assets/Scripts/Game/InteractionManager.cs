@@ -6,10 +6,6 @@ using System.Collections;
 public class InteractionManager : MonoBehaviour
 {
     public static InteractionManager Instance;
-    public CharacterController characterController;
-
-    public bool IsFading => isFading;
-
     public TimerManager TimerManager;
     private void Awake()
     {
@@ -24,6 +20,9 @@ public class InteractionManager : MonoBehaviour
         }
     }
 
+    [Header("상호작용 대상")]
+    public GameObject targetObject;
+
     [Header("UI 설정")]
     public TMP_Text interactionText;
     public Image fadePanel;
@@ -32,13 +31,10 @@ public class InteractionManager : MonoBehaviour
     public GameObject objectToMove;
     public Vector3 targetPosition;
 
-    [Header("Ray Setting")]
-    public float rayDistance = 3f;
-    public LayerMask interactableLayers;
-
     private bool isInteractable = false;
     private bool isFading = false;
 
+    public bool canInteract = false;
     void Start()
     {
         if (interactionText != null)
@@ -50,30 +46,36 @@ public class InteractionManager : MonoBehaviour
 
     void Update()
     {
-        if (isFading) return;
+        // --- [수정 1] 플래그를 확인하여 Update 함수의 작동 여부를 결정 ---
+        if (!canInteract)
+        {
+            // canInteract가 false이면 아무것도 하지 않고 즉시 종료
+            return;
+        }
 
-        
-        Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
+        // 아래는 canInteract가 true일 때만 실행됩니다.
+        if (targetObject == null || isFading) return;
+
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        Debug.DrawRay(ray.origin, ray.direction * rayDistance, Color.red);
-
-        if (Physics.Raycast(ray, out hit, rayDistance, interactableLayers))
+        if (Physics.Raycast(ray, out hit))
         {
-            IInteractable interactable = hit.collider.GetComponent<IInteractable>();
-
-            if (interactable != null)
+            if (hit.collider.gameObject == targetObject)
             {
                 isInteractable = true;
                 if (interactionText != null)
                 {
                     interactionText.gameObject.SetActive(true);
-                    interactionText.text = "E";
-                    if (Input.GetKeyDown(KeyCode.E))
-                    {
-                        // IInteractable 인터페이스를 상속받은 스크립트에 접근 
-                        interactable.Interact();
-                    }
+                    interactionText.text = "화장실 빨리 가야하는 현상";
+                }
+            }
+            else
+            {
+                isInteractable = false;
+                if (interactionText != null)
+                {
+                    interactionText.gameObject.SetActive(false);
                 }
             }
         }
@@ -85,14 +87,56 @@ public class InteractionManager : MonoBehaviour
                 interactionText.gameObject.SetActive(false);
             }
         }
+
+        if (isInteractable && Input.GetKeyDown(KeyCode.E))
+        {
+            gamestart();
+            interactionText.text = "";
+            DeactivateInteraction(); // --- [수정 2] 상호작용이 끝나면 자동으로 비활성화 ---
+        }
     }
 
+
+    public void ActivateInteraction()
+    {
+        Debug.Log("InteractionManager 활성화!");
+        canInteract = true;
+    }
+    public void DeactivateInteraction()
+    {
+        Debug.Log("InteractionManager 비활성화!");
+        canInteract = false;
+
+        // UI도 깔끔하게 비활성화 처리
+        isInteractable = false;
+        if (interactionText != null)
+        {
+            interactionText.gameObject.SetActive(false);
+        }
+    }
+    public void gamestart()
+    {
+        if (isFading) return;
+
+        StartGameSequence();
+    }
+
+    private void StartGameSequence()
+    {
+        
+     
+
+           
+        TimerManager.StartTimer();
+
+       
+    
+    }
     public void StartFadeIn()
     {
         if (fadePanel != null)
         {
             StartCoroutine(FadeEffect(1, 0, 1.5f));
-            characterController.enabled = true; 
         }
     }
 
@@ -101,7 +145,6 @@ public class InteractionManager : MonoBehaviour
         if (fadePanel != null)
         {
             StartCoroutine(FadeEffect(0, 1, 1.5f));
-            characterController.enabled = false;
         }
     }
 
