@@ -7,7 +7,7 @@ public class TimerManager : MonoBehaviour
 {
     public float timeRemaining = 30f; // 초기 제한 시간
     public TMP_Text timerText;
-    public GameObject GoalTrigger; // 목표 지점 트리거
+    public GameObject goalTrigger; // 목표 지점 트리거
     public AnomalyManager anomaly;
     private bool isTimerActive = false;
 
@@ -44,9 +44,9 @@ public class TimerManager : MonoBehaviour
         {
             timerText.gameObject.SetActive(true);
         }
-        if (GoalTrigger != null)
+        if (goalTrigger != null)
         {
-            GoalTrigger.SetActive(true);
+            goalTrigger.SetActive(true);
         }
     }
 
@@ -90,7 +90,7 @@ public class TimerManager : MonoBehaviour
     {
        
         timeRemaining = initialTimeRemaining;
-        GoalTrigger.SetActive(false);
+
         
         if (timerText != null)
         {

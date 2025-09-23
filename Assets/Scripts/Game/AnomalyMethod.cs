@@ -37,27 +37,24 @@ public class AnomalyMethod : MonoBehaviour
     [Header("Anomaly #8")] // 급똥 이상 현상
     public GameObject anomaly8_ToiletPaper;
 
-    private void Start()
-    {
-        triggerZone1 = FindObjectOfType<TriggerZone>();
-    }
     public void InitAnomaly()
     {
         changSubGod.SetActive(false);
-       
-
+        triggerZone1.triggerOnce = false;
+        triggerZone1.hasTriggered = false;
+        
         show_Anomaly2.SetActive(true);
         show_Anomaly3.SetActive(true);
         show_Anomaly4.SetActive(true);
         show_Anomaly5.SetActive(true);
         show_Anomaly6.SetActive(true);
         show_Anomaly7.SetActive(true);
-
+        
         hide_Anomaly1.SetActive(false);
 
         anomaly8_ToiletPaper.SetActive(false);
 
-       
+        Debug.Log("메소드" + triggerZone1.triggerOnce);
     }
 
     public void InitInteractable()
@@ -104,6 +101,6 @@ public class AnomalyMethod : MonoBehaviour
     public void Anomaly_8() // 급똥
     {
         anomaly8_ToiletPaper.SetActive(true);
-    }
-
+    } 
+   
 }

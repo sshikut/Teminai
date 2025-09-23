@@ -9,7 +9,6 @@ public class TriggerZone : MonoBehaviour
     public bool triggerOnce = false;
     public bool hasTriggered = false;
 
-
     private void OnTriggerEnter(Collider other)
     {
       
