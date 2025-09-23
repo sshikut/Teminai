@@ -15020,7 +15020,7 @@ MonoBehaviour:
   interactionText: {fileID: 872925532}
   fadePanel: {fileID: 1929486074}
   objectToMove: {fileID: 1941872147}
-  targetPosition: {x: -9, y: -3, z: 15}
+  targetPosition: {x: -10.42, y: -3.703, z: 12.69}
   rayDistance: 3
   interactableLayers:
     serializedVersion: 2
