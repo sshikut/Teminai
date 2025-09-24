@@ -7,6 +7,7 @@ public class AnomalyManager : MonoBehaviour
 {
     [Header("Game Settings")]
     public AnomalyMethod anomaly;
+    public RDSS rdss;
     public int loopCount = 0;
     public int absentCount = 0;
     public int clearCount = 8;
@@ -48,9 +49,10 @@ public class AnomalyManager : MonoBehaviour
 
     public void Anomaly()
     {
+        rdss.RandomSituation();
         anomaly.InitAnomaly(); // 이상현상 초기화
         timerManager.timerText.text = null;
-        Debug.Log(triggerZone.triggerOnce + "이상현상매니저");
+
         if (loopCount >= clearCount)
         {
             Clear();
