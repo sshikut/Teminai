@@ -9595,6 +9595,12 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &1295282484 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: cce9e12a592b18a488ba71c7c0d2e35b,
+    type: 3}
+  m_PrefabInstance: {fileID: 32354614}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1301106618
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9945,6 +9951,9 @@ MonoBehaviour:
   - label: Anomaly #2
     Objects:
     - target: {fileID: 7550791548511707281}
+      action: 1
+      initialActive: 0
+    - target: {fileID: 1295282484}
       action: 1
       initialActive: 0
     onSlotInvoked:
