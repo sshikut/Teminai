@@ -5639,6 +5639,12 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &686324897 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4214386082351395197, guid: 9f582fcc94d40d447ad0cc0fb1af014f,
+    type: 3}
+  m_PrefabInstance: {fileID: 3945704580596720462}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &686839630
 GameObject:
   m_ObjectHideFlags: 0
@@ -8000,12 +8006,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1079926964}
   m_Mesh: {fileID: 5697157286795072220, guid: 3e61a3d32fd906b46a2cdc0220ec13a5, type: 3}
---- !u!1 &1090889558 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3884267824153283426, guid: ce0c3aac376919e4fb1f5b14026cf793,
-    type: 3}
-  m_PrefabInstance: {fileID: 8890709560409690504}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1091412844 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4367010069536674110, guid: 4c766edda6507e241bc1f4e0074cec66,
@@ -9936,10 +9936,7 @@ MonoBehaviour:
   slots:
   - label: Anomaly #1
     Objects:
-    - onInvokeAction:
-        m_PersistentCalls:
-          m_Calls: []
-      target: {fileID: 1433726635}
+    - target: {fileID: 1433726635}
       action: 0
       initialActive: 0
     onSlotInvoked:
@@ -9947,10 +9944,7 @@ MonoBehaviour:
         m_Calls: []
   - label: Anomaly #2
     Objects:
-    - onInvokeAction:
-        m_PersistentCalls:
-          m_Calls: []
-      target: {fileID: 607919654}
+    - target: {fileID: 7550791548511707281}
       action: 1
       initialActive: 0
     onSlotInvoked:
@@ -9958,21 +9952,30 @@ MonoBehaviour:
         m_Calls: []
   - label: Anomaly #3
     Objects:
-    - onInvokeAction:
-        m_PersistentCalls:
-          m_Calls: []
-      target: {fileID: 1941847282}
+    - target: {fileID: 4747739707125491039}
+      action: 1
+      initialActive: 0
+    - target: {fileID: 919132148343891722}
       action: 1
       initialActive: 0
     onSlotInvoked:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: 
+          m_MethodName: 
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - label: Anomaly #4
     Objects:
-    - onInvokeAction:
-        m_PersistentCalls:
-          m_Calls: []
-      target: {fileID: 1877050597}
+    - target: {fileID: 686324897}
       action: 1
       initialActive: 0
     onSlotInvoked:
@@ -9980,10 +9983,7 @@ MonoBehaviour:
         m_Calls: []
   - label: Anomaly #5
     Objects:
-    - onInvokeAction:
-        m_PersistentCalls:
-          m_Calls: []
-      target: {fileID: 4747739707125491039}
+    - target: {fileID: 1877050597}
       action: 1
       initialActive: 0
     onSlotInvoked:
@@ -9991,10 +9991,7 @@ MonoBehaviour:
         m_Calls: []
   - label: Anomaly #6
     Objects:
-    - onInvokeAction:
-        m_PersistentCalls:
-          m_Calls: []
-      target: {fileID: 580929659}
+    - target: {fileID: 607919654}
       action: 1
       initialActive: 0
     onSlotInvoked:
@@ -10002,29 +9999,17 @@ MonoBehaviour:
         m_Calls: []
   - label: Anomaly #7
     Objects:
-    - onInvokeAction:
-        m_PersistentCalls:
-          m_Calls: []
-      target: {fileID: 1090889558}
+    - target: {fileID: 1180940075}
+      action: 1
+      initialActive: 0
+    - target: {fileID: 1382009172}
       action: 1
       initialActive: 0
     onSlotInvoked:
       m_PersistentCalls:
         m_Calls: []
   - label: Anomaly #8
-    Objects:
-    - onInvokeAction:
-        m_PersistentCalls:
-          m_Calls: []
-      target: {fileID: 1382009172}
-      action: 0
-      initialActive: 0
-    - onInvokeAction:
-        m_PersistentCalls:
-          m_Calls: []
-      target: {fileID: 1180940075}
-      action: 1
-      initialActive: 0
+    Objects: []
     onSlotInvoked:
       m_PersistentCalls:
         m_Calls: []
@@ -26215,6 +26200,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: "317 \uC758\uC790"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5653783456783771992, guid: 16fa450d70f0c2246a05f9f3e5b32bc6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5653783456783771992, guid: 16fa450d70f0c2246a05f9f3e5b32bc6,
         type: 3}
