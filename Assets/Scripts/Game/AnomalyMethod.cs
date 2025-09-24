@@ -17,7 +17,7 @@ public class AnomalyMethod : MonoBehaviour
     [Serializable]
     public class AnomalyItem
     {
-        public UnityEvent onInvokeAction;
+        //public UnityEvent onInvokeAction;
         public GameObject target;   // 대상 오브젝트
         public ActionType action;   // 적용 동작
         [HideInInspector] public bool initialActive; // ← 초기 상태 저장 (추가)

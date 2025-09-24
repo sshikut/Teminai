@@ -9934,7 +9934,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slots:
-  - label: 
+  - label: Anomaly #1
     Objects:
     - onInvokeAction:
         m_PersistentCalls:
@@ -9945,7 +9945,7 @@ MonoBehaviour:
     onSlotInvoked:
       m_PersistentCalls:
         m_Calls: []
-  - label: 
+  - label: Anomaly #2
     Objects:
     - onInvokeAction:
         m_PersistentCalls:
@@ -9956,7 +9956,7 @@ MonoBehaviour:
     onSlotInvoked:
       m_PersistentCalls:
         m_Calls: []
-  - label: 
+  - label: Anomaly #3
     Objects:
     - onInvokeAction:
         m_PersistentCalls:
@@ -9967,7 +9967,7 @@ MonoBehaviour:
     onSlotInvoked:
       m_PersistentCalls:
         m_Calls: []
-  - label: 
+  - label: Anomaly #4
     Objects:
     - onInvokeAction:
         m_PersistentCalls:
@@ -9978,7 +9978,7 @@ MonoBehaviour:
     onSlotInvoked:
       m_PersistentCalls:
         m_Calls: []
-  - label: 
+  - label: Anomaly #5
     Objects:
     - onInvokeAction:
         m_PersistentCalls:
@@ -9989,7 +9989,7 @@ MonoBehaviour:
     onSlotInvoked:
       m_PersistentCalls:
         m_Calls: []
-  - label: 
+  - label: Anomaly #6
     Objects:
     - onInvokeAction:
         m_PersistentCalls:
@@ -10000,7 +10000,7 @@ MonoBehaviour:
     onSlotInvoked:
       m_PersistentCalls:
         m_Calls: []
-  - label: 
+  - label: Anomaly #7
     Objects:
     - onInvokeAction:
         m_PersistentCalls:
@@ -10011,7 +10011,7 @@ MonoBehaviour:
     onSlotInvoked:
       m_PersistentCalls:
         m_Calls: []
-  - label: 
+  - label: Anomaly #8
     Objects:
     - onInvokeAction:
         m_PersistentCalls:
