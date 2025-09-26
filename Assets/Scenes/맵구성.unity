@@ -231,7 +231,7 @@ Transform:
   m_GameObject: {fileID: 33093634}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.84, y: -10.89, z: 22.47}
+  m_LocalPosition: {x: -9.84, y: -6.97, z: 88.68}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -256,8 +256,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 10, z: 9.327215}
-  m_Center: {x: 0, y: 0, z: -0.12040806}
+  m_Size: {x: 1, y: 8.721355, z: 5.2113647}
+  m_Center: {x: 0, y: 2.6086595, z: 0.4178543}
 --- !u!114 &33093637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4727,7 +4727,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 3e40189c616fe9f4bab36294c76bf980,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.608
+      value: -3.666
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3e40189c616fe9f4bab36294c76bf980,
         type: 3}
@@ -9220,10 +9220,7 @@ MonoBehaviour:
   slots:
   - label: Anomaly #1
     Objects:
-    - onInvokeAction:
-        m_PersistentCalls:
-          m_Calls: []
-      target: {fileID: 1433726635}
+    - target: {fileID: 1433726635}
       action: 0
       initialActive: 0
     onSlotInvoked:
@@ -9231,16 +9228,10 @@ MonoBehaviour:
         m_Calls: []
   - label: Anomaly #2
     Objects:
-    - onInvokeAction:
-        m_PersistentCalls:
-          m_Calls: []
-      target: {fileID: 7550791548511707281}
+    - target: {fileID: 7550791548511707281}
       action: 1
       initialActive: 0
-    - onInvokeAction:
-        m_PersistentCalls:
-          m_Calls: []
-      target: {fileID: 1295282484}
+    - target: {fileID: 1295282484}
       action: 1
       initialActive: 0
     onSlotInvoked:
@@ -9248,16 +9239,10 @@ MonoBehaviour:
         m_Calls: []
   - label: Anomaly #3
     Objects:
-    - onInvokeAction:
-        m_PersistentCalls:
-          m_Calls: []
-      target: {fileID: 4747739707125491039}
+    - target: {fileID: 4747739707125491039}
       action: 1
       initialActive: 0
-    - onInvokeAction:
-        m_PersistentCalls:
-          m_Calls: []
-      target: {fileID: 919132148343891722}
+    - target: {fileID: 919132148343891722}
       action: 1
       initialActive: 0
     onSlotInvoked:
@@ -9277,10 +9262,7 @@ MonoBehaviour:
           m_CallState: 2
   - label: Anomaly #4
     Objects:
-    - onInvokeAction:
-        m_PersistentCalls:
-          m_Calls: []
-      target: {fileID: 686324897}
+    - target: {fileID: 686324897}
       action: 1
       initialActive: 0
     onSlotInvoked:
@@ -9288,10 +9270,7 @@ MonoBehaviour:
         m_Calls: []
   - label: Anomaly #5
     Objects:
-    - onInvokeAction:
-        m_PersistentCalls:
-          m_Calls: []
-      target: {fileID: 1877050597}
+    - target: {fileID: 1877050597}
       action: 1
       initialActive: 0
     onSlotInvoked:
@@ -9299,10 +9278,7 @@ MonoBehaviour:
         m_Calls: []
   - label: Anomaly #6
     Objects:
-    - onInvokeAction:
-        m_PersistentCalls:
-          m_Calls: []
-      target: {fileID: 607919654}
+    - target: {fileID: 607919654}
       action: 1
       initialActive: 0
     onSlotInvoked:
@@ -9310,16 +9286,10 @@ MonoBehaviour:
         m_Calls: []
   - label: Anomaly #7
     Objects:
-    - onInvokeAction:
-        m_PersistentCalls:
-          m_Calls: []
-      target: {fileID: 1180940075}
+    - target: {fileID: 1180940075}
       action: 1
       initialActive: 0
-    - onInvokeAction:
-        m_PersistentCalls:
-          m_Calls: []
-      target: {fileID: 1382009172}
+    - target: {fileID: 1382009172}
       action: 1
       initialActive: 0
     onSlotInvoked:
@@ -10774,6 +10744,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0c76776f08bc224fb86f2658e8cded4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  situations:
+  - {fileID: 1502068525}
+  - {fileID: 1626439605}
+  - {fileID: 1838032663}
+  - {fileID: 1751448836}
+  - {fileID: 552756571}
+  random: 0
 --- !u!4 &1536302036
 Transform:
   m_ObjectHideFlags: 0
@@ -13800,8 +13777,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 10, z: 9.327215}
-  m_Center: {x: 0, y: 0, z: -0.12040806}
+  m_Size: {x: 1, y: 7.7145004, z: 5.186928}
+  m_Center: {x: 0, y: 3.0670156, z: -0.51488113}
 --- !u!4 &1855270539
 Transform:
   m_ObjectHideFlags: 0
@@ -13811,7 +13788,7 @@ Transform:
   m_GameObject: {fileID: 1855270537}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.11, y: 16.2, z: 22.47}
+  m_LocalPosition: {x: -4.11, y: -1.56, z: 95.39}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14854,6 +14831,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anomaly: {fileID: 1366743511}
+  rdss: {fileID: 1536302035}
   loopCount: 5
   absentCount: 5
   clearCount: 8
@@ -30076,7 +30054,7 @@ Transform:
   m_GameObject: {fileID: 5444727771768931831}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 12.276814, y: 0.72353774, z: 26.885849}
+  m_LocalPosition: {x: 12.276814, y: 0.655, z: 26.885849}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
