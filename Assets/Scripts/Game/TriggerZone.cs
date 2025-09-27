@@ -13,7 +13,7 @@ public class TriggerZone : MonoBehaviour
     {
       
 
-        if (other.CompareTag(targetTag) && triggerOnce == true)
+        if (other.CompareTag(targetTag) && triggerOnce == true && hasTriggered == false)
         {
 
             onTriggerEnter.Invoke();
