@@ -271,6 +271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anomaly: {fileID: 1937520797}
+  toggle: {fileID: 0}
 --- !u!114 &33093638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10014,7 +10015,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statusText: {fileID: 1264709767}
   anomalyMethod: {fileID: 1366743511}
-  pollEveryFrame: 1
 --- !u!1 &1376530298 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4367010069536674110, guid: 4c766edda6507e241bc1f4e0074cec66,
@@ -22508,7 +22508,7 @@ Transform:
   m_GameObject: {fileID: 2411031476099779316}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0.17, y: 0, z: 100.952126}
+  m_LocalPosition: {x: -0.35, y: 0, z: 100.952126}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
