@@ -1,11 +1,11 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class AnomalyStatusUI : MonoBehaviour
 {
     [SerializeField] private TMP_Text statusText;
-    public AnomalyMethod anomalyMethod;      // 슬롯 제공자
-    [SerializeField] private bool pollEveryFrame = true;
+    public AnomalyMethod anomalyMethod; // 슬롯 제공자
 
     // 슬롯 단위로 트리거 여부
     private bool[] triggered;
@@ -23,6 +23,11 @@ public class AnomalyStatusUI : MonoBehaviour
             anomalyMethod.SlotTriggered += OnSlotTriggered;
     }
 
+    private void Start()
+    {
+        UpdateText();
+    }
+
     private void OnDestroy()
     {
         // ★ 구독 해제
@@ -38,16 +43,6 @@ public class AnomalyStatusUI : MonoBehaviour
 
         triggered[index] = true;
         UpdateText();
-    }
-
-    private void Start()
-    {
-        if (!pollEveryFrame) Refresh();
-    }
-
-    private void Update()
-    {
-        if (pollEveryFrame) Refresh();
     }
 
     // 슬롯/아이템들의 초기 activeSelf 상태를 저장
