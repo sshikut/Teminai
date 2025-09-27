@@ -6,6 +6,8 @@ public class NormalHandler : MonoBehaviour
 {
     public AnomalyManager anomaly;
 
+    public TogglePhone toggle;
+
     public void NormalButton()
     {
         if (InteractionManager.Instance != null && InteractionManager.Instance.IsFading)
@@ -25,6 +27,14 @@ public class NormalHandler : MonoBehaviour
         AudioManager.instance.Play("Decision2");
 
         InteractionManager.Instance.StartFadeOut();
+
+        toggle.isActive = false;
+        AudioManager.instance.Play("ClosePhone");
+        toggle.anim.Play("Close");
+
+        // 마우스 숨기고 고정 (FPS 스타일)
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
 
         anomaly.Anomaly();
        
