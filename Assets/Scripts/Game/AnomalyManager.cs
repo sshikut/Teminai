@@ -1,10 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
+using System;
 using UnityEngine;
 
 public class AnomalyManager : MonoBehaviour
 {
+    public static event Action OnAnomalyHappened;
+
     [Header("Game Settings")]
     public AnomalyMethod anomaly;
     public RDSS rdss;
@@ -65,7 +65,7 @@ public class AnomalyManager : MonoBehaviour
             InitAnomaly();
         }
 
-        int spawnRate = Random.Range(1, 11);
+        int spawnRate = UnityEngine.Random.Range(1, 11);
 
         if (loopCount < 2) anomalyRate = 3;
         else if (loopCount < 3) anomalyRate = 4;
@@ -83,6 +83,7 @@ public class AnomalyManager : MonoBehaviour
         }
 
         PlayAnomaly(isAnomaly);
+        OnAnomalyHappened?.Invoke();
     }
 
     // isAnomaly
@@ -100,7 +101,7 @@ public class AnomalyManager : MonoBehaviour
 
         // 2) 아직 안 나온 인덱스 하나 찾기 (기존 코드 참조)
         int anomalyIndex = -1;
-        int start = Random.Range(0, anomalyArray.Length);
+        int start = UnityEngine.Random.Range(0, anomalyArray.Length);
         for (int k = 0; k < anomalyArray.Length; k++)
         {
             int idx = (start + k) % anomalyArray.Length;
