@@ -40,18 +40,30 @@ public class TogglePhone : MonoBehaviour
                 firstPersonController.cameraRotation = true;
             }
         }
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+            DisableToggleAfterOneUse();
+        }
     }
 
     public void DisableToggleAfterOneUse()
     {
-        isActive = true;
-        AudioManager.instance.Play("OpenPhone");
-        anim.Play("Open");
-        canToggle = false;
+
+        //isActive = true;
+        //AudioManager.instance.Play("OpenPhone");
+        //anim.Play("Open");
+        //canToggle = false;
+        if (isActive == false)  // ui가 열려있으면 안함
+        {
+            isActive = !isActive; // ui 열기
+            AudioManager.instance.Play("OpenPhone");
+            anim.Play("Open");
+        }
 
         // EndGame 이후 딱 한 번만 → 커서도 열릴 때처럼 보이게
         Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
-        firstPersonController.cameraRotation = false;
+            Cursor.lockState = CursorLockMode.None;
+            firstPersonController.cameraRotation = false;
+        
     }
 }

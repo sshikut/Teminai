@@ -29,6 +29,7 @@ public class AnomalyManager : MonoBehaviour
     public TriggerZone triggerZone;
     public MovableObject movableObject;
     public TimerManager timerManager;
+    public YgerController ygerController;
 
     [Header("Trigger-Once Index Range")]
     [Tooltip("예: 9~13번을 1회용으로 하려면 8 ~ 12 입력")]
@@ -44,11 +45,13 @@ public class AnomalyManager : MonoBehaviour
         triggerZone = FindObjectOfType<TriggerZone>();
         movableObject = FindObjectOfType<MovableObject>();
         timerManager = FindObjectOfType<TimerManager>();
+        ygerController = FindObjectOfType<YgerController>();
         Anomaly();
     }
 
     public void Anomaly()
     {
+        ygerController.ResetToOriginalPosition();
         rdss.RandomSituation();
         anomaly.InitAnomaly(); // 이상현상 초기화
         timerManager.timerText.text = null;
