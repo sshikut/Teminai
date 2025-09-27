@@ -64,9 +64,11 @@ namespace StarterAssets
 		private float _jumpTimeoutDelta;
 		private float _fallTimeoutDelta;
 
-	
+		public bool cameraRotation = true;
+
+
 #if ENABLE_INPUT_SYSTEM
-		private PlayerInput _playerInput;
+        private PlayerInput _playerInput;
 #endif
 		private CharacterController _controller;
 		private StarterAssetsInputs _input;
@@ -131,6 +133,11 @@ namespace StarterAssets
 
 		private void CameraRotation()
 		{
+			if (!cameraRotation)
+			{
+				return;
+			}
+
 			// if there is an input
 			if (_input.look.sqrMagnitude >= _threshold)
 			{

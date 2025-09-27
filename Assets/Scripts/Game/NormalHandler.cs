@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using StarterAssets;
 using UnityEngine;
 
 public class NormalHandler : MonoBehaviour
 {
+    public FirstPersonController firstPersonController;
+
     public AnomalyManager anomaly;
 
     public TogglePhone toggle;
@@ -35,6 +38,8 @@ public class NormalHandler : MonoBehaviour
         // 마우스 숨기고 고정 (FPS 스타일)
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+
+        firstPersonController.cameraRotation = true;
 
         anomaly.Anomaly();
        
