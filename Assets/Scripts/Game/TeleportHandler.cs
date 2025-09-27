@@ -13,7 +13,7 @@ public class TeleportHandler : MonoBehaviour
             player.enabled = false;
             player.transform.position = new Vector3
                 (player.transform.position.x,
-                player.transform.position.y - 24.309997f,
+                player.transform.position.y - 9.109f,
                 player.transform.position.z);
 
             player.enabled = true;

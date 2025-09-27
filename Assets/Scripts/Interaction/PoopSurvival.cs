@@ -6,9 +6,11 @@ public class PoopSurvival : MonoBehaviour, IInteractable
 {
     // 급똥 이상 현상일 때 해당 오브젝트가 활성화되며 상호 작용이 가능함
     public TimerManager timer;
+    public GameObject trigger;
 
     public void Interact()
     {
         timer.StartTimer();
+        // trigger.SetActive(true);
     }
 }
