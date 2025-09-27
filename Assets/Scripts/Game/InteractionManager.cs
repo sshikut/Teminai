@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System;
 using System.Collections;
 
 public class InteractionManager : MonoBehaviour
@@ -52,8 +53,7 @@ public class InteractionManager : MonoBehaviour
     {
         if (isFading) return;
 
-        
-        Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
+        Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2f, Screen.height / 2f));
         RaycastHit hit;
 
         Debug.DrawRay(ray.origin, ray.direction * rayDistance, Color.red);
@@ -75,15 +75,14 @@ public class InteractionManager : MonoBehaviour
                         interactable.Interact();
                     }
                 }
+                return;
             }
         }
-        else
+
+        isInteractable = false;
+        if (interactionText != null)
         {
-            isInteractable = false;
-            if (interactionText != null)
-            {
-                interactionText.gameObject.SetActive(false);
-            }
+            interactionText.gameObject.SetActive(false);
         }
     }
 
@@ -92,7 +91,7 @@ public class InteractionManager : MonoBehaviour
         if (fadePanel != null)
         {
             StartCoroutine(FadeEffect(1, 0, 1.5f));
-            characterController.enabled = true; 
+            if (characterController) characterController.enabled = true;
         }
     }
 
@@ -101,8 +100,31 @@ public class InteractionManager : MonoBehaviour
         if (fadePanel != null)
         {
             StartCoroutine(FadeEffect(0, 1, 1.5f));
-            characterController.enabled = false;
+            if (characterController) characterController.enabled = false;
         }
+    }
+
+    // ★ 추가
+    public void StartFadeOut(Action onBlack)
+    {
+        if (fadePanel != null)
+            StartCoroutine(FadeOutRoutine(onBlack));
+    }
+
+    // ★ 추가
+    private IEnumerator FadeOutRoutine(Action onBlack)
+    {
+        if (characterController) characterController.enabled = false;
+
+        // 기존 로직 그대로 활용(완전 검정까지)
+        yield return StartCoroutine(FadeEffect(0, 1, 1.5f));
+
+        // 실제로 검정이 그려진 다음 프레임을 보장
+        yield return new WaitForEndOfFrame(); // 필요시 yield return null; 추가 가능
+
+        onBlack?.Invoke();
+        // 이후 페이드인은 기존 FadeEffect(endAlpha==1)에서 이미 호출됨
+        // (이 줄에서 다시 StartFadeIn() 호출할 필요 없음)
     }
 
     IEnumerator FadeEffect(float startAlpha, float endAlpha, float duration)
@@ -126,18 +148,16 @@ public class InteractionManager : MonoBehaviour
             fadeColor.a = endAlpha;
             fadePanel.color = fadeColor;
 
-            if (endAlpha == 0)
+            if (Mathf.Approximately(endAlpha, 0f))
             {
                 fadePanel.gameObject.SetActive(false);
             }
 
-            if (endAlpha == 1)
+            if (Mathf.Approximately(endAlpha, 1f))
             {
                 if (objectToMove != null)
                 {
-                
                     CharacterController cc = objectToMove.GetComponent<CharacterController>();
-
                     if (cc != null) cc.enabled = false;
 
                     objectToMove.transform.position = targetPosition;
@@ -147,14 +167,14 @@ public class InteractionManager : MonoBehaviour
                     Debug.Log($"{objectToMove.name}의 위치를 {targetPosition}으로 변경했습니다.");
                 }
 
+                // 기존 동작 유지: 검정 도달 즉시 페이드인 시작
                 StartFadeIn();
             }
         }
 
-        if (endAlpha == 0)
+        if (Mathf.Approximately(endAlpha, 0f))
         {
             isFading = false;
         }
-        
     }
 }

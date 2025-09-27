@@ -41,7 +41,9 @@ public class NormalHandler : MonoBehaviour
 
         firstPersonController.cameraRotation = true;
 
-        anomaly.Anomaly();
-       
+        InteractionManager.Instance.StartFadeOut(() =>
+        {
+            anomaly.Anomaly(); // 검정이 한 프레임 실제로 그려진 뒤 실행
+        });
     }
 }
