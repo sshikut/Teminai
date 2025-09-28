@@ -45,6 +45,7 @@ public class AnomalyManager : MonoBehaviour
 
     public void Anomaly()
     {
+        OnAnomalyHappened?.Invoke();
         ygerController.ResetToOriginalPosition();
         rdss.RandomSituation();
         anomaly.InitAnomaly(); // 이상현상 초기화
@@ -80,7 +81,6 @@ public class AnomalyManager : MonoBehaviour
         }
 
         PlayAnomaly(isAnomaly);
-        OnAnomalyHappened?.Invoke();
     }
 
     // isAnomaly

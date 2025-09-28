@@ -27,6 +27,17 @@ public class MovableObject : MonoBehaviour, IInteractable
         }
     }
 
+    private void OnEnable()
+    {
+        AnomalyManager.OnAnomalyHappened += UpPosition;
+    }
+
+
+    private void OnDisable()
+    {
+        AnomalyManager.OnAnomalyHappened -= UpPosition;
+    }
+
     public void StartMovement()
     {
         if (moveCoroutine != null)
@@ -67,7 +78,15 @@ public class MovableObject : MonoBehaviour, IInteractable
 
     public void DownPosition()
     {
+        StopAllCoroutines();
         screen.transform.position = targetPosition;
         hasMoved = true;
+    }
+
+    public void UpPosition()
+    {
+        StopAllCoroutines();
+        screen.transform.position = originalPosition;
+        hasMoved = false;
     }
 }
