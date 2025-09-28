@@ -22,6 +22,15 @@ public class RDSS : MonoBehaviour
 
     public void InitSituation()
     {
-        situations[random].SetActive(false);
+        for (int i = 0; i < situations.Length; i++)
+        {
+            situations[i].SetActive(false);
+        }
+    }
+
+    public void SelectSituation(int num)
+    {
+        InitSituation();
+        situations[num].SetActive(true);
     }
 }

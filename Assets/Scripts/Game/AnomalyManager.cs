@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class AnomalyManager : MonoBehaviour
@@ -63,9 +64,9 @@ public class AnomalyManager : MonoBehaviour
 
         int spawnRate = UnityEngine.Random.Range(1, 11);
 
-        if (loopCount < 2) anomalyRate = 3;
-        else if (loopCount < 3) anomalyRate = 4;
-        else if (loopCount < 6) anomalyRate = 5;
+        if (loopCount < 2) anomalyRate = 4;
+        else if (loopCount < 3) anomalyRate = 5;
+        else if (loopCount < 6) anomalyRate = 6;
         else anomalyRate = 7;
 
         if (spawnRate <= anomalyRate)
@@ -115,7 +116,7 @@ public class AnomalyManager : MonoBehaviour
         anomaly.TriggerAnomaly(anomalyIndex);
     }
 
-    void InitAnomaly()
+    public void InitAnomaly()
     {
         for (int i = 0; i < anomalyArray.Length; i++)
         {
@@ -129,5 +130,27 @@ public class AnomalyManager : MonoBehaviour
     void Clear()
     {
         // clearImage.SetActive(true);
+    }
+
+    public void AnomalyTest(int num)
+    {
+        anomaly.InitAnomaly();
+        isAnomaly = true;
+        anomaly.TriggerAnomaly(num - 1);
+    }
+
+    public void RDSSTest(int num)
+    {
+        rdss.SelectSituation(num);
+    }
+
+    public void SetLoopCount(int num)
+    {
+        loopCount = num;
+    }
+
+    public void SetAbsentCount(int num)
+    {
+        absentCount = num;
     }
 }
