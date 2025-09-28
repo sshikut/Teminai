@@ -3933,7 +3933,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &345014029
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12428,6 +12428,16 @@ PrefabInstance:
       propertyPath: moveThreshold
       value: 0.01
       objectReference: {fileID: 0}
+    - target: {fileID: 8616685848737228371, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+        type: 3}
+      propertyPath: MoveSpeed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8616685848737228371, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+        type: 3}
+      propertyPath: SprintSpeed
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8616685848737228372, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
         type: 3}
       propertyPath: m_Name
@@ -13518,7 +13528,7 @@ MonoBehaviour:
   - label: Anomaly #10
     Objects:
     - target: {fileID: 1292819284}
-      action: 2
+      action: 0
       initialActive: 0
     onSlotInvoked:
       m_PersistentCalls:
