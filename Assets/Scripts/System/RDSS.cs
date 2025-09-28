@@ -1,9 +1,18 @@
 using UnityEngine;
+using UnityEngine.Events;
+
+[System.Serializable]
+public class Situation
+{
+    public string description;
+    public UnityEvent onActivate;
+    public UnityEvent onDeactivate;
+}
 
 public class RDSS : MonoBehaviour
 {
-    public GameObject[] situations;
-    public int random;
+    public Situation[] situations;
+    public int currentSituationIndex = -1;
 
     // RDS_0 = 교수는 강의 중
     // RDS_1 = 교수는 쉬는 중
@@ -13,24 +22,40 @@ public class RDSS : MonoBehaviour
 
     public void RandomSituation()
     {
-        InitSituation();
+        if (currentSituationIndex != -1)
+        {
+            situations[currentSituationIndex].onDeactivate.Invoke();
+        }
 
-        random = Random.Range(0, situations.Length);
+        int randomIndex = Random.Range(0, situations.Length);
+        currentSituationIndex = randomIndex;
 
-        situations[random].SetActive(true);
+        situations[currentSituationIndex].onActivate.Invoke();
     }
 
-    public void InitSituation()
+    public void SelectSituation(int index)
+    {
+        if (index < 0 || index >= situations.Length)
+        {
+            return;
+        }
+
+        if (currentSituationIndex != -1)
+        {
+            situations[currentSituationIndex].onDeactivate.Invoke();
+        }
+
+        currentSituationIndex = index;
+
+        situations[currentSituationIndex].onActivate.Invoke();
+    }
+
+    public void InitAllSituations()
     {
         for (int i = 0; i < situations.Length; i++)
         {
-            situations[i].SetActive(false);
+            situations[i].onDeactivate.Invoke();
         }
-    }
-
-    public void SelectSituation(int num)
-    {
-        InitSituation();
-        situations[num].SetActive(true);
+        currentSituationIndex = -1;
     }
 }

@@ -64,4 +64,10 @@ public class MovableObject : MonoBehaviour, IInteractable
 
         screen.transform.position = target;
     }
+
+    public void DownPosition()
+    {
+        screen.transform.position = targetPosition;
+        hasMoved = true;
+    }
 }
