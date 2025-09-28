@@ -19739,7 +19739,7 @@ MonoBehaviour:
   clearImage: {fileID: 0}
   isAnomaly: 0
   anomalyRate: 5
-  maxAnomalies: 20
+  maxAnomalies: 10
   anomalyArray: 00000000
   remainAnomaly: 0
   movableObject: {fileID: 0}
