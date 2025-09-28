@@ -5672,7 +5672,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &653665462
 Transform:
   m_ObjectHideFlags: 0
@@ -5750,6 +5750,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bccc9065b54623841910cddc62d4c328, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetTag: Player
   onTriggerEnter:
     m_PersistentCalls:
       m_Calls:
@@ -5765,9 +5766,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  targetTag: Player
-  triggerOnce: 0
-  hasTriggered: 0
 --- !u!1 &654402330
 GameObject:
   m_ObjectHideFlags: 0
@@ -9776,6 +9774,90 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2688213843600500004}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1185759889
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1185759890}
+  - component: {fileID: 1185759892}
+  - component: {fileID: 1185759891}
+  m_Layer: 0
+  m_Name: moniter_screen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1185759890
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1185759889}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.07867096, y: 0.9969007, z: -0, w: 0}
+  m_LocalPosition: {x: 0.2397, y: 1.5096, z: 0.6342397}
+  m_LocalScale: {x: 0.0041597006, y: 0.14590685, z: 0.50747186}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5960243744770707974}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: -9.024}
+--- !u!33 &1185759891
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1185759889}
+  m_Mesh: {fileID: 1733324532218087901, guid: 2aab7dae243849c45b88183a78f2c20e, type: 3}
+--- !u!23 &1185759892
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1185759889}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: cbb3a559ae0d0dd4fbcf128b300c7583, type: 2}
+  - {fileID: 2100000, guid: f10521a58eaaa494986cbde4f51b847b, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1001 &1190016396
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10910,7 +10992,7 @@ GameObject:
   - component: {fileID: 1292819285}
   - component: {fileID: 1292819288}
   - component: {fileID: 1292819287}
-  - component: {fileID: 1292819286}
+  - component: {fileID: 1292819289}
   m_Layer: 0
   m_Name: trigger (1)
   m_TagString: Untagged
@@ -10927,42 +11009,12 @@ Transform:
   m_GameObject: {fileID: 1292819284}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15.242, y: -2.637, z: 23.297}
+  m_LocalPosition: {x: 15.242, y: -2.637, z: 34.46}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 390672975}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1292819286
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1292819284}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bccc9065b54623841910cddc62d4c328, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onTriggerEnter:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1941872163}
-        m_TargetAssemblyTypeName: StayInPlace, Assembly-CSharp
-        m_MethodName: StartEffect
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  targetTag: Player
-  triggerOnce: 1
-  hasTriggered: 0
 --- !u!136 &1292819287
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -11013,6 +11065,34 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1292819289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1292819284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bccc9065b54623841910cddc62d4c328, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTag: Player
+  onTriggerEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1941872163}
+        m_TargetAssemblyTypeName: StayInPlace, Assembly-CSharp
+        m_MethodName: StartEffect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1295040471 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2484787188731986999, guid: 7ceeeaf50c694a34fb46edea5dec29cc,
@@ -11423,10 +11503,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   - label: Anomaly #10
-    Objects:
-    - target: {fileID: 653665461}
-      action: 2
-      initialActive: 0
+    Objects: []
     onSlotInvoked:
       m_PersistentCalls:
         m_Calls: []
@@ -11453,19 +11530,7 @@ MonoBehaviour:
       initialActive: 0
     onSlotInvoked:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: 
-          m_MethodName: 
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
   - label: Anomaly #14
     Objects: []
     onSlotInvoked:
@@ -11585,7 +11650,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  triggerZone1: {fileID: 0}
 --- !u!4 &1366743512
 Transform:
   m_ObjectHideFlags: 0
@@ -17694,14 +17758,9 @@ MonoBehaviour:
   maxAnomalies: 20
   anomalyArray: 00000000
   remainAnomaly: 0
-  objectsToHide: []
-  objectsToShow: []
-  triggerZone: {fileID: 0}
   movableObject: {fileID: 0}
   timerManager: {fileID: 0}
   ygerController: {fileID: 0}
-  minNum: 19
-  maxNum: 19
 --- !u!4 &1937520799
 Transform:
   m_ObjectHideFlags: 0
@@ -32989,7 +33048,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 6496310604743507639, guid: 52ac7938c0d3c514a8ea77704c71483c,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1185759890}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5867161995692123149, guid: 52ac7938c0d3c514a8ea77704c71483c,
         type: 3}

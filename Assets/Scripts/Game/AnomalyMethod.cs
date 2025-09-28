@@ -34,7 +34,7 @@ public class AnomalyMethod : MonoBehaviour
     [Header("Anomaly 슬롯")]
     public AnomalySlot[] slots;
 
-    public TriggerZone triggerZone1;
+   
 
     // 시작 시 한 번 초기 상태 저장
     private void Awake()
@@ -84,11 +84,7 @@ public class AnomalyMethod : MonoBehaviour
             }
         }
 
-        if (triggerZone1 != null)
-        {
-            triggerZone1.triggerOnce = false;
-            triggerZone1.hasTriggered = false;
-        }
+       
     }
 
     // 인덱스로 특정 슬롯 실행

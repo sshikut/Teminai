@@ -22,19 +22,13 @@ public class AnomalyManager : MonoBehaviour
     public int[] anomalyArray;
     public int remainAnomaly;
 
-    [Header("Anomaly Objects")]
-    public GameObject[] objectsToHide;
-    public GameObject[] objectsToShow;
 
-    public TriggerZone triggerZone;
+    
     public MovableObject movableObject;
     public TimerManager timerManager;
     public YgerController ygerController;
 
-    [Header("Trigger-Once Index Range")]
-    [Tooltip("예: 9~13번을 1회용으로 하려면 8 ~ 12 입력")]
-    public int minNum;
-    public int maxNum;
+
 
 
 
@@ -42,7 +36,6 @@ public class AnomalyManager : MonoBehaviour
     {
         anomalyArray = new int[maxAnomalies];
         remainAnomaly = maxAnomalies;
-        triggerZone = FindObjectOfType<TriggerZone>();
         movableObject = FindObjectOfType<MovableObject>();
         timerManager = FindObjectOfType<TimerManager>();
         ygerController = FindObjectOfType<YgerController>();
@@ -95,12 +88,7 @@ public class AnomalyManager : MonoBehaviour
 
     void PlayAnomaly(bool isAnomaly)
     {
-        // 1) 이번 라운드가 '정상'이면 트리거를 다회용으로 풀고 종료
-        if (!isAnomaly)
-        {
-            triggerZone.triggerOnce = false;
-            return;
-        }
+        if (!isAnomaly) { return; }
 
         // 2) 아직 안 나온 인덱스 하나 찾기 (기존 코드 참조)
         int anomalyIndex = -1;
@@ -121,14 +109,7 @@ public class AnomalyManager : MonoBehaviour
         // 3) 선택된 번호를 사용 처리(재등장 방지)
         anomalyArray[anomalyIndex] = 1;
 
-        // 4) 특수 케이스: 9~13번은 트리거를 '1회용'으로만 전환
-        if (anomalyIndex >= minNum && anomalyIndex <= maxNum)
-        {
-            Debug.Log($"이상현상 {anomalyIndex + 1} : Trigger Once");
-            triggerZone.triggerOnce = true;
-            return;
-        }
-
+       
         // 5) 일반 케이스: 인덱스로 실행 위임
         Debug.Log($"이상현상 {anomalyIndex + 1} 실행");
         anomaly.TriggerAnomaly(anomalyIndex);
