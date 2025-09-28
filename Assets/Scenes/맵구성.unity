@@ -6568,12 +6568,6 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!1 &686324897 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4214386082351395197, guid: 9f582fcc94d40d447ad0cc0fb1af014f,
-    type: 3}
-  m_PrefabInstance: {fileID: 3945704580596720462}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &686839630
 GameObject:
   m_ObjectHideFlags: 0
@@ -11719,12 +11713,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!1 &1295282484 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: cce9e12a592b18a488ba71c7c0d2e35b,
-    type: 3}
-  m_PrefabInstance: {fileID: 32354614}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1301106618
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12025,18 +12013,21 @@ MonoBehaviour:
   slots:
   - label: Anomaly #1
     Objects:
-    - target: {fileID: 1433726635}
-      action: 0
+    - target: {fileID: 607919654}
+      action: 1
+      initialActive: 0
+    - target: {fileID: 919132148343891722}
+      action: 1
+      initialActive: 0
+    - target: {fileID: 4747739707125491039}
+      action: 1
       initialActive: 0
     onSlotInvoked:
       m_PersistentCalls:
         m_Calls: []
   - label: Anomaly #2
     Objects:
-    - target: {fileID: 7550791548511707281}
-      action: 1
-      initialActive: 0
-    - target: {fileID: 1295282484}
+    - target: {fileID: 607919654}
       action: 1
       initialActive: 0
     onSlotInvoked:
@@ -12052,40 +12043,22 @@ MonoBehaviour:
       initialActive: 0
     onSlotInvoked:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: 
-          m_MethodName: 
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
   - label: Anomaly #4
     Objects:
-    - target: {fileID: 686324897}
-      action: 1
+    - target: {fileID: 653665461}
+      action: 2
       initialActive: 0
     onSlotInvoked:
       m_PersistentCalls:
         m_Calls: []
   - label: Anomaly #5
-    Objects:
-    - target: {fileID: 1877050597}
-      action: 1
-      initialActive: 0
+    Objects: []
     onSlotInvoked:
       m_PersistentCalls:
         m_Calls: []
   - label: Anomaly #6
-    Objects:
-    - target: {fileID: 607919654}
-      action: 1
-      initialActive: 0
+    Objects: []
     onSlotInvoked:
       m_PersistentCalls:
         m_Calls: []
@@ -12112,24 +12085,9 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   - label: Anomaly #9
-    Objects: []
-    onSlotInvoked:
-      m_PersistentCalls:
-        m_Calls: []
-  - label: Anomaly #10
-    Objects: []
-    onSlotInvoked:
-      m_PersistentCalls:
-        m_Calls: []
-  - label: Anomaly #11
-    Objects: []
-    onSlotInvoked:
-      m_PersistentCalls:
-        m_Calls: []
-  - label: Anomaly #12
     Objects:
     - target: {fileID: 5194334310847763094}
-      action: 1
+      action: 0
       initialActive: 0
     - target: {fileID: 849079380}
       action: 0
@@ -12137,7 +12095,7 @@ MonoBehaviour:
     onSlotInvoked:
       m_PersistentCalls:
         m_Calls: []
-  - label: Anomaly #13
+  - label: Anomaly #10
     Objects:
     - target: {fileID: 1292819284}
       action: 2
@@ -12145,125 +12103,6 @@ MonoBehaviour:
     onSlotInvoked:
       m_PersistentCalls:
         m_Calls: []
-  - label: Anomaly #14
-    Objects: []
-    onSlotInvoked:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: 
-          m_MethodName: 
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - label: Anomaly #15
-    Objects: []
-    onSlotInvoked:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: 
-          m_MethodName: 
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - label: Anomaly #16
-    Objects: []
-    onSlotInvoked:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: 
-          m_MethodName: 
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - label: Anomaly #17
-    Objects: []
-    onSlotInvoked:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: 
-          m_MethodName: 
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - label: Anomaly #18
-    Objects: []
-    onSlotInvoked:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: 
-          m_MethodName: 
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - label: Anomaly #19
-    Objects: []
-    onSlotInvoked:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: 
-          m_MethodName: 
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - label: Anomaly #20
-    Objects: []
-    onSlotInvoked:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: 
-          m_MethodName: 
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!4 &1366743512
 Transform:
   m_ObjectHideFlags: 0
