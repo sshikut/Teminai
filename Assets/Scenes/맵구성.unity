@@ -15803,7 +15803,7 @@ MonoBehaviour:
   - label: Anomaly #9
     Objects:
     - target: {fileID: 5194334310847763094}
-      action: 0
+      action: 1
       initialActive: 0
     - target: {fileID: 849079380}
       action: 0
