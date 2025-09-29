@@ -9624,7 +9624,6 @@ GameObject:
   - component: {fileID: 849079383}
   - component: {fileID: 849079382}
   - component: {fileID: 849079387}
-  - component: {fileID: 849079386}
   m_Layer: 0
   m_Name: Cube.055_horror
   m_TagString: Untagged
@@ -9815,22 +9814,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 849079380}
   m_Mesh: {fileID: 6335965048631572536, guid: 63c8901f2b4afbe4ab69da2ee5e0e653, type: 3}
---- !u!114 &849079386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 849079380}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02c22da785b0c9145b57f1e5a79e4fe2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  zoneSource: {fileID: 849079382}
-  bgmDuckVolume: 0
-  bgmFadeSeconds: 0.35
-  stopZoneOnExit: 1
 --- !u!65 &849079387
 BoxCollider:
   m_ObjectHideFlags: 0
