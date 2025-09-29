@@ -11,8 +11,8 @@ public class TogglePhone : MonoBehaviour
     public bool isActive = false;
     private bool canToggle = true;
 
-    private bool phone1 = false;
-    private bool phone2 = false;
+    public bool phone1 = false;
+    public bool phone2 = false;
 
     void Update()
     {
@@ -103,8 +103,8 @@ public class TogglePhone : MonoBehaviour
 
         // EndGame 이후 딱 한 번만 → 커서도 열릴 때처럼 보이게
         Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-            firstPersonController.cameraRotation = false;
+        Cursor.lockState = CursorLockMode.None;
+        firstPersonController.cameraRotation = false;
         
     }
 }

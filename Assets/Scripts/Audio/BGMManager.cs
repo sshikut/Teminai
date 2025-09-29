@@ -20,6 +20,7 @@ public class BGMManager : MonoBehaviour
     {
         if (instance == null)
         {
+            transform.SetParent(null);
             DontDestroyOnLoad(this.gameObject);
             instance = this;
         }

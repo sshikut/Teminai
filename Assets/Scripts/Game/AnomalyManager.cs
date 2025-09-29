@@ -153,4 +153,26 @@ public class AnomalyManager : MonoBehaviour
     {
         absentCount = num;
     }
+
+    public void ResetGame()
+    {
+        loopCount = 0;
+        absentCount = 0;
+        isAnomaly = false;
+
+        InteractionManager.Instance.StartFadeOut(() =>
+        {
+            InitAnomaly();
+
+            if (ygerController != null)
+                ygerController.ResetToOriginalPosition();
+
+            if (anomaly != null)
+                anomaly.InitAnomaly();
+        });
+
+        Debug.Log("게임 전체가 초기화되었습니다!");
+
+
+    }
 }

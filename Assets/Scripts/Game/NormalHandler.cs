@@ -31,6 +31,7 @@ public class NormalHandler : MonoBehaviour
 
         InteractionManager.Instance.StartFadeOut();
 
+        toggle.phone2 = false;
         toggle.isActive = false;
         AudioManager.instance.Play("ClosePhone");
         toggle.anim.Play("Close");
