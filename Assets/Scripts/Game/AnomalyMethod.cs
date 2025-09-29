@@ -116,7 +116,7 @@ public class AnomalyMethod : MonoBehaviour
         }
 
         slot.onSlotInvoked?.Invoke();
-        // SlotTriggered?.Invoke(index);
+        SlotTriggered?.Invoke(index);
     }
 
     // 강제로 on/off (슬롯의 모든 아이템에 일괄 적용)
