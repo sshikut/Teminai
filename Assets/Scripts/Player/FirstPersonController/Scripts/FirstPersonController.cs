@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
 #endif
@@ -76,7 +77,12 @@ namespace StarterAssets
 
 		private const float _threshold = 0.01f;
 
-		private bool IsCurrentDeviceMouse
+        private Coroutine speedBoostCoroutine;
+        // 플레이어의 원래 이동 속도와 달리기 속도를 저장할 변수
+        private float originalMoveSpeed;
+        private float originalSprintSpeed;
+
+        private bool IsCurrentDeviceMouse
 		{
 			get
 			{
@@ -95,7 +101,9 @@ namespace StarterAssets
 			{
 				_mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
 			}
-		}
+            originalMoveSpeed = MoveSpeed;
+            originalSprintSpeed = SprintSpeed;
+        }
 
 		private void Start()
 		{
@@ -271,5 +279,31 @@ namespace StarterAssets
 			// when selected, draw a gizmo in the position of, and matching radius of, the grounded collider
 			Gizmos.DrawSphere(new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z), GroundedRadius);
 		}
-	}
+
+        public void ApplySpeedBoost(float newMoveSpeed, float newSprintSpeed, float duration)
+        {
+            if (speedBoostCoroutine != null)
+            {
+                StopCoroutine(speedBoostCoroutine);
+            }
+            speedBoostCoroutine = StartCoroutine(SpeedBoostEffect(newMoveSpeed, newSprintSpeed, duration));
+        }
+
+        private IEnumerator SpeedBoostEffect(float boostMoveSpeed, float boostSprintSpeed, float duration)
+        {
+            // 속도를 올립니다.
+            MoveSpeed = boostMoveSpeed;
+            SprintSpeed = boostSprintSpeed;
+
+            Debug.Log("부스트 시작");
+
+            yield return new WaitForSeconds(duration);
+
+            MoveSpeed = originalMoveSpeed;
+            SprintSpeed = originalSprintSpeed;
+            speedBoostCoroutine = null;
+
+            Debug.Log("부스트 종료");
+        }
+    }
 }

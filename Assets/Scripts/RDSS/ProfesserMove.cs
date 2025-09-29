@@ -8,12 +8,17 @@ public class ProfesserMove : MonoBehaviour
     public Transform professor;
     public Transform target;
     public Transform start;
+    private Coroutine moveCoroutine;
 
     public float duration = 90f;
 
     public void StartMove()
     {
-        StartCoroutine(MoveToPosition(target.position, duration));
+        if (moveCoroutine != null)
+        {
+            StopCoroutine(moveCoroutine);
+        }
+        moveCoroutine = StartCoroutine(MoveToPosition(target.position, duration));
     }
 
     public IEnumerator MoveToPosition(Vector3 targetPosition, float time)
@@ -46,7 +51,10 @@ public class ProfesserMove : MonoBehaviour
 
     public void ResetPosition()
     {
-        StopAllCoroutines();
+        if (moveCoroutine != null)
+        {
+            StopCoroutine(moveCoroutine);
+        }
         professor.position = start.position;
     }
 }
