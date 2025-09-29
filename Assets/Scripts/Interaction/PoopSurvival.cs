@@ -11,6 +11,6 @@ public class PoopSurvival : MonoBehaviour, IInteractable
     public void Interact()
     {
         timer.StartTimer();
-        // trigger.SetActive(true);
+        trigger.SetActive(true);
     }
 }
