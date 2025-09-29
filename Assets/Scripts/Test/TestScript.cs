@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class TestScript : MonoBehaviour
 {
     public AnomalyManager anomalyManager;
+    public RDSS rdss;
     public GameObject testUI;
     public TMP_InputField indexInput;
     public TMP_Text testText;
@@ -35,7 +36,7 @@ public class TestScript : MonoBehaviour
                 
         }
 
-        testText.text = "Anomaly : ";
+        testText.text = $"Anomaly : {anomalyManager.anomalyIndex + 1}\nRDSS : {rdss.currentSituationIndex - 1}"; ;
     }
 
     public void OnClick_PlaySelectedAnomaly()

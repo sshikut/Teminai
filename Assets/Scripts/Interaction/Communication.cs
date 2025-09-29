@@ -44,11 +44,26 @@ public class Communication : MonoBehaviour, IInteractable
     {
         string message = dialogue.RandomDialogues();
 
+        PlayDialogue(message, lookDuration);
+    }
+
+    public void PlayDialogue(string text, float duration)
+    {
         if (lookCoroutine != null)
         {
             StopCoroutine(lookCoroutine);
         }
-        lookCoroutine = StartCoroutine(LookAtPlayer(message));
+        lookCoroutine = StartCoroutine(LookAtPlayer(text, duration));
+    }
+
+    public void PlayDialogue(string text, float duration, float maxAngle)
+    {
+        if (lookCoroutine != null)
+        {
+            StopCoroutine(lookCoroutine);
+        }
+        maxLookAngle = maxAngle;
+        lookCoroutine = StartCoroutine(LookAtPlayer(text, duration));
     }
 
     private bool IsPlayerInSight()
@@ -63,7 +78,7 @@ public class Communication : MonoBehaviour, IInteractable
         return angle <= maxLookAngle;
     }
 
-    IEnumerator LookAtPlayer(string message)
+    IEnumerator LookAtPlayer(string message, float duration)
     {
         isLooking = true;
         if (dialogueCanvas != null && dialogueText != null)
@@ -72,12 +87,35 @@ public class Communication : MonoBehaviour, IInteractable
             dialogueText.text = message;
         }
 
-        yield return new WaitForSeconds(lookDuration);
+        yield return new WaitForSeconds(duration);
 
         isLooking = false;
         if (dialogueCanvas != null)
         {
             dialogueCanvas.SetActive(false);
+        }
+    }
+
+    private void OnEnable()
+    {
+        AnomalyManager.OnAnomalyHappened += InitMaxAngle;
+    }
+
+    private void OnDisable()
+    {
+        AnomalyManager.OnAnomalyHappened -= InitMaxAngle;
+    }
+
+    public void InitMaxAngle()
+    {
+        if (lookCoroutine != null)
+        {
+            StopCoroutine(lookCoroutine);
+        }
+
+        if (maxLookAngle > 120f)
+        {
+            maxLookAngle = 90f;
         }
     }
 }

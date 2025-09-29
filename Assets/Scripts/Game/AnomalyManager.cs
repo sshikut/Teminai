@@ -17,6 +17,7 @@ public class AnomalyManager : MonoBehaviour
     [Header("Anomaly Variable")]
     public bool isAnomaly = false;
     public int anomalyRate = 5;
+    public int anomalyIndex = -1;
 
     [Header("Anomaly List")]
     public int maxAnomalies = 20;
@@ -92,7 +93,7 @@ public class AnomalyManager : MonoBehaviour
         if (!isAnomaly) { return; }
 
         // 2) 아직 안 나온 인덱스 하나 찾기 (기존 코드 참조)
-        int anomalyIndex = -1;
+        anomalyIndex = -1;
         int start = UnityEngine.Random.Range(0, anomalyArray.Length);
         for (int k = 0; k < anomalyArray.Length; k++)
         {
