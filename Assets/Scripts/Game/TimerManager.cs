@@ -75,7 +75,7 @@ public class TimerManager : MonoBehaviour
         TogglePhone togglePhone = FindObjectOfType<TogglePhone>();
         if (togglePhone != null)
         {
-            togglePhone.DisableToggleAfterOneUse();
+            //togglePhone.DisableToggleAfterOneUse();
         }
         ResetTimer();
         

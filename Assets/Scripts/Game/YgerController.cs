@@ -91,7 +91,7 @@ public class YgerController : MonoBehaviour
         {
             Debug.Log("붙음?");
             isChasing = false;
-            TogglePhone.DisableToggleAfterOneUse();     //폰 ui 켜고
+            //TogglePhone.DisableToggleAfterOneUse();     //폰 ui 켜고
             InteractionManager.Instance.StartFadeOut(); //페이드 아웃
             
             MoveToPosition(); //위치 초기화
