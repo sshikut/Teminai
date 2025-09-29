@@ -9,6 +9,7 @@ public class TestScript : MonoBehaviour
     public AnomalyManager anomalyManager;
     public GameObject testUI;
     public TMP_InputField indexInput;
+    public TMP_Text testText;
     private bool isUIOpen = false;
 
     // 확정 이상현상
@@ -33,6 +34,8 @@ public class TestScript : MonoBehaviour
             }
                 
         }
+
+        testText.text = "Anomaly : ";
     }
 
     public void OnClick_PlaySelectedAnomaly()
