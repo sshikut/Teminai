@@ -78,14 +78,20 @@ public class MovableObject : MonoBehaviour, IInteractable
 
     public void DownPosition()
     {
-        StopAllCoroutines();
+        if (moveCoroutine != null)
+        {
+            StopCoroutine(moveCoroutine);
+        }
         screen.transform.position = targetPosition;
         hasMoved = true;
     }
 
     public void UpPosition()
     {
-        StopAllCoroutines();
+        if (moveCoroutine != null)
+        {
+            StopCoroutine(moveCoroutine);
+        }
         screen.transform.position = originalPosition;
         hasMoved = false;
     }
