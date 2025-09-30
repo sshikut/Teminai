@@ -481,6 +481,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: "\uCF54\uB529 \uCC45\uC0C1"
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 52d5904950f5e824f80feb771afd59c0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21483,7 +21488,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 7054f1eee82ac4b4dbd832eee2f06c37,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.32
+      value: 0.18
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7054f1eee82ac4b4dbd832eee2f06c37,
         type: 3}
@@ -21649,12 +21654,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 2.8231885, z: 1.977562}
-  m_Center: {x: 0, y: 1.5610703, z: 0.17215323}
+  m_Size: {x: 1, y: 2.8231885, z: 2.397713}
+  m_Center: {x: 0, y: 1.5610703, z: 0.38222873}
 --- !u!82 &1701309970
 AudioSource:
   m_ObjectHideFlags: 0
@@ -21675,7 +21680,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 0.92698526
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
