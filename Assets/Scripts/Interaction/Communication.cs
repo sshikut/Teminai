@@ -98,15 +98,15 @@ public class Communication : MonoBehaviour, IInteractable
 
     private void OnEnable()
     {
-        AnomalyManager.OnAnomalyHappened += InitMaxAngle;
+        AnomalyManager.OnAnomalyHappened += InitCommunication;
     }
 
     private void OnDisable()
     {
-        AnomalyManager.OnAnomalyHappened -= InitMaxAngle;
+        AnomalyManager.OnAnomalyHappened -= InitCommunication;
     }
 
-    public void InitMaxAngle()
+    public void InitCommunication()
     {
         if (lookCoroutine != null)
         {
@@ -116,6 +116,11 @@ public class Communication : MonoBehaviour, IInteractable
         if (maxLookAngle > 120f)
         {
             maxLookAngle = 90f;
+        }
+
+        if (dialogueCanvas != null)
+        {
+            dialogueCanvas.SetActive(false);
         }
     }
 }

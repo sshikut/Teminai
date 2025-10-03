@@ -27,6 +27,8 @@ public class ComputerBoom : MonoBehaviour, IInteractable
     private Color originalEmissionColor;
     private Texture originalBaseMap;
 
+    private bool isPlaying = false;
+
     void Awake()
     {
         targetMaterialInstance = objectRenderer.materials[TARGET_MATERIAL_INDEX];
@@ -38,6 +40,8 @@ public class ComputerBoom : MonoBehaviour, IInteractable
 
     public void Interact()
     {
+        if (isPlaying) return;
+
         if (runningCoroutine != null)
         {
             StopCoroutine(runningCoroutine);
@@ -48,6 +52,8 @@ public class ComputerBoom : MonoBehaviour, IInteractable
 
     IEnumerator AnomalySequence()
     {
+        isPlaying = true;
+
         if (computerAudio != null && boomWindowSound != null)
         {
             computerAudio.PlayOneShot(boomWindowSound);
@@ -89,16 +95,17 @@ public class ComputerBoom : MonoBehaviour, IInteractable
 
     private void OnEnable()
     {
-        AnomalyManager.OnAnomalyHappened += ResetMaterial;
+        AnomalyManager.OnAnomalyHappened += ResetComputer;
     }
 
     private void OnDisable()
     {
-        AnomalyManager.OnAnomalyHappened -= ResetMaterial;
+        AnomalyManager.OnAnomalyHappened -= ResetComputer;
     }
 
-    public void ResetMaterial()
+    public void ResetComputer()
     {
+        isPlaying = false;
         if (targetMaterialInstance == null) return;
 
         targetMaterialInstance.SetColor("_BaseColor", originalBaseColor);

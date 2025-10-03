@@ -36,7 +36,15 @@ public class TestScript : MonoBehaviour
                 
         }
 
-        testText.text = $"Anomaly : {anomalyManager.anomalyIndex + 1}\nRDSS : {rdss.currentSituationIndex - 1}"; ;
+        if (isUIOpen)
+        {
+            int index = -2;
+            if (!anomalyManager.isAnomaly) index = -2;
+            else index = anomalyManager.anomalyIndex;
+
+            testText.text = $"Anomaly : {anomalyManager.anomalyIndex + 1}\nRDSS : {rdss.currentSituationIndex}";
+        }
+        
     }
 
     public void OnClick_PlaySelectedAnomaly()
