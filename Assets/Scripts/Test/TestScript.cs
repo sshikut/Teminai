@@ -42,7 +42,7 @@ public class TestScript : MonoBehaviour
             if (!anomalyManager.isAnomaly) index = -2;
             else index = anomalyManager.anomalyIndex;
 
-            testText.text = $"Anomaly : {anomalyManager.anomalyIndex + 1}\nRDSS : {rdss.currentSituationIndex}";
+            testText.text = $"Anomaly : {index + 1}\nRDSS : {rdss.currentSituationIndex}";
         }
         
     }
