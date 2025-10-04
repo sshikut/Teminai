@@ -6,6 +6,7 @@ public class Trigger : MonoBehaviour
 {
     private Vector3 lastPlayerPos;    // 마지막 위치 저장
     private bool playerInside = false;
+    public AnomalyManager anomaly;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -23,12 +24,24 @@ public class Trigger : MonoBehaviour
         {
             Vector3 currentPos = other.transform.position;
 
-            // 조금이라도 움직였는지 체크
-            if (Vector3.Distance(currentPos, lastPlayerPos) > 0.01f)  // 0.01은 민감도
+            // 조금이라도 움직임 감지
+            if (Vector3.Distance(currentPos, lastPlayerPos) > 0.01f)
             {
-                Debug.Log("플레이어가 트리거 존에서 움직였습니다!");
-                lastPlayerPos = currentPos;
+                Debug.Log("플레이어가 움직여서 패널티 발생!");
+
+                // 패널티 적용
+                anomaly.absentCount++;
+
+                InteractionManager.Instance.StartFadeOut(() =>
+                {
+                    anomaly.Anomaly(); // 검정이 한 프레임 실제로 그려진 뒤 실행
+                });
+
+                // 한 번만 적용하고 싶다면 여기서 playerInside를 false로
+                playerInside = false;
             }
+
+            lastPlayerPos = currentPos;
         }
     }
 

@@ -21956,6 +21956,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5f8b8d1def28b44a8eae1a51ca8b760, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anomaly: {fileID: 1937520797}
 --- !u!1001 &1731016836
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30123,7 +30124,7 @@ PrefabInstance:
     - target: {fileID: 2215936648160410396, guid: 7c0c6b70eeb504f4692d91fe031768e5,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
