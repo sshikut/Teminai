@@ -30124,7 +30124,7 @@ PrefabInstance:
     - target: {fileID: 2215936648160410396, guid: 7c0c6b70eeb504f4692d91fe031768e5,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -30190,6 +30190,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 1068994066426114334}
   absentCol: {fileID: 1718601699}
+  isLooping: 0
+  backWaitTime: 2
+  frontWaitTime: 2
 --- !u!224 &1069258637513017411
 RectTransform:
   m_ObjectHideFlags: 0
