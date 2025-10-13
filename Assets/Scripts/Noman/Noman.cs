@@ -2,12 +2,27 @@ using UnityEngine;
 
 public class SimpleChase : MonoBehaviour
 {
+    private Vector3 startPosition;
+
     public Transform player;
     public float speed = 3f;
     public float rotateSpeed = 10f;
 
     [Tooltip("모델의 앞 방향이 Z축이 아닐 경우 보정 각도 (예: 90, 180 등)")]
     public float rotationOffsetY = 0f;
+
+    void Awake()
+    {
+        // 처음 위치를 기록
+        startPosition = transform.position;
+    }
+    void OnEnable()
+    {
+        // 비활성화됐다가 다시 활성화될 때, 처음 위치로 리셋
+        transform.position = startPosition;
+        transform.rotation = Quaternion.identity;
+    }
+
 
     void Update()
     {
