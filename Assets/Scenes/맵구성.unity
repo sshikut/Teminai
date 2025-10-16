@@ -42727,7 +42727,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1941872164}
-  speed: 3.5
+  speed: 5
   rotateSpeed: 10
   rotationOffsetY: 0
 --- !u!82 &6451201973180118156
