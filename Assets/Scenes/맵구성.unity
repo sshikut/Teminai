@@ -30990,6 +30990,7 @@ GameObject:
   - component: {fileID: 5043577495186916556}
   - component: {fileID: 3937277489086501488}
   - component: {fileID: 271318356151620880}
+  - component: {fileID: 5043577495186916557}
   m_Layer: 0
   m_Name: Cube.049
   m_TagString: Untagged
@@ -39628,6 +39629,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 543450652211355752}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5043577495186916557
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1069287496977705437}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.8075532, y: 5.1615677, z: 18.149021}
+  m_Center: {x: 2.3782754, y: 2.5412264, z: 17.300798}
 --- !u!33 &5045690429363339602
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -49666,6 +49688,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1937520799}
+  - {fileID: 4848300811211580698}
   - {fileID: 581727334}
   - {fileID: 1536302036}
   - {fileID: 1221734427}
@@ -49677,7 +49700,6 @@ SceneRoots:
   - {fileID: 231628430}
   - {fileID: 962991315}
   - {fileID: 559773113}
-  - {fileID: 4848300811211580698}
   - {fileID: 104367747}
   - {fileID: 1680010493}
   - {fileID: 1595335123}
