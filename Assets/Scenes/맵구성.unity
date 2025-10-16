@@ -22120,7 +22120,7 @@ MonoBehaviour:
   GoalTrigger: {fileID: 653665461}
   anim: {fileID: 1701309966}
   destinationTransform: {fileID: 1701309965}
-  moveSpeed: 4
+  moveSpeed: 7
   anomaly: {fileID: 1937520797}
   TogglePhone: {fileID: 2484787186855500856}
   yger: {fileID: 1701309962}
@@ -22182,9 +22182,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 2bc193f0eb346714cad53ada7039a20c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 169b6a3727573a64ead3e0c960f331e6, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.75
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -22192,8 +22192,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 0.92698526
-  MaxDistance: 500
+  MinDistance: 10
+  MaxDistance: 15
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
