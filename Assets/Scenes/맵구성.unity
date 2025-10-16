@@ -22120,7 +22120,7 @@ MonoBehaviour:
   GoalTrigger: {fileID: 653665461}
   anim: {fileID: 1701309966}
   destinationTransform: {fileID: 1701309965}
-  moveSpeed: 7
+  moveSpeed: 6
   anomaly: {fileID: 1937520797}
   TogglePhone: {fileID: 2484787186855500856}
   yger: {fileID: 1701309962}
