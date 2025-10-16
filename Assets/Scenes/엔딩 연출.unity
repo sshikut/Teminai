@@ -12831,7 +12831,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 2daac41de79b947438603d90daeff957,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18382,7 +18382,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ff1f0895fa03ace4db24ac515f1f3625, type: 2}
+      objectReference: {fileID: 2100000, guid: acd807860fa282d4a9e67fda6d3b6f1b, type: 2}
     - target: {fileID: 8447082967072642302, guid: 23535b97e59d45c4a875673f67dca3c2,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -24837,6 +24837,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: "\uC804\uB4F1 \uC2A4 \uC704\uCE58"
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: aafeba84d3d3bd64a8f2744ebce915ba,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -29990,6 +29995,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: closed door
+      objectReference: {fileID: 0}
+    - target: {fileID: 1100467353504870731, guid: 62aab2ceba1873f4c8f2dac403883ebf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2139820817235064921, guid: 62aab2ceba1873f4c8f2dac403883ebf,
         type: 3}
@@ -35392,6 +35402,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: "\uAC00\uBA74"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4609024822656602133, guid: b65cd5c3b7f3cf74bafe774221598343,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
