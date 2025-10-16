@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Trigger : MonoBehaviour
+public class AbsentTrigger : MonoBehaviour
 {
     private Vector3 lastPlayerPos;    // 마지막 위치 저장
     private bool playerInside = false;

@@ -9,11 +9,15 @@ public class EnergyDrink : MonoBehaviour, IInteractable
     public FirstPersonController fpc;
     public float duration = 10f;
     private Coroutine destroyCoroutine;
+    public bool isStartObject = false;
 
     private void Start()
     {
         fpc = FindObjectOfType<FirstPersonController>();
-        destroyCoroutine = StartCoroutine(DestroyGameobject());
+        if (!isStartObject)
+        {
+            destroyCoroutine = StartCoroutine(DestroyGameobject());
+        }
     }
 
     public void Interact()
