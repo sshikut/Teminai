@@ -16,6 +16,7 @@ public class TogglePhone : MonoBehaviour
 
     void Update()
     {
+       
         // 式式式式式式式式式式式式式式式式式 Tab ⊥ Phone2 式式式式式式式式式式式式式式式式式
         if (Input.GetKeyDown(KeyCode.Tab) && canToggle && !phone1)
         {

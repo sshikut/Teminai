@@ -29,7 +29,7 @@ public class AnomalyManager : MonoBehaviour
     public MovableObject movableObject;
     public TimerManager timerManager;
     public YgerController ygerController;
-
+    public YgerProliferation YgerProliferation;
 
 
 
@@ -41,6 +41,7 @@ public class AnomalyManager : MonoBehaviour
         movableObject = FindObjectOfType<MovableObject>();
         timerManager = FindObjectOfType<TimerManager>();
         ygerController = FindObjectOfType<YgerController>();
+        YgerProliferation = FindObjectOfType<YgerProliferation>(); 
         Anomaly();
     }
 
@@ -51,6 +52,7 @@ public class AnomalyManager : MonoBehaviour
         rdss.RandomSituation();
         anomaly.InitAnomaly(); // 이상현상 초기화
         timerManager.timerText.text = null;
+        YgerProliferation.ResetYger();
 
         if (loopCount >= clearCount)
         {
