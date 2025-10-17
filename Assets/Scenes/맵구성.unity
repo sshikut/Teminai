@@ -4395,6 +4395,11 @@ PrefabInstance:
       propertyPath: trigger
       value: 
       objectReference: {fileID: 801360485}
+    - target: {fileID: 1911936004434048953, guid: d661034792de851458fcf597f8233157,
+        type: 3}
+      propertyPath: botherTrigger
+      value: 
+      objectReference: {fileID: 789961100}
     - target: {fileID: 2479323617972254252, guid: d661034792de851458fcf597f8233157,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -4454,6 +4459,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Anomaly_8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2738106416477401019, guid: d661034792de851458fcf597f8233157,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3082705525420187554, guid: d661034792de851458fcf597f8233157,
         type: 3}
@@ -4528,7 +4538,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 5289251804053660205, guid: d661034792de851458fcf597f8233157,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 789961101}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d661034792de851458fcf597f8233157, type: 3}
 --- !u!4 &323932315 stripped
@@ -6007,17 +6021,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 6d8b2ad8eb9424a43a64e6ead36bd805,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.65
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6d8b2ad8eb9424a43a64e6ead36bd805,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.65
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6d8b2ad8eb9424a43a64e6ead36bd805,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.65
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6d8b2ad8eb9424a43a64e6ead36bd805,
         type: 3}
@@ -10994,6 +11008,85 @@ Transform:
   - {fileID: 1701309965}
   m_Father: {fileID: 1366743512}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &789961100
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 789961101}
+  - component: {fileID: 789961104}
+  - component: {fileID: 789961103}
+  - component: {fileID: 789961102}
+  m_Layer: 0
+  m_Name: BotherTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &789961101
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 789961100}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 14.391, y: -2.11, z: 55.502}
+  m_LocalScale: {x: 2.915352, y: 2.8829, z: 0.44087443}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 323932315}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &789961102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 789961100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 580b46170adb3564ba976dda41b3ca94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1941872157}
+  playerCapsule: {fileID: 1941872164}
+  playerCamera: {fileID: 872747274}
+  lookDuration: 1.5
+--- !u!65 &789961103
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 789961100}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &789961104
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 789961100}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &791543055 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4367010069536674110, guid: 4c766edda6507e241bc1f4e0074cec66,
@@ -11969,6 +12062,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4367010069536674110, guid: 4c766edda6507e241bc1f4e0074cec66,
     type: 3}
   m_PrefabInstance: {fileID: 1027387860}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &872747274 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4135013735270702856, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+    type: 3}
+  m_PrefabInstance: {fileID: 1221734427}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &879477178
 GameObject:
@@ -18174,7 +18273,7 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 3
+            m_IntArgument: 4
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -18213,7 +18312,19 @@ MonoBehaviour:
       initialActive: 0
     onSlotInvoked:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 1536302035}
+          m_TargetAssemblyTypeName: RDSS, Assembly-CSharp
+          m_MethodName: SelectSituation
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 3
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - label: Anomaly #9
     Objects:
     - target: {fileID: 5194334310847763094}
