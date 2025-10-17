@@ -11,6 +11,7 @@ public class LightSwitch : MonoBehaviour, IInteractable
     public void Interact()
     {
         isLightOn = !isLightOn;
+        AudioManager.instance.Play("LightSwitch");
         float targetIntensity = isLightOn ? 2f : 0f;
 
         foreach (Light light in lights)
