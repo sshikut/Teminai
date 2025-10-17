@@ -7,6 +7,7 @@ public class BotherTrigger : MonoBehaviour
 {
     public FirstPersonController player;
     public Communication student;
+    public RapidPressQTE qte;
 
     public Transform playerCapsule;
     public Transform playerCamera;
@@ -55,7 +56,8 @@ public class BotherTrigger : MonoBehaviour
         playerCapsule.rotation = targetCapsuleRotation;
         playerCamera.localRotation = targetCameraRotation;
 
-        student.PlayDialogue("반대님 시험 언제에요?", 30f);
+        student.PlayDialogue("아까 교수님이 뭐라고 말씀하신거에요?", 30f);
+        qte.StartQTE();
 
         this.enabled = false;
     }
