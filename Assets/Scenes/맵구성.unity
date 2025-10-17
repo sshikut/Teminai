@@ -4395,6 +4395,11 @@ PrefabInstance:
       propertyPath: trigger
       value: 
       objectReference: {fileID: 801360485}
+    - target: {fileID: 1911936004434048953, guid: d661034792de851458fcf597f8233157,
+        type: 3}
+      propertyPath: botherTrigger
+      value: 
+      objectReference: {fileID: 789961100}
     - target: {fileID: 2479323617972254252, guid: d661034792de851458fcf597f8233157,
         type: 3}
       propertyPath: m_LocalScale.x
