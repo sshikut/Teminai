@@ -82,6 +82,9 @@ namespace StarterAssets
         private float originalMoveSpeed;
         private float originalSprintSpeed;
 
+		// 플레이어 움직임 막기
+		public bool lockMovement = false;
+
         private bool IsCurrentDeviceMouse
 		{
 			get
@@ -168,8 +171,16 @@ namespace StarterAssets
 
 		private void Move()
 		{
-			// set target speed based on move speed, sprint speed and if sprint is pressed
-			float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
+            // 이동 잠금
+            if (lockMovement)
+            {
+                _speed = 0f;
+                _controller.Move(new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
+                return;
+            }
+
+            // set target speed based on move speed, sprint speed and if sprint is pressed
+            float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
 
 			// a simplistic acceleration and deceleration designed to be easy to remove, replace, or iterate upon
 
