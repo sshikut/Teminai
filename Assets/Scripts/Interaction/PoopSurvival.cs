@@ -8,13 +8,15 @@ public class PoopSurvival : MonoBehaviour, IInteractable
     public TimerManager timer;
     public GameObject trigger;
     public GameObject botherTrigger;
+    public Collider studentCollider;
 
     public void Interact()
     {
         timer.StartTimer();
         trigger.SetActive(true);
         botherTrigger.SetActive(true);
+        studentCollider.enabled = false;
 
-        this.enabled = false;
+        this.gameObject.SetActive(false);
     }
 }
