@@ -35,7 +35,7 @@ public class NormalHandler : MonoBehaviour
         toggle.isActive = false;
         AudioManager.instance.Play("ClosePhone");
         toggle.anim.Play("Close");
-
+        TogglePhone.UIGuard.isAnyUIOpen = false;
         // 마우스 숨기고 고정 (FPS 스타일)
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
