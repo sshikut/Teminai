@@ -5,34 +5,31 @@ using UnityEngine.AI;
 
 public class YgerProliferation : MonoBehaviour, IInteractable
 {
-    
     [Header("생성할 프리팹 정보")]
     public GameObject originalPrefab;
     public int count = 10;
 
     [Header("위치 정보")]
-    
     public List<Transform> spawnPoints;
     public Transform targetPoint;
 
+    private List<GameObject> spawnedObjects = new List<GameObject>();
     private List<NavMeshAgent> spawnedAgents = new List<NavMeshAgent>();
     private bool prefabsSpawned = false;
 
-    private List<GameObject> spawnedObjects = new List<GameObject>();
-
     
+    public bool anomalytrigger = false;
+
     void Start()
     {
-       
-        if (originalPrefab == null || spawnPoints == null || spawnPoints.Count == 0 || targetPoint == null)
+        if (originalPrefab == null || spawnPoints == null || spawnPoints.Count < 2 || targetPoint == null)
         {
-          
+           
             enabled = false;
             return;
         }
         if (originalPrefab.GetComponent<NavMeshAgent>() == null)
         {
-            
             enabled = false;
             return;
         }
@@ -46,39 +43,63 @@ public class YgerProliferation : MonoBehaviour, IInteractable
         }
     }
 
-   
-  
+    public void Interact()
+    {
+        
+        if (anomalytrigger == true)
+        {
+            if (prefabsSpawned) return;
+            SpawnPrefabs();
+        }
+        
+        
+    }
+    public void activebool()
+    {
+        this.anomalytrigger = true;
+    }
     public void SpawnPrefabs()
     {
         if (prefabsSpawned) return;
 
-        for (int i = 0; i < count; i++)
+        int firstHalf = count / 2;
+        int secondHalf = count - firstHalf;
+
+        SpawnAtPoint(spawnPoints[0], firstHalf);
+        SpawnAtPoint(spawnPoints[1], secondHalf);
+
+        prefabsSpawned = true;
+
+        AudioSource audioSource = GetComponent<AudioSource>();
+        if (audioSource != null)
         {
-           
-            Transform randomSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Count)];
+            audioSource.loop = true;
+            audioSource.Play();
+        }
+    }
 
-          
-            Vector3 spawnPosition = randomSpawnPoint.position;
+    private void SpawnAtPoint(Transform spawnPoint, int spawnCount)
+    {
+        for (int i = 0; i < spawnCount; i++)
+        {
             NavMeshHit hit;
-
-            if (NavMesh.SamplePosition(spawnPosition, out hit, 5.0f, NavMesh.AllAreas))
+            if (NavMesh.SamplePosition(spawnPoint.position, out hit, 5.0f, NavMesh.AllAreas))
             {
-               
-                GameObject instance = Instantiate(originalPrefab, hit.position, randomSpawnPoint.rotation);
-                NavMeshAgent agent = instance.GetComponent<NavMeshAgent>();
+                GameObject instance = Instantiate(originalPrefab, hit.position, spawnPoint.rotation);
                 spawnedObjects.Add(instance);
+
+                NavMeshAgent agent = instance.GetComponent<NavMeshAgent>();
                 if (agent != null)
                 {
+                    agent.updateRotation = true;
                     spawnedAgents.Add(agent);
                 }
             }
             else
             {
-                Debug.LogWarning($"{randomSpawnPoint.name}  NavMesh 위치를 찾을 수 없습니다.");
+                Debug.LogWarning($"{spawnPoint.name} NavMesh 위치");
             }
         }
-
-        prefabsSpawned = true;
     }
 
     private void MoveSpawnedObjects()
@@ -96,43 +117,24 @@ public class YgerProliferation : MonoBehaviour, IInteractable
         }
     }
 
-    public void Interact()
-    {
-        SpawnPrefabs();
-        MoveSpawnedObjects();
-        
-        AudioSource audioSource = GetComponent<AudioSource>();
-        if (audioSource != null)
-        {
-          
-          
-            audioSource.Play();
-            
-        }
-    }
-    
-
- 
     public void ResetYger()
     {
         Debug.Log("프리팹 초기화");
-       
         foreach (GameObject obj in spawnedObjects)
         {
-        
             if (obj != null)
             {
                 Destroy(obj);
             }
         }
         AudioSource audioSource = GetComponent<AudioSource>();
-        audioSource.Stop();
-        
+        if (audioSource != null)
+        {
+            audioSource.Stop();
+        }
+        this.anomalytrigger = false;
         spawnedObjects.Clear();
         spawnedAgents.Clear();
-        
-
-        
         prefabsSpawned = false;
     }
 }
