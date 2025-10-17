@@ -56,7 +56,7 @@ public class YgerProliferation : MonoBehaviour, IInteractable
     }
     public void activebool()
     {
-        this.anomalytrigger = true;
+        anomalytrigger = true;
     }
     public void SpawnPrefabs()
     {
