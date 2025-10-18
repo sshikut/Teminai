@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using StarterAssets;
 using UnityEngine;
 
 public class Piano : MonoBehaviour, IInteractable
@@ -8,14 +9,14 @@ public class Piano : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        
+        isOn = !isOn;
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        void Update()
+        if (isOn)
         {
             if (Input.GetKeyDown(KeyCode.Alpha1))
                 AudioManager.instance.Play("Do");
@@ -32,13 +33,10 @@ public class Piano : MonoBehaviour, IInteractable
             if (Input.GetKeyDown(KeyCode.Alpha5))
                 AudioManager.instance.Play("Sol");
 
-            if (Input.GetKeyDown(KeyCode.Alpha5))
-                AudioManager.instance.Play("Sol");
-
-            if (Input.GetKeyDown(KeyCode.Alpha5))
+            if (Input.GetKeyDown(KeyCode.Alpha6))
                 AudioManager.instance.Play("Ra");
 
-            if (Input.GetKeyDown(KeyCode.Alpha5))
+            if (Input.GetKeyDown(KeyCode.Alpha7))
                 AudioManager.instance.Play("Si");
         }
     }
