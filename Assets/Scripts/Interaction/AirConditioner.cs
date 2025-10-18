@@ -5,9 +5,6 @@ using UnityEngine.Animations.Rigging;
 
 public class AirConditioner : MonoBehaviour, IInteractable
 {
-    public AudioClip onSound;
-    public AudioClip offSound;
-    public AudioSource airConSound;
     public bool isOn = false;
 
     public void Interact()
@@ -17,16 +14,11 @@ public class AirConditioner : MonoBehaviour, IInteractable
 
     void AirCon()
     {
+        isOn = !isOn;
+
         if (isOn)
-        {
-            airConSound.PlayOneShot(offSound);
-            isOn = false;
-        }
+            AudioManager.instance.Play("AirOnSound");
         else
-        {
-            airConSound.PlayOneShot(onSound);
-            isOn = true;
-        }
-            
+            AudioManager.instance.Play("AirOffSound");
     }
 }
