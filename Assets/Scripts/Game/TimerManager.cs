@@ -59,7 +59,7 @@ public class TimerManager : MonoBehaviour
     {
         int minutes = Mathf.FloorToInt(timeRemaining / 60);
         int seconds = Mathf.FloorToInt(timeRemaining % 60);
-        timerText.text = string.Format("남은 시간 {0:00}:{1:00}", minutes, seconds);
+        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
     private void EndGame(bool success)
@@ -69,20 +69,18 @@ public class TimerManager : MonoBehaviour
         {
             timerText.text = success ? ""+anomaly.loopCount++ : ""+anomaly.absentCount++; 
         }
-        InteractionManager.Instance.StartFadeOut();
-        
-        anomaly.Anomaly();
+
+        InteractionManager.Instance.StartFadeOut(() =>
+        {
+            anomaly.Anomaly(); // 검정이 한 프레임 실제로 그려진 뒤 실행
+        });
+
         TogglePhone togglePhone = FindObjectOfType<TogglePhone>();
         if (togglePhone != null)
         {
             //togglePhone.DisableToggleAfterOneUse();
         }
         ResetTimer();
-        
-
-
-        
-       
     }
 
    

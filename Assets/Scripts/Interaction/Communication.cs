@@ -11,7 +11,7 @@ public class Communication : MonoBehaviour, IInteractable
     [SerializeField] private Transform playerTarget;
 
     [SerializeField] private float lookDuration = 5f;
-    [SerializeField] private float lookSpeed = 5f;
+    // [SerializeField] private float lookSpeed = 5f;
     [SerializeField] private float rigWeightSpeed = 3f;
 
     [SerializeField] private float maxLookAngle = 80f;
