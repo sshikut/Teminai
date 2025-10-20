@@ -8736,6 +8736,7 @@ MonoBehaviour:
   secDuration: 3
   finalDuration: 5
   arriveProfessor: {fileID: 1479752068}
+  door: {fileID: 7747262528298823770}
 --- !u!114 &586238333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48097,7 +48098,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ab23299c23a4e81448857bd946514579, type: 2}
+  - {fileID: 2100000, guid: 97c4e2911d856b14abca25ba75647d09, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
