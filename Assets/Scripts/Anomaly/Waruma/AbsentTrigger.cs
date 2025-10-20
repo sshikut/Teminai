@@ -8,6 +8,9 @@ public class AbsentTrigger : MonoBehaviour
     private bool playerInside = false;
     public AnomalyManager anomaly;
 
+    [Header("1 = 움직이면 잡히기, 2 = 안 움직여도 잡히기")]
+    [SerializeField] private int mode = 1;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -15,6 +18,14 @@ public class AbsentTrigger : MonoBehaviour
             Debug.Log("플레이어가 트리거 존에 들어옴!");
             playerInside = true;
             lastPlayerPos = other.transform.position;
+
+            // 모드 2면 들어온 즉시 패널티 발생
+            if (mode == 2)
+            {
+                Debug.Log("플레이어가 안 움직여도 잡히는 모드, 즉시 패널티 발생!");
+                TriggerPenalty();
+                playerInside = false;
+            }
         }
     }
 
@@ -24,20 +35,11 @@ public class AbsentTrigger : MonoBehaviour
         {
             Vector3 currentPos = other.transform.position;
 
-            // 조금이라도 움직임 감지
-            if (Vector3.Distance(currentPos, lastPlayerPos) > 0.01f)
+            // 모드 1: 움직임 감지
+            if (mode == 1 && Vector3.Distance(currentPos, lastPlayerPos) > 0.01f)
             {
                 Debug.Log("플레이어가 움직여서 패널티 발생!");
-
-                // 패널티 적용
-                anomaly.absentCount++;
-
-                InteractionManager.Instance.StartFadeOut(() =>
-                {
-                    anomaly.Anomaly(); // 검정이 한 프레임 실제로 그려진 뒤 실행
-                });
-
-                // 한 번만 적용하고 싶다면 여기서 playerInside를 false로
+                TriggerPenalty();
                 playerInside = false;
             }
 
@@ -52,5 +54,15 @@ public class AbsentTrigger : MonoBehaviour
             Debug.Log("플레이어가 트리거 존에서 나감!");
             playerInside = false;
         }
+    }
+
+    private void TriggerPenalty()
+    {
+        anomaly.absentCount++;
+
+        InteractionManager.Instance.StartFadeOut(() =>
+        {
+            anomaly.Anomaly(); // 검정이 한 프레임 실제로 그려진 뒤 실행
+        });
     }
 }
