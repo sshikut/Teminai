@@ -34,10 +34,6 @@ public class ProfesserMove : MonoBehaviour
         // --- 1단계: 첫 번째 target으로 이동 ---
         yield return StartCoroutine(MoveToTarget(target.position, duration));
 
-        if (!door.hasMoved)
-        {
-            door.Door();
-        }
         // --- 2단계: 두 번째 secTarget으로 이동 및 회전 ---
         yield return StartCoroutine(MoveAndRotateToTarget(secTarget.position, secTarget.rotation, secDuration));
 
@@ -66,6 +62,11 @@ public class ProfesserMove : MonoBehaviour
             yield return null;
         }
         professor.position = targetPosition; // 오차 보정
+
+        if (!door.hasMoved)
+        {
+            door.Door();
+        }
     }
 
     // 지정된 위치와 회전으로 '이동 및 회전'을 동시에 하는 코루틴
