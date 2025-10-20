@@ -14,7 +14,7 @@ public class DoorControl : MonoBehaviour, IInteractable
         Door();
     }
 
-    void Door()
+    public void Door()
     {
         if (isMoving) return;
 
