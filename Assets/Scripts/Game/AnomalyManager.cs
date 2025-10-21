@@ -1,6 +1,7 @@
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AnomalyManager : MonoBehaviour
 {
@@ -132,7 +133,7 @@ public class AnomalyManager : MonoBehaviour
 
     void Clear()
     {
-        // clearImage.SetActive(true);
+        SceneManager.LoadScene("엔딩 연출");
     }
 
     public void AnomalyTest(int num)
