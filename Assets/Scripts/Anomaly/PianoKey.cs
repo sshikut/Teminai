@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class PianoKey : MonoBehaviour
 {
-    public string soundName = "Do";   // 누를 때 재생할 효과음 이름
-    public float pressDepth = 0.02f;  // 얼마나 눌릴지
-    public float pressSpeed = 10f;    // 눌림 속도
+    public string soundName = "Do"; // "Do","Re","Mi","Fa","Sol","La" 처럼 사용
+    public float pressDepth = 0.02f;
+    public float pressSpeed = 10f;
+
+    public PianoManager puzzle; // 퍼즐 참조 추가
 
     private Vector3 originalPosition;
     private bool isPressed = false;
@@ -18,10 +20,11 @@ public class PianoKey : MonoBehaviour
     {
         if (!isPressed)
         {
-            // 사운드 재생
-            AudioManager.instance.Play(soundName);
+            // 퍼즐에 입력 전달 (야매 방식: 틀리면 퍼즐이 알아서 인덱스 0으로 리셋)
+            if (puzzle != null) puzzle.InputNote(soundName);
 
-            // 눌림 애니메이션 실행
+            // 사운드 + 눌림 애니메이션
+            AudioManager.instance.Play(soundName);
             StartCoroutine(PressKey());
         }
     }
@@ -31,22 +34,17 @@ public class PianoKey : MonoBehaviour
         isPressed = true;
         Vector3 target = originalPosition - new Vector3(0, pressDepth, 0);
 
-        // 아래로 눌림
         while (Vector3.Distance(transform.localPosition, target) > 0.001f)
         {
             transform.localPosition = Vector3.Lerp(transform.localPosition, target, Time.deltaTime * pressSpeed);
             yield return null;
         }
-
         yield return new WaitForSeconds(0.05f);
-
-        // 다시 위로
         while (Vector3.Distance(transform.localPosition, originalPosition) > 0.001f)
         {
             transform.localPosition = Vector3.Lerp(transform.localPosition, originalPosition, Time.deltaTime * pressSpeed);
             yield return null;
         }
-
         isPressed = false;
     }
 }
