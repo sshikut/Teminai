@@ -53,7 +53,7 @@ public class AnomalyManager : MonoBehaviour
         rdss.RandomSituation();
         anomaly.InitAnomaly(); // 이상현상 초기화
         timerManager.timerText.text = null;
-        YgerProliferation.ResetYger();
+        // YgerProliferation.ResetYger();
 
         if (loopCount >= clearCount)
         {
