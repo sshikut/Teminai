@@ -6,7 +6,7 @@ public class PianoManager : MonoBehaviour
         "Do","Do","Sol","Sol","La","La","Sol","Fa","Fa","Mi","Mi","Re","Re","Do"
     };
 
-    [Tooltip("정답 시 비활성화할 문 오브젝트")]
+    [Tooltip("정답 시 열릴 문 오브젝트 (Animator 포함)")]
     public GameObject doorToDisable;
 
     private int index = 0;
@@ -22,7 +22,6 @@ public class PianoManager : MonoBehaviour
             return;
         }
 
-        // 정답 검사
         if (target[index] == note)
         {
             index++;
@@ -31,12 +30,21 @@ public class PianoManager : MonoBehaviour
             if (index >= target.Length)
             {
                 cleared = true;
-                Debug.Log("[PianoMelodyPuzzle] 퍼즐 클리어!! 문 비활성화 시도");
+                Debug.Log("[PianoMelodyPuzzle] 퍼즐 클리어!! 문 열기 시도");
 
                 if (doorToDisable != null)
                 {
-                    doorToDisable.SetActive(false);
-                    Debug.Log("[PianoMelodyPuzzle] 문 비활성화 성공!");
+                    Animator anim = doorToDisable.GetComponent<Animator>();
+                    if (anim != null)
+                    {
+                        AudioManager.instance.Play("Open");
+                        anim.Play("Open"); // 애니메이션 재생
+                        Debug.Log("[PianoMelodyPuzzle] 문 애니메이션 'Open' 실행!");
+                    }
+                    else
+                    {
+                        Debug.LogWarning("[PianoMelodyPuzzle] Animator가 문 오브젝트에 없음");
+                    }
                 }
                 else
                 {
