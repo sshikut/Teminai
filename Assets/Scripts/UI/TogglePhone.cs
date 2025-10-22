@@ -14,6 +14,17 @@ public class TogglePhone : MonoBehaviour
     public bool phone1 = false; // Esc
     public bool phone2 = false; // Tab
 
+    void Start()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
+        if (firstPersonController)
+            firstPersonController.cameraRotation = true;
+
+        UIGuard.isAnyUIOpen = false; // 안전하게 초기화
+    }
+
     void Update()
     {
        
