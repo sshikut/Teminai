@@ -2613,7 +2613,6 @@ MonoBehaviour:
   botherTrigger: {fileID: 789961100}
   slider: {fileID: 328628657}
   closedDoor: {fileID: 195746534}
-  leftDoor: {fileID: 7550791548511707281}
   pressesRequired: 20
   onQTEStart:
     m_PersistentCalls:
@@ -4671,6 +4670,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 972033695205862022, guid: f6e0e3a9955f5384680c7209d01e9c7c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1285886068611799946, guid: f6e0e3a9955f5384680c7209d01e9c7c,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -4804,7 +4808,7 @@ PrefabInstance:
     - target: {fileID: 4772028508269362115, guid: f6e0e3a9955f5384680c7209d01e9c7c,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5292422295420068217, guid: f6e0e3a9955f5384680c7209d01e9c7c,
         type: 3}
@@ -5051,7 +5055,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 966513118057235068, guid: f6e0e3a9955f5384680c7209d01e9c7c,
+        type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 625671901}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6e0e3a9955f5384680c7209d01e9c7c, type: 3}
 --- !u!4 &257546646 stripped
@@ -10615,6 +10623,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2089737004}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!1 &625671900
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 625671901}
+  - component: {fileID: 625671902}
+  m_Layer: 0
+  m_Name: QTE16
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &625671901
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 625671900}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 257546646}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &625671902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 625671900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6175addb0a6b0004383d77a048eeed20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftDoor: {fileID: 7550791548511707281}
 --- !u!1001 &633701189
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11083,7 +11136,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &653665462
 Transform:
   m_ObjectHideFlags: 0
@@ -12647,7 +12700,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 257546645}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1317329793}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
@@ -21337,6 +21390,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1701309961}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1317329793 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 972033695205862022, guid: f6e0e3a9955f5384680c7209d01e9c7c,
+    type: 3}
+  m_PrefabInstance: {fileID: 257546645}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1318245405 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4891192450500925366, guid: 7054f1eee82ac4b4dbd832eee2f06c37,
@@ -22415,6 +22474,12 @@ MonoBehaviour:
     - target: {fileID: 2064297664}
       action: 1
       initialActive: 0
+    - target: {fileID: 1317329793}
+      action: 0
+      initialActive: 0
+    - target: {fileID: 32448206}
+      action: 0
+      initialActive: 0
     onSlotInvoked:
       m_PersistentCalls:
         m_Calls:
@@ -22442,9 +22507,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 136013793}
-          m_TargetAssemblyTypeName: RapidPressQTE, Assembly-CSharp
-          m_MethodName: ResetQTE
+        - m_Target: {fileID: 625671902}
+          m_TargetAssemblyTypeName: DoorQTE, Assembly-CSharp
+          m_MethodName: resetDoor
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -55645,7 +55710,7 @@ MonoBehaviour:
     minAgentSpeed: 8
     maxAgentSpeed: 20
   targetPoint: {fileID: 522246784}
-  anomalytrigger: 1
+  anomalytrigger: 0
 --- !u!64 &8567716999501205731
 MeshCollider:
   m_ObjectHideFlags: 0

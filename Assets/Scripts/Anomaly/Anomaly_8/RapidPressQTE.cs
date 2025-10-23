@@ -13,7 +13,7 @@ public class RapidPressQTE : MonoBehaviour
     public GameObject botherTrigger;
     public GameObject slider;
     public GameObject closedDoor;
-    public GameObject leftDoor;
+    
     public int pressesRequired = 20;
 
     [Header("Event")]
@@ -92,7 +92,7 @@ public class RapidPressQTE : MonoBehaviour
         botherTrigger.SetActive(false);
         slider.SetActive(false);
          
-        int layerIndex = LayerMask.NameToLayer("Interactable");
-        leftDoor.layer = layerIndex;
+        
+        
     }
 }

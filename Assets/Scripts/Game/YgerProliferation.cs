@@ -52,6 +52,8 @@ public class YgerProliferation : MonoBehaviour, IInteractable
         anomalytrigger = true;
     }
 
+  
+
     public void StartSpawning()
     {
         if (isSpawning) return;
