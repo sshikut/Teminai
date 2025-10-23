@@ -28,8 +28,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 3324368800842721153}
+  m_Children: []
   m_Father: {fileID: 5292422295420068217}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &900239345046158656
@@ -194,8 +193,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 972033695205862022}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1988664, y: 0.68623, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 7.74}
+  m_LocalScale: {x: 0.62710863, y: 0.68623, z: 0.0056739682}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3831426981921932621}
@@ -204,11 +203,11 @@ RectTransform:
   - {fileID: 1285886068611799946}
   - {fileID: 2649802625887236824}
   - {fileID: 1417532976138934673}
-  m_Father: {fileID: 8815682916469658136}
+  m_Father: {fileID: 966513118057235068}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -2, y: 1.5284}
+  m_AnchoredPosition: {x: 10.890653, y: -1.5716}
   m_SizeDelta: {x: 10, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &4890415270036999328
@@ -1158,6 +1157,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 3324368800842721153}
   - {fileID: 5292422295420068217}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1514,6 +1514,7 @@ MonoBehaviour:
   - {fileID: 7128013018957714852}
   scoreText: {fileID: 7234444642491711838}
   anomaly: {fileID: 0}
+  QuizUI: {fileID: 0}
 --- !u!4 &5292422295420068217 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3389840590017287855, guid: 9747955f3b3001045b1fb3dde5eb4efd,
