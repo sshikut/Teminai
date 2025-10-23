@@ -21,9 +21,7 @@ public class AnomalyManager : MonoBehaviour
     public int anomalyIndex = -1;
 
     [Header("Anomaly List")]
-    public int maxAnomalies = 20;
     public int[] anomalyArray;
-    public int remainAnomaly;
 
 
     
@@ -37,8 +35,7 @@ public class AnomalyManager : MonoBehaviour
 
     private void Start()
     {
-        anomalyArray = new int[maxAnomalies];
-        remainAnomaly = maxAnomalies;
+        anomalyArray = new int[anomaly.slots.Length];
         movableObject = FindObjectOfType<MovableObject>();
         timerManager = FindObjectOfType<TimerManager>();
         ygerController = FindObjectOfType<YgerController>();
@@ -53,7 +50,6 @@ public class AnomalyManager : MonoBehaviour
         rdss.RandomSituation();
         anomaly.InitAnomaly(); // 이상현상 초기화
         timerManager.timerText.text = null;
-        // YgerProliferation.ResetYger();
 
         if (loopCount >= clearCount)
         {
@@ -126,8 +122,6 @@ public class AnomalyManager : MonoBehaviour
         {
             anomalyArray[i] = 0;
         }
-
-        remainAnomaly = maxAnomalies;
     }
 
 

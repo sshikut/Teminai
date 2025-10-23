@@ -13,7 +13,7 @@ public class AnomalyDebugProbe : MonoBehaviour
     void Update()
     {
         if (manager == null) return;
-        int current = manager.maxAnomalies - manager.remainAnomaly;
-        Debug.Log($"[Probe] current={current}, remain={manager.remainAnomaly}, max={manager.maxAnomalies}");
+        //int current = manager.anomaly.slots.Length - manager.remainAnomaly;
+        //Debug.Log($"[Probe] current={current}, remain={manager.remainAnomaly}, max={manager.anomaly.slots.Length}");
     }
 }
