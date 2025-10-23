@@ -539,6 +539,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 32354614}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &32448206 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4772028508269362115, guid: f6e0e3a9955f5384680c7209d01e9c7c,
+    type: 3}
+  m_PrefabInstance: {fileID: 257546645}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &33093634
 GameObject:
   m_ObjectHideFlags: 0
@@ -3571,7 +3577,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &202159328
 Transform:
   m_ObjectHideFlags: 0
@@ -4635,10 +4641,40 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4772028508269362115, guid: f6e0e3a9955f5384680c7209d01e9c7c,
+        type: 3}
+      propertyPath: m_Name
+      value: anomaly_bim
+      objectReference: {fileID: 0}
+    - target: {fileID: 4772028508269362115, guid: f6e0e3a9955f5384680c7209d01e9c7c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5292422295420068217, guid: f6e0e3a9955f5384680c7209d01e9c7c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 8314703672286162762, guid: f6e0e3a9955f5384680c7209d01e9c7c,
+        type: 3}
+      propertyPath: QuizUI
+      value: 
+      objectReference: {fileID: 32448206}
+    - target: {fileID: 8314703672286162762, guid: f6e0e3a9955f5384680c7209d01e9c7c,
+        type: 3}
+      propertyPath: anomaly
+      value: 
+      objectReference: {fileID: 1937520797}
     - target: {fileID: 8704973972179278713, guid: f6e0e3a9955f5384680c7209d01e9c7c,
         type: 3}
       propertyPath: m_Name
       value: Anomaly_16
+      objectReference: {fileID: 0}
+    - target: {fileID: 8704973972179278713, guid: f6e0e3a9955f5384680c7209d01e9c7c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21686,6 +21722,37 @@ MonoBehaviour:
     onSlotInvoked:
       m_PersistentCalls:
         m_Calls: []
+  - label: Anomaly #15
+    Objects:
+    - target: {fileID: 906629972}
+      action: 0
+      initialActive: 0
+    onSlotInvoked:
+      m_PersistentCalls:
+        m_Calls: []
+  - label: Anomaly #16
+    Objects:
+    - target: {fileID: 32448206}
+      action: 2
+      initialActive: 0
+    - target: {fileID: 2064297664}
+      action: 1
+      initialActive: 0
+    onSlotInvoked:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1536302035}
+          m_TargetAssemblyTypeName: RDSS, Assembly-CSharp
+          m_MethodName: SelectSituation
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!4 &1366743512
 Transform:
   m_ObjectHideFlags: 0

@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro; 
 using UnityEngine;
 using UnityEngine.UI; 
-using TMPro; 
 
 public class YgerQuiz : MonoBehaviour
 {
@@ -37,7 +37,7 @@ public class YgerQuiz : MonoBehaviour
 
     
     public AnomalyManager anomaly;
-
+    public GameObject QuizUI;
     void Start()
     {              
         StartGame();
@@ -168,6 +168,9 @@ public class YgerQuiz : MonoBehaviour
     private void SuccessFunction()
     {
         if (anomaly != null) anomaly.loopCount++;
+        InteractionManager.Instance.StartFadeOut();
+        QuizUI.SetActive(false);
+        anomaly.Anomaly();
         Debug.Log("성공");
     }
 
@@ -175,6 +178,9 @@ public class YgerQuiz : MonoBehaviour
     private void FailFunction()
     {
         if (anomaly != null) anomaly.absentCount++;
+        InteractionManager.Instance.StartFadeOut();
+        QuizUI.SetActive(false);
+        anomaly.Anomaly();
         Debug.Log("실패");
     }
 }
