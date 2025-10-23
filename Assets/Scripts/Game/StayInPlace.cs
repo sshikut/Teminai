@@ -11,6 +11,9 @@ public class StayInPlace : MonoBehaviour
     private CharacterController controller;
     private Vector3 lastPosition;
 
+   
+    private Vector3 initialSlowDirection;
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -18,47 +21,49 @@ public class StayInPlace : MonoBehaviour
 
     void Update()
     {
-       
         if (isEffectActive)
         {
-         
-            float forwardDot = Vector3.Dot(transform.forward, Vector3.forward);
+           
+            float dotProduct = Vector3.Dot(transform.forward, initialSlowDirection);
 
-          
-            if (forwardDot > 0)
+           
+            if (dotProduct > 0)
             {
-               
+                
                 Vector3 movementThisFrame = transform.position - lastPosition;
                 Vector3 counterMovement = -movementThisFrame * cancellationFactor;
                 controller.Move(counterMovement);
             }
+          
             else
             {
-               
+                
                 StopEffect();
             }
 
-           
             lastPosition = transform.position;
         }
     }
 
-    
+
     public void StartEffect()
     {
         isEffectActive = true;
         lastPosition = transform.position;
-        Debug.Log("느려짐");
+
+       
+        initialSlowDirection = transform.forward;
+
+        Debug.Log("느려짐 (기준 방향 저장)");
     }
 
-  
+
     public void StopEffect()
     {
-        
         if (isEffectActive)
         {
             isEffectActive = false;
-            Debug.Log("뒤돌기");
+            Debug.Log("효과 해제 (뒤돌기)");
         }
     }
 }
