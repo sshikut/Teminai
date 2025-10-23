@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Anomaly15 : MonoBehaviour, IInteractable
+public class Anomaly15 : Communication
 {
     public Animator animator;
-    private string name = "Stand";
+    private string animName = "Stand";
 
-    public void Interact()
+    public override void Interact()
     {
-        animator.SetBool(name, true);
+        base.Interact();
+        animator.SetBool(animName, true);
     }
 
 }

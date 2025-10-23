@@ -40,7 +40,7 @@ public class Communication : MonoBehaviour, IInteractable
     }
 
 
-    public void Interact()
+    public virtual void Interact()
     {
         string message = dialogue.RandomDialogues();
 
