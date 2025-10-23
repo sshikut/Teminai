@@ -27,7 +27,13 @@ public class TogglePhone : MonoBehaviour
 
     void Update()
     {
-       
+        if (UIGuard.justClosedUI)
+        {
+            UIGuard.justClosedUI = false;
+            return;
+        }
+
+
         // 式式式式式式式式式式式式式式式式式 Tab ⊥ Phone2 式式式式式式式式式式式式式式式式式
         if (Input.GetKeyDown(KeyCode.Tab) && canToggle && !phone1)
         {
@@ -109,5 +115,7 @@ public class TogglePhone : MonoBehaviour
     public static class UIGuard
     {
         public static bool isAnyUIOpen = false;
+
+        public static bool justClosedUI = false;
     }
 }
