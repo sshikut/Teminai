@@ -33349,6 +33349,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'good Yger '
       objectReference: {fileID: 0}
+    - target: {fileID: 6030306530639877664, guid: 9e968971599136b48976df5642e5fca0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6405283578786237594, guid: 9e968971599136b48976df5642e5fca0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -34891,6 +34896,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: "\uB208\uC0AC\uB78C"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6372306415809663673, guid: d7cee345442dd734fbae821b7df77635,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -39347,6 +39357,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Party
+      objectReference: {fileID: 0}
+    - target: {fileID: 8107086336428604257, guid: fd2198e4880c2f5499dbeb11ef1ae79d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
