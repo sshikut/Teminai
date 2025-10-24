@@ -7,7 +7,7 @@ public class TextBGM : MonoBehaviour
 {
     public int playMusicTrack;
 
-    void Start()
+    void Awake()
     {
         BGMManager.instance .Play(playMusicTrack);
         BGMManager.instance.FadeInMusic();
