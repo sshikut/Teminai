@@ -17126,7 +17126,7 @@ GameObject:
   - component: {fileID: 995643832}
   - component: {fileID: 995643831}
   m_Layer: 0
-  m_Name: "\uB208\uC0AC\uB78C"
+  m_Name: Anomaly_17
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
