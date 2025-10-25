@@ -6,20 +6,19 @@ using UnityEngine;
 public class SubtitleUI : MonoBehaviour
 {
     public TextMeshProUGUI subtitle;
-    public float duration = 5f;
 
     private Coroutine subtitleCoroutine;
 
-    public void SubtitleStart(string text)
+    public void SubtitleStart(string text, float duration)
     {
         if (subtitleCoroutine != null)
         {
             StopCoroutine(subtitleCoroutine);
         }
-        subtitleCoroutine = StartCoroutine(ShowSubtitle(text));
+        subtitleCoroutine = StartCoroutine(ShowSubtitle(text, 5f));
     }
 
-    IEnumerator ShowSubtitle(string text)
+    IEnumerator ShowSubtitle(string text, float duration)
     {
         subtitle.gameObject.SetActive(true);
         subtitle.text = text;

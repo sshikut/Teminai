@@ -10,6 +10,7 @@ public class TimerManager : MonoBehaviour
     public GameObject goalTrigger; // 목표 지점 트리거
     public AnomalyManager anomaly;
     private bool isTimerActive = false;
+    public SubtitleUI subtitle;
 
     // 초기 설정 시간을 저장할 변수 추가
     private float initialTimeRemaining;
@@ -67,7 +68,16 @@ public class TimerManager : MonoBehaviour
         isTimerActive = false;
         if (timerText != null)
         {
-            timerText.text = success ? ""+anomaly.loopCount++ : ""+anomaly.absentCount++; 
+            timerText.text = success ? "" + anomaly.loopCount++ : "" + anomaly.absentCount++; 
+
+            if (!success)
+            {
+                subtitle.SubtitleStart("\"아..\"", 2f);
+            }
+            else
+            {
+                subtitle.SubtitleStart("\"휴..\"", 2f);
+            }
         }
 
         InteractionManager.Instance.StartFadeOut(() =>

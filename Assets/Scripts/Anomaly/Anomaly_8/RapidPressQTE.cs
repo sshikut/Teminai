@@ -59,11 +59,11 @@ public class RapidPressQTE : MonoBehaviour
                 player.lockMovement = false;
                 player.cameraRotation = true;
                 pressE.SetActive(false);
-                student.PlayDialogue("아..", 10f);
+                student.PlayDialogue("아.. 그래요?", 10f);
                 botherTrigger.SetActive(false);
                 slider.SetActive(false);
 
-                subtitle.SubtitleStart("\"저도 못 들었습니다.\"");
+                subtitle.SubtitleStart("\"저도 못 들었습니다.\"", 3f);
             }
         }
     }

@@ -20,7 +20,7 @@ public class PoopSurvival : MonoBehaviour, IInteractable
         botherTrigger.SetActive(true);
         closedDoor.SetActive(true);
         studentCollider.enabled = false;
-        subtitle.SubtitleStart("\"아침에 먹은게 상한건가.. 나올 것 같다.\"");
+        subtitle.SubtitleStart("\"아침에 먹은게 상한 건가..\"", 5f);
         this.gameObject.SetActive(false);
     }
 }
