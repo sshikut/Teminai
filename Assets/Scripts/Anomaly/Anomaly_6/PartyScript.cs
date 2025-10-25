@@ -9,6 +9,7 @@ public class PartyScript : MonoBehaviour, IInteractable
     public bool isPartyOff = true;
 
     public ResetAnomaly_6 end;
+    public AudioSource music;
 
     public void Interact()
     {
@@ -27,6 +28,7 @@ public class PartyScript : MonoBehaviour, IInteractable
 
         if (!isPartyOff)
         {
+            music.volume = 1f;
             foreach (GameObject party in partyObjects)
             {
                 party.SetActive(true);
@@ -34,6 +36,7 @@ public class PartyScript : MonoBehaviour, IInteractable
         }
         else
         {
+            music.volume = 0f;
             foreach (GameObject party in partyObjects)
             {
                 party.SetActive(false);
