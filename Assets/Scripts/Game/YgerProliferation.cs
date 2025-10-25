@@ -35,6 +35,7 @@ public class YgerProliferation : MonoBehaviour, IInteractable
 
 
     public bool anomalytrigger = false;
+    public AudioSource ddalkak;
 
     public void Interact()
     {
@@ -44,9 +45,10 @@ public class YgerProliferation : MonoBehaviour, IInteractable
             if (isSpawning) return;
             StartSpawning();
         }
-        
-        
+
+        ddalkak.Play();
     }
+
     public void activebool()
     {
         anomalytrigger = true;
