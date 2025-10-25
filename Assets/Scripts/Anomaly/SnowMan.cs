@@ -11,16 +11,6 @@ public class SnowMan : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
     }
 
-    void OnEnable()
-    {
-        BGMManager.instance.Play(2);
-    }
-
-    void OnDisable()
-    {
-        BGMManager.instance.Play(0);
-    }
-
     void Update()
     {
         if (target != null)
