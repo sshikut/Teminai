@@ -32236,7 +32236,7 @@ MonoBehaviour:
   timerText: {fileID: 616123046}
   goalTrigger: {fileID: 801360485}
   anomaly: {fileID: 1937520797}
-  subtitle: {fileID: 0}
+  subtitle: {fileID: 8880063613339314779}
 --- !u!114 &1937520803
 MonoBehaviour:
   m_ObjectHideFlags: 0
