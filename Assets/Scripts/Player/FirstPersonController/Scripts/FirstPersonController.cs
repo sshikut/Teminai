@@ -52,8 +52,11 @@ namespace StarterAssets
 		[Tooltip("How far in degrees can you move the camera down")]
 		public float BottomClamp = -90.0f;
 
-		// cinemachine
-		private float _cinemachineTargetPitch;
+        [Tooltip("외부 스크립트에 의해 주입되는 강제 이동 값")]
+        public Vector3 forcedMovementDelta = Vector3.zero;
+
+        // cinemachine
+        private float _cinemachineTargetPitch;
 
 		// player
 		private float _speed;
@@ -175,7 +178,13 @@ namespace StarterAssets
             if (lockMovement)
             {
                 _speed = 0f;
-                _controller.Move(new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
+
+                Vector3 movement = new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime;
+                movement += forcedMovementDelta; // ★★★ 외부에서 주입된 이동 값(이번 프레임에 움직일 거리)
+
+                _controller.Move(movement);
+
+                forcedMovementDelta = Vector3.zero; // ★★★ 주입된 값을 사용한 후 매 프레임 초기화
                 return;
             }
 
