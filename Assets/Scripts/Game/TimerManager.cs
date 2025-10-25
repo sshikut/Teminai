@@ -72,11 +72,11 @@ public class TimerManager : MonoBehaviour
 
             if (!success)
             {
-                subtitle.SubtitleStart("\"¾Æ..\"", 2f);
+                subtitle.SubtitleStart("\"¾Æ..\"", 1.5f);
             }
             else
             {
-                subtitle.SubtitleStart("\"ÈÞ..\"", 2f);
+                subtitle.SubtitleStart("\"ÈÞ..\"", 1.5f);
             }
         }
 

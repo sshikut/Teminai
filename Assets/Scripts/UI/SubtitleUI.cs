@@ -15,7 +15,7 @@ public class SubtitleUI : MonoBehaviour
         {
             StopCoroutine(subtitleCoroutine);
         }
-        subtitleCoroutine = StartCoroutine(ShowSubtitle(text, 5f));
+        subtitleCoroutine = StartCoroutine(ShowSubtitle(text, duration));
     }
 
     IEnumerator ShowSubtitle(string text, float duration)
