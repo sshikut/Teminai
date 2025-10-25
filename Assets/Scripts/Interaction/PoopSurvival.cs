@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PoopSurvival : MonoBehaviour, IInteractable
@@ -10,6 +11,7 @@ public class PoopSurvival : MonoBehaviour, IInteractable
     public GameObject botherTrigger;
     public GameObject closedDoor;
     public Collider studentCollider;
+    public SubtitleUI subtitle;
 
     public void Interact()
     {
@@ -18,7 +20,7 @@ public class PoopSurvival : MonoBehaviour, IInteractable
         botherTrigger.SetActive(true);
         closedDoor.SetActive(true);
         studentCollider.enabled = false;
-
+        subtitle.SubtitleStart("\"아침에 먹은게 상한건가.. 나올 것 같다.\"");
         this.gameObject.SetActive(false);
     }
 }

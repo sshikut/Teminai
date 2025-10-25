@@ -13,6 +13,7 @@ public class RapidPressQTE : MonoBehaviour
     public GameObject botherTrigger;
     public GameObject slider;
     public GameObject closedDoor;
+    public SubtitleUI subtitle;
     
     public int pressesRequired = 20;
 
@@ -61,7 +62,8 @@ public class RapidPressQTE : MonoBehaviour
                 student.PlayDialogue("아..", 10f);
                 botherTrigger.SetActive(false);
                 slider.SetActive(false);
-                Debug.Log("QTE 성공!");
+
+                subtitle.SubtitleStart("\"저도 못 들었습니다.\"");
             }
         }
     }
