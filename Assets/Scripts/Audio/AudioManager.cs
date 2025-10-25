@@ -1,52 +1,60 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Audio;
 
 [System.Serializable]
-public class Sound{
-
+public class Sound
+{
     private AudioSource source;
 
-    public string name; //사운드 이름
-
+    public string name;   // 사운드 이름
     public AudioClip clip;
-    public float Volumn;
+    public float Volumn = 1f;
     public bool loop;
 
-    public void SetSource(AudioSource _source) { 
+    public void SetSource(AudioSource _source, AudioMixerGroup mixer)
+    {
         source = _source;
         source.clip = clip;
         source.loop = loop;
         source.volume = Volumn;
+
+        if (mixer != null)
+            source.outputAudioMixerGroup = mixer;
     }
 
-    public void SetVolume() { 
-        source.volume = Volumn;
+    public void SetVolume()
+    {
+        if (source != null)
+            source.volume = Volumn;
     }
 
     public void Play()
     {
-        if(source == null) { return; }
+        if (source == null) return;
         source.Play();
     }
+
     public void Stop()
     {
+        if (source == null) return;
         source.Stop();
     }
-    public void SetLoop()
-    {
-        source.loop = true;
-    }
-    public void SetLoopCancel()
-    {
-        source.loop = false;
-    }
+
+    public void SetLoop() => source.loop = true;
+    public void SetLoopCancel() => source.loop = false;
 }
 
 public class AudioManager : MonoBehaviour
 {
-    static public AudioManager instance;
+    public static AudioManager instance;
+
+    [Header("Audio Mixer Groups")]
+    public AudioMixerGroup sfxMixer;  // 여기에 믹서 연결 (Inspector에서 할당)
+
+    [SerializeField]
+    public Sound[] sounds;
 
     private void Awake()
     {
@@ -59,28 +67,29 @@ public class AudioManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+            return;
         }
     }
 
-
-    [SerializeField]
-    public Sound[] sounds;
-
-    void Start()
+    private void Start()
     {
-        for (int i = 0; i < sounds.Length; i++) { 
-            GameObject soundObject = new GameObject("사운드 파일 이름 : " + i + sounds[i]+ " = " + "sounds[i].name");
-            sounds[i].SetSource(soundObject.AddComponent<AudioSource>());
-            soundObject.transform.SetParent(this.transform);
-        }
-    }
-
-    public void Play(string _name) {
         for (int i = 0; i < sounds.Length; i++)
         {
-            if (_name == sounds[i].name)
+            GameObject soundObject = new GameObject("Sound_" + sounds[i].name);
+            soundObject.transform.SetParent(this.transform);
+
+            // SFX 믹서 연결 추가
+            sounds[i].SetSource(soundObject.AddComponent<AudioSource>(), sfxMixer);
+        }
+    }
+
+    public void Play(string _name)
+    {
+        foreach (var s in sounds)
+        {
+            if (s.name == _name)
             {
-                sounds[i].Play();
+                s.Play();
                 return;
             }
         }
@@ -88,11 +97,11 @@ public class AudioManager : MonoBehaviour
 
     public void Stop(string _name)
     {
-        for (int i = 0; i < sounds.Length; i++)
+        foreach (var s in sounds)
         {
-            if (_name == sounds[i].name)
+            if (s.name == _name)
             {
-                sounds[i].Stop();
+                s.Stop();
                 return;
             }
         }
@@ -100,11 +109,11 @@ public class AudioManager : MonoBehaviour
 
     public void SetLoop(string _name)
     {
-        for (int i = 0; i < sounds.Length; i++)
+        foreach (var s in sounds)
         {
-            if (_name == sounds[i].name)
+            if (s.name == _name)
             {
-                sounds[i].SetLoop();
+                s.SetLoop();
                 return;
             }
         }
@@ -112,11 +121,11 @@ public class AudioManager : MonoBehaviour
 
     public void SetLoopCancel(string _name)
     {
-        for (int i = 0; i < sounds.Length; i++)
+        foreach (var s in sounds)
         {
-            if (_name == sounds[i].name)
+            if (s.name == _name)
             {
-                sounds[i].SetLoopCancel();
+                s.SetLoopCancel();
                 return;
             }
         }
@@ -124,12 +133,12 @@ public class AudioManager : MonoBehaviour
 
     public void SetVolume(string _name, float _Volumn)
     {
-        for (int i = 0; i < sounds.Length; i++)
+        foreach (var s in sounds)
         {
-            if (_name == sounds[i].name)
+            if (s.name == _name)
             {
-                sounds[i].Volumn = _Volumn;
-                sounds[i].SetVolume();
+                s.Volumn = _Volumn;
+                s.SetVolume();
                 return;
             }
         }
