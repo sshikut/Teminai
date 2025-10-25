@@ -16237,7 +16237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anomaly: {fileID: 1937520797}
-  AnomalyObject: {fileID: 0}
+  AnomalyObject: {fileID: 1049693376}
   mode: 2
 --- !u!65 &930119061
 BoxCollider:
