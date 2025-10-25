@@ -58746,7 +58746,6 @@ GameObject:
   - component: {fileID: 1315985879166996539}
   - component: {fileID: 6461982485313614940}
   - component: {fileID: 1835394834156102187}
-  - component: {fileID: 8880063613339314778}
   - component: {fileID: 8880063613339314779}
   m_Layer: 5
   m_Name: UI
@@ -58755,19 +58754,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &8880063613339314778
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8880063613339314777}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b22823a347ac7194ab9d100e4d10138b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 0}
 --- !u!114 &8880063613339314779
 MonoBehaviour:
   m_ObjectHideFlags: 0
