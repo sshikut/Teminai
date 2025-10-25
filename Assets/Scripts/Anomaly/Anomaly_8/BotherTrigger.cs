@@ -39,22 +39,33 @@ public class BotherTrigger : MonoBehaviour
 
         Quaternion startCapsuleRotation = playerCapsule.rotation;
         Quaternion startCameraRotation = playerCamera.localRotation;
+        Vector3 startPosition = playerCapsule.position;
 
         Quaternion targetCapsuleRotation = Quaternion.Euler(0, 90f, 0);
         Quaternion targetCameraRotation = Quaternion.Euler(0, 0, 0);
+        Vector3 targetPosition = new Vector3(14f, startPosition.y, startPosition.z);
 
         while (elapsedTime < lookDuration)
         {
-            playerCapsule.rotation = Quaternion.Slerp(startCapsuleRotation, targetCapsuleRotation, elapsedTime / lookDuration);
-            playerCamera.localRotation = Quaternion.Slerp(startCameraRotation, targetCameraRotation, elapsedTime / lookDuration);
+            float t = elapsedTime / lookDuration;
+
+            playerCapsule.rotation = Quaternion.Slerp(startCapsuleRotation, targetCapsuleRotation, t);
+            playerCamera.localRotation = Quaternion.Slerp(startCameraRotation, targetCameraRotation, t);
+
+            Vector3 currentFrameTargetPosition = Vector3.Lerp(startPosition, targetPosition, t);
+            Vector3 movementDelta = currentFrameTargetPosition - playerCapsule.position;
+
+            player.forcedMovementDelta = movementDelta;
 
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
-
         playerCapsule.rotation = targetCapsuleRotation;
         playerCamera.localRotation = targetCameraRotation;
+
+        Vector3 finalMovementDelta = targetPosition - playerCapsule.position;
+        player.forcedMovementDelta = finalMovementDelta;
 
         student.PlayDialogue("¾Æ±î ±³¼ö´ÔÀÌ ¹¹¶ó°í ¸»¾¸ÇÏ½Å°Å¿¡¿ä?", 30f);
         qte.StartQTE();
