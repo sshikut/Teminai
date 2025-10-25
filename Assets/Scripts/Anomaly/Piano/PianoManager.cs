@@ -5,7 +5,20 @@ public class PianoManager : MonoBehaviour
     private readonly string[] target = {
         "Do","Do","Sol","Sol","La","La","Sol","Fa","Fa","Mi","Mi","Re","Re","Do"
     };
+    public GameObject Piano;
+    private void OnEnable()
+    {
+        AnomalyManager.OnAnomalyHappened += resetPiano;
+    }
 
+    private void OnDisable()
+    {
+        AnomalyManager.OnAnomalyHappened -= resetPiano;
+    }
+    public void resetPiano()
+    {
+        Piano.SetActive(false);
+    }
     [Tooltip("정답 시 열릴 문 오브젝트 (Animator 포함)")]
     public GameObject doorToDisable;
 
