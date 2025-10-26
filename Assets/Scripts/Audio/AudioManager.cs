@@ -48,7 +48,7 @@ public class Sound
 
 public class AudioManager : MonoBehaviour
 {
-    public static AudioManager instance;
+    public static AudioManager instance { get; private set; }
 
     [Header("Audio Mixer Groups")]
     public AudioMixerGroup sfxMixer;  // 여기에 믹서 연결 (Inspector에서 할당)

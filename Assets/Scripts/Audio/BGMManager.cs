@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BGMManager : MonoBehaviour
 {
-    static public BGMManager instance;
+    static public BGMManager instance { get; private set; }
 
     public AudioSource source;
 
