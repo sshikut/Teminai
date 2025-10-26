@@ -6,6 +6,7 @@ public class PartyScript : MonoBehaviour, IInteractable
 {
     public GameObject[] partyObjects;
     public Transform lightSwitch;
+    public LightSwitch lights;
     public bool isPartyOff = true;
 
     public ResetAnomaly_6 end;
@@ -32,6 +33,7 @@ public class PartyScript : MonoBehaviour, IInteractable
             foreach (GameObject party in partyObjects)
             {
                 party.SetActive(true);
+                lights.Switch();
             }
         }
         else
@@ -40,6 +42,7 @@ public class PartyScript : MonoBehaviour, IInteractable
             foreach (GameObject party in partyObjects)
             {
                 party.SetActive(false);
+                lights.Switch();
             }
         }
     }
