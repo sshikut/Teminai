@@ -127,7 +127,7 @@ public class AnomalyManager : MonoBehaviour
 
     void Clear()
     {
-        SceneManager.LoadScene("엔딩 연출");
+        SceneManager.LoadScene("크레딧 연출");
     }
 
     public void AnomalyTest(int num)

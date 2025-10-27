@@ -9,7 +9,7 @@ public class TextBGM : MonoBehaviour
 
     void Awake()
     {
-        BGMManager.instance .Play(playMusicTrack);
+        BGMManager.instance.Play(playMusicTrack);
         BGMManager.instance.FadeInMusic();
     }
 }
