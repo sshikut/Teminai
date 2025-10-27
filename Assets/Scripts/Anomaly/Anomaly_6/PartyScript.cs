@@ -11,6 +11,7 @@ public class PartyScript : MonoBehaviour, IInteractable
 
     public ResetAnomaly_6 end;
     public AudioSource music;
+    public GameObject rds_0;
 
     public void Interact()
     {
@@ -34,6 +35,7 @@ public class PartyScript : MonoBehaviour, IInteractable
             {
                 party.SetActive(true);
                 lights.Switch();
+                rds_0.SetActive(false);
             }
         }
         else
@@ -43,6 +45,7 @@ public class PartyScript : MonoBehaviour, IInteractable
             {
                 party.SetActive(false);
                 lights.Switch();
+                rds_0.SetActive(true);
             }
         }
     }

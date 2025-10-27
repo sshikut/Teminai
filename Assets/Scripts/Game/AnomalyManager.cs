@@ -65,10 +65,10 @@ public class AnomalyManager : MonoBehaviour
 
         int spawnRate = UnityEngine.Random.Range(1, 11);
 
-        if (loopCount < 2) anomalyRate = 4;
-        else if (loopCount < 3) anomalyRate = 5;
-        else if (loopCount < 6) anomalyRate = 6;
-        else anomalyRate = 7;
+        if (loopCount < 2) anomalyRate = 5;
+        else if (loopCount < 3) anomalyRate = 6;
+        else if (loopCount < 6) anomalyRate = 7;
+        else anomalyRate = 8;
 
         if (spawnRate <= anomalyRate)
         {
