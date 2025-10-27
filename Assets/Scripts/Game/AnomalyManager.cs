@@ -45,16 +45,19 @@ public class AnomalyManager : MonoBehaviour
 
     public void Anomaly()
     {
+        if (loopCount >= clearCount)
+        {
+            Clear();
+        }
+
+        if (loopCount >= 8) return;
+
         OnAnomalyHappened?.Invoke();
         ygerController.ResetToOriginalPosition();
         rdss.RandomSituation();
         anomaly.InitAnomaly(); // 이상현상 초기화
         timerManager.timerText.text = null;
 
-        if (loopCount >= clearCount)
-        {
-            Clear();
-        }
 
         if (absentCount >= 3) // 결석 수 3 이상되면 초기화
         {
