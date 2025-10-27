@@ -19051,7 +19051,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 14.5
+  m_Speed: 20
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -46388,7 +46388,7 @@ MonoBehaviour:
   soundName: Fa
   pressDepth: 0.02
   pressSpeed: 10
-  puzzle: {fileID: 0}
+  puzzle: {fileID: 1135797599}
 --- !u!65 &3150661550659343246
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -48187,7 +48187,7 @@ MonoBehaviour:
   soundName: La#
   pressDepth: 0.02
   pressSpeed: 10
-  puzzle: {fileID: 0}
+  puzzle: {fileID: 1135797599}
 --- !u!65 &3882754882951288501
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -52155,7 +52155,7 @@ MonoBehaviour:
   soundName: Fa#
   pressDepth: 0.02
   pressSpeed: 10
-  puzzle: {fileID: 0}
+  puzzle: {fileID: 1135797599}
 --- !u!65 &5531802913130380199
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -53442,7 +53442,7 @@ MonoBehaviour:
   soundName: Re#
   pressDepth: 0.02
   pressSpeed: 10
-  puzzle: {fileID: 0}
+  puzzle: {fileID: 1135797599}
 --- !u!65 &6027573372126502601
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -54809,7 +54809,7 @@ MonoBehaviour:
   soundName: Do#
   pressDepth: 0.02
   pressSpeed: 10
-  puzzle: {fileID: 0}
+  puzzle: {fileID: 1135797599}
 --- !u!65 &6656949124202817310
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -56211,7 +56211,7 @@ MonoBehaviour:
   soundName: Si
   pressDepth: 0.02
   pressSpeed: 10
-  puzzle: {fileID: 0}
+  puzzle: {fileID: 1135797599}
 --- !u!65 &7141374974045416426
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -56263,7 +56263,7 @@ MonoBehaviour:
   soundName: Re
   pressDepth: 0.02
   pressSpeed: 10
-  puzzle: {fileID: 0}
+  puzzle: {fileID: 1135797599}
 --- !u!65 &7145445622803550539
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -57263,7 +57263,7 @@ MonoBehaviour:
   soundName: Do
   pressDepth: 0.02
   pressSpeed: 10
-  puzzle: {fileID: 0}
+  puzzle: {fileID: 1135797599}
 --- !u!65 &7432953135384469631
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -58260,7 +58260,7 @@ MonoBehaviour:
   soundName: La
   pressDepth: 0.02
   pressSpeed: 10
-  puzzle: {fileID: 0}
+  puzzle: {fileID: 1135797599}
 --- !u!65 &7837480614157920494
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -58730,7 +58730,7 @@ MonoBehaviour:
   soundName: Mi
   pressDepth: 0.02
   pressSpeed: 10
-  puzzle: {fileID: 0}
+  puzzle: {fileID: 1135797599}
 --- !u!65 &8062594020840503026
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -58927,7 +58927,7 @@ MonoBehaviour:
   soundName: Sol#
   pressDepth: 0.02
   pressSpeed: 10
-  puzzle: {fileID: 0}
+  puzzle: {fileID: 1135797599}
 --- !u!65 &8143686901126833253
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -60620,7 +60620,7 @@ MonoBehaviour:
   soundName: Sol
   pressDepth: 0.02
   pressSpeed: 10
-  puzzle: {fileID: 0}
+  puzzle: {fileID: 1135797599}
 --- !u!65 &8698881960857010483
 BoxCollider:
   m_ObjectHideFlags: 0
