@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,6 +11,8 @@ public class EndDoor : MonoBehaviour, IInteractable
     public float duration = 1f;
     public float targetZ = -90f;
 
+    public bool isEndDoor = false;
+
     public void Interact()
     {
         Door();
@@ -19,19 +22,24 @@ public class EndDoor : MonoBehaviour, IInteractable
     {
         if (isMoving) return;
 
-        isMoving = true;
+        if (!isEndDoor)
+        {
+            isMoving = true;
 
-        if (!hasMoved)
-        {
-            targetZ = -90f;
-            hasMoved = true;
+            if (!hasMoved)
+            {
+                targetZ = -90f;
+                hasMoved = true;
+            }
+            else
+            {
+                targetZ = 90f;
+                hasMoved = false;
+            }
+
+            StartCoroutine(RotateToTarget());
         }
-        else
-        {
-            targetZ = 90f;
-            hasMoved = false;
-        }
-        StartCoroutine(RotateToTarget());
+        
         InteractionManager.Instance.StartFadeOut(() =>
         {
             

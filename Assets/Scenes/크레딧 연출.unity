@@ -42909,6 +42909,7 @@ MonoBehaviour:
   hasMoved: 0
   duration: 1
   targetZ: 0
+  isEndDoor: 1
 --- !u!4 &8293448747689641855
 Transform:
   m_ObjectHideFlags: 0

@@ -184,13 +184,11 @@ public class InteractionManager : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    // 스크립트가 비활성화될 때 이벤트 등록 해제 (메모리 누수 방지)
     private void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    // 씬이 로드될 때마다 이 함수가 자동으로 호출됩니다.
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if (scene.name == "크레딧 연출")
@@ -201,11 +199,9 @@ public class InteractionManager : MonoBehaviour
 
             if (sceneRefs != null)
             {
-                // 찾은 스크립트에 미리 연결된 참조를 가져옵니다.
                 fadePanel = sceneRefs.fadePanelRef;
                 interactionText = sceneRefs.interactionTextRef;
 
-                // Null 체크 (성공 확인)
                 if (fadePanel == null)
                 {
                     Debug.LogError("CreditSceneRefs에 fadePanel이 연결되지 않았습니다!");
