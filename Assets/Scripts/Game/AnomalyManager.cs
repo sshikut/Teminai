@@ -158,6 +158,9 @@ public class AnomalyManager : MonoBehaviour
         absentCount = 0;
         isAnomaly = false;
 
+        var statusUI = FindObjectOfType<AnomalyStatusUI>();
+        if (statusUI) statusUI.ClearProgress(); // ← 진행도(개수) 리셋
+
         InteractionManager.Instance.StartFadeOut(() =>
         {
             InitAnomaly();

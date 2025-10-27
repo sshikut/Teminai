@@ -1,5 +1,4 @@
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class AnomalyStatusUI : MonoBehaviour
@@ -7,20 +6,24 @@ public class AnomalyStatusUI : MonoBehaviour
     [SerializeField] private TMP_Text statusText;
     public AnomalyMethod anomalyMethod; // 슬롯 제공자
 
-    // 슬롯 단위로 트리거 여부
-    private bool[] triggered;
+    [Header("Save")]
+    [SerializeField] private string saveKey = "AnomalyCollectedCount"; // 저장 키
 
-    // 초기 상태 스냅샷: 슬롯별(아이템별) 활성 상태 저장
-    private bool[][] initialStatesBySlot;
+    private int collected; // 지금까지 모은 개수(슬롯 트리거 횟수)
 
     private void Awake()
     {
         if (!anomalyMethod) anomalyMethod = FindObjectOfType<AnomalyMethod>();
-        CaptureInitialStates();
+        collected = PlayerPrefs.GetInt(saveKey, 0); // 저장본 로드
 
-        // ★ 이벤트 구독 (슬롯이 실행되면 즉시 수집 처리)
         if (anomalyMethod != null)
             anomalyMethod.SlotTriggered += OnSlotTriggered;
+    }
+
+    private void OnDestroy()
+    {
+        if (anomalyMethod != null)
+            anomalyMethod.SlotTriggered -= OnSlotTriggered;
     }
 
     private void Start()
@@ -28,115 +31,34 @@ public class AnomalyStatusUI : MonoBehaviour
         UpdateText();
     }
 
-    private void OnDestroy()
-    {
-        // ★ 구독 해제
-        if (anomalyMethod != null)
-            anomalyMethod.SlotTriggered -= OnSlotTriggered;
-    }
-
-    // ★ 슬롯이 실행되면 바로 카운트 올리고 텍스트 갱신
     private void OnSlotTriggered(int index)
     {
-        if (triggered == null) return;
-        if (index < 0 || index >= triggered.Length) return;
-
-        triggered[index] = true;
+        collected++;                                 // 카운트만 증가
+        PlayerPrefs.SetInt(saveKey, collected);      // 즉시 저장
+        PlayerPrefs.Save();
         UpdateText();
-    }
-
-    // 슬롯/아이템들의 초기 activeSelf 상태를 저장
-    private void CaptureInitialStates()
-    {
-        int len = (anomalyMethod != null) ? anomalyMethod.SlotCount : 0;
-
-        triggered = new bool[len];
-        initialStatesBySlot = new bool[len][];
-
-        for (int i = 0; i < len; i++)
-        {
-            var slot = anomalyMethod.GetSlot(i);
-
-            if (slot == null || slot.Objects == null)
-            {
-                initialStatesBySlot[i] = new bool[0];
-                continue;
-            }
-
-            int itemCount = slot.Objects.Length;
-            initialStatesBySlot[i] = new bool[itemCount];
-
-            for (int j = 0; j < itemCount; j++)
-            {
-                var item = slot.Objects[j];
-                var go = (item != null) ? item.target : null;
-                initialStatesBySlot[i][j] = (go != null) ? go.activeSelf : false;
-            }
-        }
     }
 
     public void Refresh()
     {
-        if (!statusText || anomalyMethod == null) return;
-
-        int total = anomalyMethod.SlotCount;
-
-        // 슬롯 개수가 바뀌었을 수 있으니 재스냅샷
-        if (triggered == null || triggered.Length != total ||
-            initialStatesBySlot == null || initialStatesBySlot.Length != total)
-        {
-            CaptureInitialStates();
-        }
-
-        // (선택) 기존 비교로도 감지하고 싶으면 유지
-        for (int i = 0; i < total; i++)
-        {
-            var slot = anomalyMethod.GetSlot(i);
-            if (slot == null || slot.Objects == null) continue;
-
-            if (!triggered[i])
-            {
-                bool changed = false;
-                int itemCount = slot.Objects.Length;
-
-                if (initialStatesBySlot[i] == null || initialStatesBySlot[i].Length != itemCount)
-                {
-                    changed = true;
-                }
-                else
-                {
-                    for (int j = 0; j < itemCount; j++)
-                    {
-                        var item = slot.Objects[j];
-                        var go = (item != null) ? item.target : null;
-
-                        bool now = (go != null) ? go.activeSelf : false;
-                        bool init = initialStatesBySlot[i][j];
-
-                        if (now != init)
-                        {
-                            changed = true;
-                            break;
-                        }
-                    }
-                }
-
-                if (changed) triggered[i] = true;
-            }
-        }
-
+        // 외부에서 새로고침 요청 시 텍스트만 갱신
         UpdateText();
     }
 
     private void UpdateText()
     {
-        int total = (triggered != null) ? triggered.Length : 0;
-        int current = 0;
-        if (triggered != null)
-        {
-            for (int i = 0; i < triggered.Length; i++)
-                if (triggered[i]) current++;
-        }
-        statusText.text = $"{current}/{total}";
+        int total = (anomalyMethod != null) ? anomalyMethod.SlotCount : 0;
+        // 총 슬롯 개수가 줄었을 때 표시만 안전하게 캡
+        int show = Mathf.Min(collected, Mathf.Max(0, total));
+        if (statusText) statusText.text = $"{show}/{total}";
+    }
+
+    // 새 게임 시 호출: 진행도 리셋
+    public void ClearProgress()
+    {
+        collected = 0;
+        PlayerPrefs.DeleteKey(saveKey);
+        PlayerPrefs.Save();
+        UpdateText();
     }
 }
