@@ -133,7 +133,17 @@ public class AnomalyManager : MonoBehaviour
         PlayerPrefs.SetInt("AnomalyLoopCleared", 1);
         PlayerPrefs.Save();
 
-        SceneManager.LoadScene("农饭调 楷免");
+        if (isAnomaly)
+        {
+            InteractionManager.Instance.StartFadeOut(() =>
+            {
+                SceneManager.LoadScene("农饭调 楷免");
+            });
+        }
+        else
+        {
+            SceneManager.LoadScene("农饭调 楷免");
+        }
     }
 
     public void AnomalyTest(int num)
