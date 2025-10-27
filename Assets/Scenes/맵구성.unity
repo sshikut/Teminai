@@ -6228,6 +6228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anomaly: {fileID: 1937520797}
+  AnomalyObject: {fileID: 5966309286249459251}
   mode: 2
 --- !u!65 &322371326
 BoxCollider:
@@ -17678,6 +17679,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anomaly: {fileID: 1937520797}
+  AnomalyObject: {fileID: 995643829}
   mode: 2
 --- !u!65 &930119061
 BoxCollider:
@@ -20814,6 +20816,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1135797598}
+  - component: {fileID: 1135797599}
   m_Layer: 0
   m_Name: Anomaly_14
   m_TagString: Untagged
@@ -20838,6 +20841,20 @@ Transform:
   - {fileID: 5413966922214557682}
   m_Father: {fileID: 1366743512}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1135797599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1135797597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c5ef3ad42c46654da7feb5770bd3d80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Piano: {fileID: 4641406468998831432}
+  doorToDisable: {fileID: 919132147799506270}
 --- !u!1001 &1142266891
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31287,6 +31304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anomaly: {fileID: 1937520797}
+  AnomalyObject: {fileID: 1068994066426114333}
   mode: 1
 --- !u!1 &1730634014
 GameObject:
@@ -34946,7 +34964,6 @@ GameObject:
   - component: {fileID: 1937520797}
   - component: {fileID: 1937520800}
   - component: {fileID: 1937520802}
-  - component: {fileID: 1937520803}
   - component: {fileID: 1937520804}
   m_Layer: 0
   m_Name: GameManager
@@ -35049,20 +35066,6 @@ MonoBehaviour:
   goalTrigger: {fileID: 801360485}
   anomaly: {fileID: 1937520797}
   subtitle: {fileID: 8880063613339314779}
---- !u!114 &1937520803
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1937520796}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c5ef3ad42c46654da7feb5770bd3d80, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Piano: {fileID: 4641406468998831432}
-  doorToDisable: {fileID: 919132147799506270}
 --- !u!114 &1937520804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46385,7 +46388,7 @@ MonoBehaviour:
   soundName: Fa
   pressDepth: 0.02
   pressSpeed: 10
-  puzzle: {fileID: 1937520803}
+  puzzle: {fileID: 0}
 --- !u!65 &3150661550659343246
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -48184,7 +48187,7 @@ MonoBehaviour:
   soundName: La#
   pressDepth: 0.02
   pressSpeed: 10
-  puzzle: {fileID: 1937520803}
+  puzzle: {fileID: 0}
 --- !u!65 &3882754882951288501
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -52152,7 +52155,7 @@ MonoBehaviour:
   soundName: Fa#
   pressDepth: 0.02
   pressSpeed: 10
-  puzzle: {fileID: 1937520803}
+  puzzle: {fileID: 0}
 --- !u!65 &5531802913130380199
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -53439,7 +53442,7 @@ MonoBehaviour:
   soundName: Re#
   pressDepth: 0.02
   pressSpeed: 10
-  puzzle: {fileID: 1937520803}
+  puzzle: {fileID: 0}
 --- !u!65 &6027573372126502601
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -54806,7 +54809,7 @@ MonoBehaviour:
   soundName: Do#
   pressDepth: 0.02
   pressSpeed: 10
-  puzzle: {fileID: 1937520803}
+  puzzle: {fileID: 0}
 --- !u!65 &6656949124202817310
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -56208,7 +56211,7 @@ MonoBehaviour:
   soundName: Si
   pressDepth: 0.02
   pressSpeed: 10
-  puzzle: {fileID: 1937520803}
+  puzzle: {fileID: 0}
 --- !u!65 &7141374974045416426
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -56260,7 +56263,7 @@ MonoBehaviour:
   soundName: Re
   pressDepth: 0.02
   pressSpeed: 10
-  puzzle: {fileID: 1937520803}
+  puzzle: {fileID: 0}
 --- !u!65 &7145445622803550539
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -57260,7 +57263,7 @@ MonoBehaviour:
   soundName: Do
   pressDepth: 0.02
   pressSpeed: 10
-  puzzle: {fileID: 1937520803}
+  puzzle: {fileID: 0}
 --- !u!65 &7432953135384469631
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -58257,7 +58260,7 @@ MonoBehaviour:
   soundName: La
   pressDepth: 0.02
   pressSpeed: 10
-  puzzle: {fileID: 1937520803}
+  puzzle: {fileID: 0}
 --- !u!65 &7837480614157920494
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -58727,7 +58730,7 @@ MonoBehaviour:
   soundName: Mi
   pressDepth: 0.02
   pressSpeed: 10
-  puzzle: {fileID: 1937520803}
+  puzzle: {fileID: 0}
 --- !u!65 &8062594020840503026
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -58924,7 +58927,7 @@ MonoBehaviour:
   soundName: Sol#
   pressDepth: 0.02
   pressSpeed: 10
-  puzzle: {fileID: 1937520803}
+  puzzle: {fileID: 0}
 --- !u!65 &8143686901126833253
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -60617,7 +60620,7 @@ MonoBehaviour:
   soundName: Sol
   pressDepth: 0.02
   pressSpeed: 10
-  puzzle: {fileID: 1937520803}
+  puzzle: {fileID: 0}
 --- !u!65 &8698881960857010483
 BoxCollider:
   m_ObjectHideFlags: 0
