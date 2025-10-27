@@ -21,7 +21,7 @@ public class SnowManButton : MonoBehaviour, IInteractable
         if (isOn)
         {
             AudioManager.instance.Play("AirOnSound");
-            snowMan.gameObject.SetActive(true);
+            snowMan.SetActive(true);
         }
         else
         {

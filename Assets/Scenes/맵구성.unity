@@ -6228,7 +6228,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anomaly: {fileID: 1937520797}
-  AnomalyObject: {fileID: 5966309286249459251}
   mode: 2
 --- !u!65 &322371326
 BoxCollider:
@@ -17679,7 +17678,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anomaly: {fileID: 1937520797}
-  AnomalyObject: {fileID: 1049693376}
   mode: 2
 --- !u!65 &930119061
 BoxCollider:
@@ -19051,7 +19049,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 10
+  m_Speed: 14.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -20472,6 +20470,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.0010877874, y: 0.052107606, z: 0.050379552}
   m_Center: {x: 0.0000000114087015, y: -0.026053803, z: 0.025189776}
+--- !u!1 &1081744169
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1081744170}
+  m_Layer: 0
+  m_Name: ResetPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1081744170
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081744169}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 14.55, y: -3.55, z: 3.65}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1819545647}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1091412844 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4367010069536674110, guid: 4c766edda6507e241bc1f4e0074cec66,
@@ -25218,7 +25247,7 @@ MonoBehaviour:
           m_CallState: 2
   - label: Anomaly #17
     Objects:
-    - target: {fileID: 1819545646}
+    - target: {fileID: 1323956126}
       action: 0
       initialActive: 0
     - target: {fileID: 5203976811083303627}
@@ -30766,6 +30795,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1138422577418590646, guid: 37c47488f87ba254d87416005c3c53ea,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1138422577418590646, guid: 37c47488f87ba254d87416005c3c53ea,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
@@ -31253,7 +31287,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anomaly: {fileID: 1937520797}
-  AnomalyObject: {fileID: 1068994066426114333}
   mode: 1
 --- !u!1 &1730634014
 GameObject:
@@ -32593,13 +32626,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1819545647}
+  - component: {fileID: 1819545648}
   m_Layer: 0
   m_Name: Anomaly_17
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1819545647
 Transform:
   m_ObjectHideFlags: 0
@@ -32615,8 +32649,24 @@ Transform:
   m_Children:
   - {fileID: 995643830}
   - {fileID: 1323956127}
+  - {fileID: 1081744170}
   m_Father: {fileID: 1366743512}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1819545648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1819545646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3960fd5015af9a645b03943d0f5fad7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  snowman: {fileID: 995643829}
+  resetPosition: {fileID: 1081744170}
+  button: {fileID: 1323956132}
 --- !u!1001 &1820517355
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61045,7 +61095,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 740b9c2af8426de4e9d8347c3ac16190,
         type: 3}
       propertyPath: m_Name
-      value: "\uB208\uC0AC\uB78C"
+      value: "\uB208\uC0AC\uB78C_child"
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 740b9c2af8426de4e9d8347c3ac16190,
         type: 3}

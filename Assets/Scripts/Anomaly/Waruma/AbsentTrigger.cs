@@ -7,7 +7,7 @@ public class AbsentTrigger : MonoBehaviour
     private Vector3 lastPlayerPos;    // 마지막 위치 저장
     private bool playerInside = false;
     public AnomalyManager anomaly;
-    public GameObject AnomalyObject;
+
     [Header("1 = 움직이면 잡히기, 2 = 안 움직여도 잡히기")]
     [SerializeField] private int mode = 1;
 
@@ -64,20 +64,5 @@ public class AbsentTrigger : MonoBehaviour
         {
             anomaly.Anomaly(); // 검정이 한 프레임 실제로 그려진 뒤 실행
         });
-    }
-
-   
-    private void OnEnable()
-    {
-        AnomalyManager.OnAnomalyHappened += resetObject;
-    }
-
-    private void OnDisable()
-    {
-        AnomalyManager.OnAnomalyHappened -= resetObject;
-    }
-    public void resetObject()
-    {
-        AnomalyObject.SetActive(false);
     }
 }
