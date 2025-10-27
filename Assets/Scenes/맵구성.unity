@@ -22793,7 +22793,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 18/18
+  m_text: ??/18
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0bf7403f8966e5244b64dc70a5d0e547, type: 2}
   m_sharedMaterial: {fileID: 1379163338832613072, guid: 0bf7403f8966e5244b64dc70a5d0e547,
@@ -25280,7 +25280,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b831248190e679428ad4d5b5680dce9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statusText: {fileID: 1229905283}
+  statusTexts:
+  - {fileID: 4621577237365964581}
+  - {fileID: 1229905283}
   anomalyMethod: {fileID: 1366743511}
   saveKey: AnomalyCollectedCount
 --- !u!1 &1369999755
@@ -41901,7 +41903,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1168584781372387775
 GameObject:
   m_ObjectHideFlags: 0
@@ -47354,7 +47356,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &3574159865217098193
 GameObject:
   m_ObjectHideFlags: 0
@@ -49664,7 +49666,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: ??/18
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -53780,7 +53782,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!33 &6211057424312487347
 MeshFilter:
   m_ObjectHideFlags: 0

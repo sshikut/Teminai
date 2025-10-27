@@ -127,6 +127,9 @@ public class AnomalyManager : MonoBehaviour
 
     void Clear()
     {
+        PlayerPrefs.SetInt("AnomalyLoopCleared", 1);
+        PlayerPrefs.Save();
+
         SceneManager.LoadScene("크레딧 연출");
     }
 
@@ -157,6 +160,9 @@ public class AnomalyManager : MonoBehaviour
         loopCount = 0;
         absentCount = 0;
         isAnomaly = false;
+
+        PlayerPrefs.DeleteKey("AnomalyLoopCleared");
+        PlayerPrefs.Save();
 
         var statusUI = FindObjectOfType<AnomalyStatusUI>();
         if (statusUI) statusUI.ClearProgress(); // ← 진행도(개수) 리셋

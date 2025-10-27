@@ -1,20 +1,21 @@
 using TMPro;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class AnomalyStatusUI : MonoBehaviour
 {
-    [SerializeField] private TMP_Text statusText;
-    public AnomalyMethod anomalyMethod; // 슬롯 제공자
+    [SerializeField] private List<TMP_Text> statusTexts = new(); // 여러 개 지원
+    public AnomalyMethod anomalyMethod;
 
     [Header("Save")]
-    [SerializeField] private string saveKey = "AnomalyCollectedCount"; // 저장 키
+    [SerializeField] private string saveKey = "AnomalyCollectedCount";
 
-    private int collected; // 지금까지 모은 개수(슬롯 트리거 횟수)
+    private int collected;
 
     private void Awake()
     {
         if (!anomalyMethod) anomalyMethod = FindObjectOfType<AnomalyMethod>();
-        collected = PlayerPrefs.GetInt(saveKey, 0); // 저장본 로드
+        collected = PlayerPrefs.GetInt(saveKey, 0);
 
         if (anomalyMethod != null)
             anomalyMethod.SlotTriggered += OnSlotTriggered;
@@ -28,37 +29,41 @@ public class AnomalyStatusUI : MonoBehaviour
 
     private void Start()
     {
-        UpdateText();
+        UpdateTexts();
     }
 
     private void OnSlotTriggered(int index)
     {
-        collected++;                                 // 카운트만 증가
-        PlayerPrefs.SetInt(saveKey, collected);      // 즉시 저장
+        collected++;
+        PlayerPrefs.SetInt(saveKey, collected);
         PlayerPrefs.Save();
-        UpdateText();
+        UpdateTexts();
     }
 
     public void Refresh()
     {
-        // 외부에서 새로고침 요청 시 텍스트만 갱신
-        UpdateText();
+        UpdateTexts();
     }
 
-    private void UpdateText()
+    private void UpdateTexts()
     {
         int total = (anomalyMethod != null) ? anomalyMethod.SlotCount : 0;
-        // 총 슬롯 개수가 줄었을 때 표시만 안전하게 캡
         int show = Mathf.Min(collected, Mathf.Max(0, total));
-        if (statusText) statusText.text = $"{show}/{total}";
+
+        bool unlocked = PlayerPrefs.GetInt("AnomalyLoopCleared", 0) == 1;
+
+        foreach (var t in statusTexts)
+        {
+            if (!t) continue;
+            t.text = unlocked ? $"{show}/{total}" : $"??/{total}";
+        }
     }
 
-    // 새 게임 시 호출: 진행도 리셋
     public void ClearProgress()
     {
         collected = 0;
         PlayerPrefs.DeleteKey(saveKey);
         PlayerPrefs.Save();
-        UpdateText();
+        UpdateTexts();
     }
 }
