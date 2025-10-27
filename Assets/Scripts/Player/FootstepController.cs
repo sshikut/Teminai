@@ -5,9 +5,11 @@ public class FootstepController : MonoBehaviour
     [Header("추적할 오브젝트")]
     public GameObject target;
 
+    public CharacterController controller;
+
     [Header("AudioManager 사운드 이름")]
     public string footstepSoundName = "Footstep";
-
+   
     [Header("이동 판정 / 간격")]
     public float moveThreshold = 0.01f; // 프레임당 거리 기준
     public float stepDistance = 1.5f;   // 누적 이동거리마다 발소리
@@ -23,6 +25,10 @@ public class FootstepController : MonoBehaviour
 
     void Start()
     {
+        if (controller == null)
+        {
+            controller = target.GetComponent<CharacterController>();
+        }
         if (target == null) target = gameObject;
         lastPos = target.transform.position;
         accumulatedDistance = 0f;
@@ -32,12 +38,15 @@ public class FootstepController : MonoBehaviour
 
     void Update()
     {
+        if (controller == null) return;
+
         Vector3 currentPos = target.transform.position;
         float frameDist = Vector3.Distance(currentPos, lastPos);
         float speed = frameDist / Mathf.Max(Time.deltaTime, 1e-6f);     // ★ 추가
         bool isMoving = (frameDist > moveThreshold) || (speed > speedThreshold); // ★ 수정
         float now = Time.time;
 
+       
         if (isMoving)
         {
             accumulatedDistance += frameDist;
@@ -49,7 +58,7 @@ public class FootstepController : MonoBehaviour
                     Debug.LogWarning("AudioManager.instance == null");
                 }
 
-                if (AudioManager.instance != null)
+                if (AudioManager.instance != null && controller.isGrounded == true)
                 {
                     AudioManager.instance.Play(footstepSoundName);
                 }
