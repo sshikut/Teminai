@@ -22700,7 +22700,7 @@ PrefabInstance:
     - target: {fileID: 8616685848737228371, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
         type: 3}
       propertyPath: SprintSpeed
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8616685848737228372, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
         type: 3}
@@ -30735,7 +30735,7 @@ MonoBehaviour:
   GoalTrigger: {fileID: 653665461}
   anim: {fileID: 1701309966}
   destinationTransform: {fileID: 1701309965}
-  moveSpeed: 8
+  moveSpeed: 8.75
   anomaly: {fileID: 1937520797}
   TogglePhone: {fileID: 2484787186855500856}
   yger: {fileID: 1701309962}
