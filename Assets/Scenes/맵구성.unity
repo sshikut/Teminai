@@ -14361,7 +14361,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "[\uAFC8 \uC218\uC9D1]"
+  m_text: "[\uBC1C\uACAC\uD55C \uAFC8]"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0bf7403f8966e5244b64dc70a5d0e547, type: 2}
   m_sharedMaterial: {fileID: 1379163338832613072, guid: 0bf7403f8966e5244b64dc70a5d0e547,
@@ -48210,7 +48210,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uAFC8 \uC218\uC9D1"
+  m_text: "\uBC1C\uACAC\uD55C \uAFC8"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0bf7403f8966e5244b64dc70a5d0e547, type: 2}
   m_sharedMaterial: {fileID: 1379163338832613072, guid: 0bf7403f8966e5244b64dc70a5d0e547,
