@@ -1,6 +1,7 @@
 # 교수님의 체크메이트
 <img width="697" height="991" alt="Image" src="https://github.com/user-attachments/assets/b811d741-aae6-4d9a-bdbf-ec1451a3e2ea" />
-Capstone Design
+
+#Capstone Design
 =
 
 ## ▶️ 개발 동기
